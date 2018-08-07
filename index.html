@@ -1,12 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <script src="jquery-3.3.1.min.js"></script>
+    <title>Today</title>
 </head>
+
 <body>
-    
+    <div class="container-fluid">
+        <div class="row" id="header">
+            <div class="col">
+                <div class="jumbotron jumbotron-fluid">
+                    <div class="container">
+                        <h1 class="display-4">Today</h1>
+                        <p class="lead">(Variable sentance based on the Day/time)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" id="body">
+            <div class="col-2" id="sidebar">
+                <div class="list-group">
+                    <a href="#" class="list-group-item list-group-item-action active">Today</a>
+                    <a href="#" class="list-group-item list-group-item-action">Your week ahead</a>
+                    <a href="#" class="list-group-item list-group-item-action">Calender</a>
+                    <a href="#" class="list-group-item list-group-item-action">Settings</a>
+                </div>
+            </div>
+            <div class="col-10" id="widgetArea">
+                <div class="card float-left m-2">
+                    <img class="card-img-top" src="http://via.placeholder.com/350x150" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Widget One</h5>
+                        <p class="card-text">Put quick access info here</p>
+                        <a href="#" class="btn btn-primary">Link to Fullpage version of widget</a>
+                    </div>
+                </div>
+                <div class="card float-left m-2">
+                    <img class="card-img-top" src="http://via.placeholder.com/150x150" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Weather Widget</h5>
+                        <p class="card-text">todays weather highlights</p>
+                        <a href="#" class="btn btn-primary">Full Weather</a>
+                    </div>
+                </div>
+                <div class="card float-left m-2">
+                    <div class="card-body">
+                        <h5 class="card-title">To-Do Widget</h5>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="New Task" aria-label="New Task" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" type="button">Add</button>
+                            </div>
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                </div>
+                            </div>
+                            <div type="text" class="form-control" aria-label="Text input with checkbox">Thing to do</div>
+                        </div>
+
+                        <a href="#" class="btn btn-primary">Full Weather</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" id="footer">
+            <div class="col"></div>
+        </div>
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>
