@@ -7,7 +7,34 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
-    <script src="jquery-3.3.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- gridstack -->
+
+    <link rel="stylesheet" href="assets/plugins/gridstack.js/dist/gridstack.css">
+    <link rel="stylesheet" href="assets/plugins/gridstack.js/dist/gridstack-extra.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.0/jquery-ui.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.5.0/lodash.min.js"></script>
+    <script src="assets/plugins/gridstack.js/dist/gridstack.js"></script>
+    <script src="assets/plugins/gridstack.js/dist/gridstack.jQueryUI.js"></script>
+
+    <style type="text/css">
+        .grid-stack {
+            background: white;
+        }
+
+        .grid-stack-item-content {
+            color: #2c3e50;
+            text-align: center;
+
+        }
+    </style>
+    <style type="text/css" data-gs-style-id="gridstack-style-24410"></style>
+    <!-- lodash -->
+    <script src="assets/plugins/lodash/lodash.js"></script>
+
     <title>Today</title>
 </head>
 
@@ -24,7 +51,7 @@
             </div>
         </div>
         <div class="row" id="body">
-            <div class="col-2" id="sidebar">
+            <div class="col-sm-2" id="sidebar">
                 <div class="list-group">
                     <a href="#" class="list-group-item list-group-item-action active">Today</a>
                     <a href="#" class="list-group-item list-group-item-action">Your week ahead</a>
@@ -33,23 +60,57 @@
                 </div>
             </div>
             <div class="col-10" id="widgetArea">
-                <div class="card float-left m-2">
-                    <img class="card-img-top" src="http://via.placeholder.com/350x150" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Widget One</h5>
-                        <p class="card-text">Put quick access info here</p>
-                        <a href="#" class="btn btn-primary">Link to Fullpage version of widget</a>
+                <div class="grid-stack">
+                    <div class="grid-stack-item" data-gs-x="3" data-gs-y="0" data-gs-width="5" data-gs-height="2">
+                        <div class="grid-stack-item-content card float-left">
+                                <!-- <img class="card-img-top" src="http://via.placeholder.com/350x150" alt="Card image cap"> -->
+                                <div class="card-body">
+                                    <h5 class="card-title">Stock Index</h5>
+                                    <p id="stock-1">Stock 1</p>
+                                    <p id="stock-2">Stock 2</p>
+                                    <p id="stock-3">Stock 3</p>
+                                    <!-- <p id="stock-4">Stock 4</p> -->
+                                    <!-- <p id="stock-5">Stock 5</p> -->
+                                    <!-- <p class="card-text"></p> -->
+                                    <!-- <a href="#" class="btn btn-primary">Link to Fullpage version of widget</a> -->
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="card float-left m-2">
-                    <img class="card-img-top" src="http://via.placeholder.com/150x150" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Weather Widget</h5>
-                        <p class="card-text">todays weather highlights</p>
-                        <a href="#" class="btn btn-primary">Full Weather</a>
+                    <div class="grid-stack-item" data-gs-x="8" data-gs-y="0" data-gs-width="3" data-gs-height="4">
+                        <div class="grid-stack-item-content card float-left">
+                            <img class="card-img-top" src="http://via.placeholder.com/350x150" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">Widget test</h5>
+                                <p class="card-text">Put quick access info here</p>
+                                <a href="#" class="btn btn-primary">Link to Fullpage version of widget</a>
+
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="card float-left m-2">
+                    <div class="grid-stack-item" data-gs-x="0" data-gs-y="4" data-gs-width="3" data-gs-height="4">
+                        <div class="grid-stack-item-content">
+                            <div class="card float-left">
+                                <img class="card-img-top" src="http://via.placeholder.com/150x150" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title">Weather Widget</h5>
+                                    <p class="card-text">todays weather highlights</p>
+                                    <a href="#" class="btn btn-primary">Full Weather</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <script type="text/javascript">
+                            $(function () {
+                                var options = {
+                                    cellHeight: 80,
+                                    verticalMargin: 10
+                                };
+                                $('.grid-stack').gridstack(options);
+                            });
+                        </script>
+
+
+                        <!-- <div class="card float-left m-2">
                     <div class="card-body">
                         <h5 class="card-title">Today's To-Dos</h5>
                         <div class="input-group mb-3">
@@ -75,19 +136,19 @@
                                 <div type="text" class="form-control" aria-label="Text input with checkbox">Another thing to do</div>
                             </div>
                     </div>
+                </div> -->
+                    </div>
+                </div>
+                <div class="row" id="footer">
+                    <div class="col"></div>
                 </div>
             </div>
-        </div>
-        <div class="row" id="footer">
-            <div class="col"></div>
-        </div>
-    </div>
 
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+                crossorigin="anonymous"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+                crossorigin="anonymous"></script>
 </body>
 
 </html>
