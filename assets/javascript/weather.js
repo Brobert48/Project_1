@@ -29,6 +29,8 @@ var city;
 var country;
 var currentURL;
 var forecastURL;
+var previousCallTime;
+
 
 // for current weather
 // example: api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=0c44f3ccfc31563e53f247c356d15c09
@@ -61,6 +63,22 @@ $(document).on("click", "#weather-button", function () {
 
     // send response data to Firebase
     //(will be able to read from Firebase as often as we like, since we can only call from the API once every 10 minutes)
+    
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyCiPgGOcvsJ0Ws54KMX1p0mCia3a1hJ2UI",
+        authDomain: "project-1-firebase-1b2fb.firebaseapp.com",
+        databaseURL: "https://project-1-firebase-1b2fb.firebaseio.com",
+        projectId: "project-1-firebase-1b2fb",
+        storageBucket: "",
+        messagingSenderId: "693404188715"
+    };
+    firebase.initializeApp(config);
 
+    var database = firebase.database();
+    var connectionsRef = database.ref("/connections");
+    var connectedRef = database.ref(".info/connected");
+    
+    
 });
 
