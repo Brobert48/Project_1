@@ -16,6 +16,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.5.0/lodash.min.js"></script>
     <script src="assets/plugins/gridstack.js/dist/gridstack.js"></script>
     <script src="assets/plugins/gridstack.js/dist/gridstack.jQueryUI.js"></script>
+    
 
     <!-- Firebase -->
     <script src="https://www.gstatic.com/firebasejs/5.3.1/firebase.js"></script>
@@ -87,26 +88,27 @@
 
         <div class="row">
             <div class="col-10" id="widgetArea">
-                <div class="grid-stack">
+                <div class="grid-stack" id="stock-ticker">
                     <div class="grid-stack-item" data-gs-x="3" data-gs-y="0" data-gs-width="3" data-gs-height="3">
                         <div class="grid-stack-item-content card float-left border border-primary">
-                            <div class="card-body p-1" style="background-color: tan">
-                                <h6 class="card-title bg-dark text-white">Major Stock Index</h6>
+                            <div class="card-body p-1" style="background-color: #4444">
+                                <h6 class="card-title bg-dark text-white rounded">Major Stock Index</h6>
                                 <p class="clearfix">
-                                    <h5 class="text-left" id="stock-1-name">Stock 1 name</h5>
-                                    <h6 class="font-weight-bold text-left float-left" id="stock-1-data">Stock 1</h6>
-                                    <div class="font-italic text-left" id="stock-1-change">stock 1 change</div>
+                                    <h5 class="text-left" id="stock-0-name">Stock 1 name</h5>
+                                    <h6 class="font-weight-bold text-left float-left" id="stock-0-data"></h6>
+                                    <div class="font-italic text-left" id="stock-0-change">stock 1 change</div>
                                 </p>
                                 <p class="clearfix">
-                                    <h5 class="text-left" id="stock-2-name">Stock 2 name</h5>
-                                    <h6 class="font-weight-bold text-left float-left" id="stock-2-data">Stock 2</h6>
-                                    <div class="font-italic text-left" id="stock-2-change">stock 2 change</div>
+                                    <h5 class="text-left" id="stock-1-name">Stock 2 name</h5>
+                                    <h6 class="font-weight-bold text-left float-left" id="stock-1-data">Stock 2</h6>
+                                    <div class="font-italic text-left" id="stock-1-change">stock 2 change</div>
                                 </p>
                                 <p class="clearfix">
-                                    <h5 class="text-left" id="stock-3-name">Stock 3 name</h5>
-                                    <h6 class="font-weight-bold text-left float-left" id="stock-3-data">Stock 3</h6>
-                                    <div class="font-italic text-left" id="stock-3-change">stock 3 change</div>
+                                    <h5 class="text-left" id="stock-2-name">Stock 3 name</h5>
+                                    <h6 class="font-weight-bold text-left float-left" id="stock-2-data">Stock 3</h6>
+                                    <div class="font-italic text-left" id="stock-2-change">stock 3 change</div>
                                 </p>
+                                <div id="click-me">Click to refresh</div>
                             </div>
                         </div>
                     </div>
@@ -155,6 +157,8 @@
             <script type="text/javascript" src="assets\javascript\weather.js"></script>
             <!-- bootstrap JS -->
             <script src="assets/plugins/bootstrap-4.0.0-dist/js/bootstrap.min.js"></script>
+            <!-- stock ticker -->
+            <script src="stock-ticker/stock_ticker.js"></script>
 
 </body>
 
