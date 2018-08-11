@@ -11,13 +11,52 @@
 </head>
 <body>
 
+
+
+<div class="stock-input-container">
+    <div class="row">
+        <div class="col-xs-2"></div>
+        <div class="col-xs-4 text-center">
+            <div class="stock-title">
+                Enter Ticker Symbol
+            </div>
+            <div class="stock-subtitle">
+                (Max 3 Symbols)
+            </div>
+
+            <form>
+                <input type="text" id="add-stock">
+                <br>
+                <button class="btn btn-default" id="submit-stock">Add Symbol</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+    
+<button class="btn btn-default" id="enter-new-symbol">New Search Symbol</button>
+    <br>
+
     <div id="click-me">Click to refresh</div>
     <br>
+    <!-- <div id="stock-1-data"></div> -->
+
+   
+    <div id="stock-0-data"></div>
+    <div id="stock-0-name"></div>
+    <br>
     <div id="stock-1-data"></div>
+    <div id="stock-1-name"></div>
+    <br>
+    <div id="stock-2-data"></div>
+    <div id="stock-2-name"></div>
+    <br>
 
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js'></script>
     <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
     <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
-    <script type='text/javascript' src='stock_ticker.js'></script>
+    <script type='text/javascript' src='stock_ticker_user_input.js'></script>
 </body>
 </html>
