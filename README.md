@@ -42,7 +42,7 @@ Widget list
     • Weather (in progress)
     • Horoscope (in progress)
     • Traffic (planned)
-    • To-do list (planned)
+    • To-do list (in progress)
     • 
     • 
     • 
