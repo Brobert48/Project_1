@@ -1,8 +1,9 @@
 # Project_1
 
-Git Hub: https://github.com/Brobert48/Project_1.git
+Git Hub:    https://github.com/Brobert48/Project_1.git
 
-Firebase: (none yet)
+Firebase:   https://project-1-firebase-1b2fb.firebaseio.com
+            project-1-firebase-1b2fb
 
 Coding Requirements:
     • Must use at least two APIs

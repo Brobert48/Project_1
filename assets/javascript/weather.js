@@ -79,6 +79,6 @@ $(document).on("click", "#weather-button", function () {
     var connectionsRef = database.ref("/connections");
     var connectedRef = database.ref(".info/connected");
     
-
+    
 });
 
