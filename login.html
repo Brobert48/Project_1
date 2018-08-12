@@ -16,42 +16,42 @@
   <title>Log In/Sign Up</title>
   <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-app.js"></script>
 
-<!-- Add additional services that you want to use -->
-<script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-auth.js"></script>
-<script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-database.js"></script>
-<script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-firestore.js"></script>
-<script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-messaging.js"></script>
-<script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-functions.js"></script>
-<script src="https://cdn.firebase.com/libs/firebaseui/3.2.0/firebaseui.js"></script>
-<link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.2.0/firebaseui.css" />
-<!-- Comment out (or don't include) services that you don't want to use -->
-<!-- <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-storage.js"></script> -->
+  <!-- Add additional services that you want to use -->
+  <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-messaging.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-functions.js"></script>
+  <script src="https://cdn.firebase.com/libs/firebaseui/3.2.0/firebaseui.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.2.0/firebaseui.css" />
+  <!-- Comment out (or don't include) services that you don't want to use -->
+  <!-- <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-storage.js"></script> -->
 
-<script>
-  var config = {
-    apiKey: "AIzaSyAlGYe62UHLXOxTPaULsNQI5ruGpwih5XQ",
-    authDomain: "logintest-2933c.firebaseapp.com",
-    databaseURL: "https://logintest-2933c.firebaseio.com",
-    projectId: "logintest-2933c",
-    storageBucket: "logintest-2933c.appspot.com",
-    messagingSenderId: "237055848806"
-  };
-  firebase.initializeApp(config);
+  <script>
+    var config = {
+      apiKey: "AIzaSyCiPgGOcvsJ0Ws54KMX1p0mCia3a1hJ2UI",
+    authDomain: "project-1-firebase-1b2fb.firebaseapp.com",
+    databaseURL: "https://project-1-firebase-1b2fb.firebaseio.com",
+    projectId: "project-1-firebase-1b2fb",
+    storageBucket: "project-1-firebase-1b2fb.appspot.com",
+    messagingSenderId: "693404188715"
+    };
+    firebase.initializeApp(config);
   </script>
   <script>
-  var uiConfig = {
-        signInSuccessUrl: 'index.html',
-        signInOptions: [
-          firebase.auth.EmailAuthProvider.PROVIDER_ID,
-        ],
-      };
-      // Initialize the FirebaseUI Widget using Firebase.
-      var ui = new firebaseui.auth.AuthUI(firebase.auth());
-      // The start method will wait until the DOM is loaded.
-      ui.start('#firebaseui-auth-container', uiConfig);
+    var uiConfig = {
+      signInSuccessUrl: 'index.html',
+      signInOptions: [
+        firebase.auth.EmailAuthProvider.PROVIDER_ID,
+      ],
+    };
+    // Initialize the FirebaseUI Widget using Firebase.
+    var ui = new firebaseui.auth.AuthUI(firebase.auth());
+    // The start method will wait until the DOM is loaded.
+    ui.start('#firebaseui-auth-container', uiConfig);
 
-  
-</script>
+
+  </script>
 </head>
 
 <body>
@@ -67,6 +67,7 @@
       </div>
     </div>
   </div>
+  <div id="alertBox"></div>
   <div class="container-fluid p-0">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-2">
       <a class="navbar-brand" href="#">
@@ -120,14 +121,14 @@
           <div class="form-row">
             <div class="col-md-4 mb-3">
               <label for="validationDefault01">First name</label>
-              <input type="text" class="form-control" id="validationDefault01" placeholder="First name" required>
+              <input type="text" class="form-control" id="fName" id="validationDefault01" placeholder="First name" required>
             </div>
             <div class="col-md-4 mb-3">
               <label for="validationDefault02">Last name</label>
-              <input type="text" class="form-control" id="validationDefault02" placeholder="Last name" required>
+              <input type="text" class="form-control" id="lName" id="validationDefault02" placeholder="Last name" required>
             </div>
-            </div>
-            <div class="form-row">
+          </div>
+          <div class="form-row">
             <div class="col-md-4 mb-3">
               <label for="validationDefaultUsername">Email</label>
               <div class="input-group">
@@ -137,20 +138,25 @@
                 <input type="text" id="email" class="form-control" id="validationDefaultUsername" placeholder="Email" aria-describedby="inputGroupPrepend2"
                   required>
               </div>
-              </div>
-              <div class="col-md-4 mb-3">
-                  <label for="validationDefault01">Password</label>
-                  <input type="text" id="password" class="form-control" id="validationDefault01" placeholder="Password" required>
-                </div>
-                </div>
-                <div class="form-row">
-            <button class="btn btn-primary" type="submit" onclick="handleSignUp()">Sign Up</button>
-              
             </div>
-            <script>
+            <div class="col-md-4 mb-3">
+              <label for="validationDefault01">Password</label>
+              <input type="password" id="password" class="form-control" id="validationDefault01" placeholder="Password" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <button class="btn btn-primary" type="submit" onclick="handleSignUp()">Sign Up</button>
+            
+          </div>
+          <script>
             function handleSignUp() {
               var email = document.getElementById('email').value;
               var password = document.getElementById('password').value;
+              $('#email').val("");
+              $('#fName').val("");
+              $('#lName').val("");
+              $('#password').val("");
+              
               if (email.length < 4) {
                 alert('Please enter an email address.');
                 return;
@@ -161,11 +167,13 @@
               }
               // Sign in with email and pass.
               // [START createwithemail]
-              firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+              firebase.auth().createUserWithEmailAndPassword(email, password).catch(function (error) {
                 // Handle Errors here.
                 var errorCode = error.code;
                 var errorMessage = error.message;
-                // [START_EXCLUDE]
+          
+                // var alert = "<div class="alert alert-primary" role="alert"> Account Successfully Created</div>"
+                [START_EXCLUDE]
                 if (errorCode == 'auth/weak-password') {
                   alert('The password is too weak.');
                 } else {
@@ -174,33 +182,20 @@
                 console.log(error);
                 // [END_EXCLUDE]
               });
+              // var newDiv = $('<div>');
+              //   newDiv.attr('class', 'alert alert-primary')
+              //   .attr('role','alert')
+              //   .text('Account Successfully Created');
+              //   $('#alertBox').html(newDiv)
               // [END createwithemail]
             }</script>
-            
-            
-          </div>
-           <div class="form-row">
-</div>
-           <!-- <div class="col-md-6 mb-3">
-              <label for="validationDefault03">City</label>
-              <input type="text" class="form-control" id="validationDefault03" placeholder="City" required>
-            </div>
-            <div class="col-md-3 mb-3">
-              <label for="validationDefault04">State</label>
-              <input type="text" class="form-control" id="validationDefault04" placeholder="State" required>
-            </div>
-            <div class="col-md-3 mb-3">
-              <label for="validationDefault05">Zip</label>
-              <input type="text" class="form-control" id="validationDefault05" placeholder="Zip" required>
-            </div> -->
-          <!-- </div> -->
-          
-          </div>
+        </div>
       </div>
     </div>
-    <div class="row" id="footer">
-      <div class="col"></div>
-    </div>
+  </div>
+  <div class="row" id="footer">
+    <div class="col"></div>
+  </div>
   </div>
 
   <!-- widget javascript files -->
