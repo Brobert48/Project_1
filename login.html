@@ -15,6 +15,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <title>Log In/Sign Up</title>
   <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-app.js"></script>
+  
 
   <!-- Add additional services that you want to use -->
   <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-auth.js"></script>
@@ -30,17 +31,18 @@
   <script>
     var config = {
       apiKey: "AIzaSyCiPgGOcvsJ0Ws54KMX1p0mCia3a1hJ2UI",
-    authDomain: "project-1-firebase-1b2fb.firebaseapp.com",
-    databaseURL: "https://project-1-firebase-1b2fb.firebaseio.com",
-    projectId: "project-1-firebase-1b2fb",
-    storageBucket: "project-1-firebase-1b2fb.appspot.com",
-    messagingSenderId: "693404188715"
+      authDomain: "project-1-firebase-1b2fb.firebaseapp.com",
+      databaseURL: "https://project-1-firebase-1b2fb.firebaseio.com",
+      projectId: "project-1-firebase-1b2fb",
+      storageBucket: "project-1-firebase-1b2fb.appspot.com",
+      messagingSenderId: "693404188715"
     };
     firebase.initializeApp(config);
+
   </script>
   <script>
     var uiConfig = {
-      signInSuccessUrl: 'index.html',
+      signInSuccessUrl: 'index.html?mode=',
       signInOptions: [
         firebase.auth.EmailAuthProvider.PROVIDER_ID,
       ],
@@ -49,6 +51,8 @@
     var ui = new firebaseui.auth.AuthUI(firebase.auth());
     // The start method will wait until the DOM is loaded.
     ui.start('#firebaseui-auth-container', uiConfig);
+
+
 
 
   </script>
@@ -71,138 +75,37 @@
   <div class="container-fluid p-0">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-2">
       <a class="navbar-brand" href="#">
-        <img src="assets/images/brandLogo.png" width="30" height="30" class="d-inline-block align-top mr-1" alt="">Sweet Awesome Name for Our App</a>
+        <img src="assets/images/brandLogo.png" width="30" height="30" class="d-inline-block align-top mr-1" alt="">Sweet Awesome App</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
         aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" href="index.html">Today</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Your Week Ahead</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Calender</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Settings</a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="login.html">Login/Out
-              <span class="sr-only">(current)</span>
-            </a>
-          </li>
+         
         </ul>
       </div>
     </nav>
   </div>
   <div class="container-fluid">
     <div class="row" id="body">
-      <div class="col-2 p-2 border-right border-primary" id="logInArea">
-        <!-- <div class="p-1">
-          Log In
-        </div>
-        <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon2">
-        </div>
-        <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon2">
-          <div class="input-group-append">
-            <button class="btn btn-outline-secondary bg-primary text-white" id="logInBtn" type="button">Log In</button>
-          </div>
-        </div> -->
+      <div class="col border-right border-primary text-center" id="logInArea">
+        <div class='alert alert-primary'>Sign in below or enter your email to register</div>
         <div id="firebaseui-auth-container"></div>
       </div>
-      <div class="col-10" id="registerForm">
-        <div> Register Here
-          <div class="form-row">
-            <div class="col-md-4 mb-3">
-              <label for="validationDefault01">First name</label>
-              <input type="text" class="form-control" id="fName" id="validationDefault01" placeholder="First name" required>
-            </div>
-            <div class="col-md-4 mb-3">
-              <label for="validationDefault02">Last name</label>
-              <input type="text" class="form-control" id="lName" id="validationDefault02" placeholder="Last name" required>
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="col-md-4 mb-3">
-              <label for="validationDefaultUsername">Email</label>
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text" id="inputGroupPrepend2">@</span>
-                </div>
-                <input type="text" id="email" class="form-control" id="validationDefaultUsername" placeholder="Email" aria-describedby="inputGroupPrepend2"
-                  required>
-              </div>
-            </div>
-            <div class="col-md-4 mb-3">
-              <label for="validationDefault01">Password</label>
-              <input type="password" id="password" class="form-control" id="validationDefault01" placeholder="Password" required>
-            </div>
-          </div>
-          <div class="form-row">
-            <button class="btn btn-primary" type="submit" onclick="handleSignUp()">Sign Up</button>
-            
-          </div>
-          <script>
-            function handleSignUp() {
-              var email = document.getElementById('email').value;
-              var password = document.getElementById('password').value;
-              $('#email').val("");
-              $('#fName').val("");
-              $('#lName').val("");
-              $('#password').val("");
-              
-              if (email.length < 4) {
-                alert('Please enter an email address.');
-                return;
-              }
-              if (password.length < 4) {
-                alert('Please enter a password.');
-                return;
-              }
-              // Sign in with email and pass.
-              // [START createwithemail]
-              firebase.auth().createUserWithEmailAndPassword(email, password).catch(function (error) {
-                // Handle Errors here.
-                var errorCode = error.code;
-                var errorMessage = error.message;
-          
-                // var alert = "<div class="alert alert-primary" role="alert"> Account Successfully Created</div>"
-                [START_EXCLUDE]
-                if (errorCode == 'auth/weak-password') {
-                  alert('The password is too weak.');
-                } else {
-                  alert(errorMessage);
-                }
-                console.log(error);
-                // [END_EXCLUDE]
-              });
-              // var newDiv = $('<div>');
-              //   newDiv.attr('class', 'alert alert-primary')
-              //   .attr('role','alert')
-              //   .text('Account Successfully Created');
-              //   $('#alertBox').html(newDiv)
-              // [END createwithemail]
-            }</script>
-        </div>
+    
+      <div class="row" id="footer">
+        <div class="col"></div>
       </div>
     </div>
-  </div>
-  <div class="row" id="footer">
-    <div class="col"></div>
-  </div>
-  </div>
 
-  <!-- widget javascript files -->
-  <script type="text/javascript" src="assets\javascript\horoscope.js"></script>
-  <script type="text/javascript" src="assets\javascript\weather.js"></script>
-  <!-- bootstrap JS -->
-  <script src="assets/plugins/bootstrap-4.0.0-dist/js/bootstrap.min.js"></script>
+    <!-- widget javascript files -->
+    <script type="text/javascript" src="assets\javascript\horoscope.js"></script>
+    <script type="text/javascript" src="assets\javascript\weather.js"></script>
+    <!-- bootstrap JS -->
+    <script src="assets/plugins/bootstrap-4.0.0-dist/js/bootstrap.min.js"></script>
+    <script src="assets/javascript/logic.js"></script>
+
 </body>
 
 </html>
