@@ -28,12 +28,11 @@ $(document).ready(function () {
 
             //--------this area puts the notes under the task from above ---
             var list = snapshot.child(task).val();
-            var counter = 0;
+
             for (var i in list) {
-                counter++;
+
                 var key = i;
                 var value = list[i];
-                var data = "item=" + counter;
                 var p = $("<p>").attr("id", key).text("  " + key + "  :  " + value).attr("class", "task-items");
                 var b = $("<button class='delete'>").text("✓").attr("data-key", key).attr("data-task", task);
                 p.prepend(b);
