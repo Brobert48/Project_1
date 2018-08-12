@@ -57,9 +57,6 @@ firebase.auth().onAuthStateChanged(function (user) {
       targetDiv.append(logoutLi);
 
     } 
-    else if(window.location.href=="https://brobert48.github.io/Project_1/login.html"){}
-      // DEV MODE: Comment out above line, un-comment below line when running on local computer.
-    // else if(window.location.href== "enter your local system's url for login.html"){}
     else {
        window.location = "login.html";
 
