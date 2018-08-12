@@ -1,4 +1,8 @@
 
+var symbolArray = ["INX", "DJI", "IXIC"];
+
+
+
 function getData(symbol, i) {
     var queryURL = "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=" + symbol + "&interval=5min&apikey=RKF8M9LS2831VAA1";
 
@@ -22,26 +26,12 @@ function getData(symbol, i) {
         $("#stock-"+ i +"-data").text(stockPrice);
         $("#stock-"+ i +"-name").text(symbol);
 
-        // #stock-1-name
-        // #stock-1-data 
-
     });
-
-    
-}
-
-var symbolArray = ["INX", "DJI", "IXIC"];
-
+};
 
 
 $("#stock-ticker").on("click", "#click-me", function () {
-
     for (var i = 0; i < symbolArray.length; i++) {
-        
-
         getData(symbolArray[i], i);
-       
-    }
-
-
+    };
 });
