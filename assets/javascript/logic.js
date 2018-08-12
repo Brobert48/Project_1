@@ -66,28 +66,3 @@ firebase.auth().onAuthStateChanged(function (user) {
       
     }
   });
-{/* <li class="nav-item">
-            <a class="nav-link" href="index.html">Today</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Your Week Ahead</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Calender</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Settings</a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="login.html">Login/Signup
-              <span class="sr-only">(current)</span>
-            </a>
-          </li> */}
-  // <li class="nav-item active">
-  //           <a class="nav-link" href="login.html">Login/Signup
-  //             <span class="sr-only">(current)</span>
-  //           </a>
-  //         </li>
-  // <li class="nav-item">
-  //           <a class="nav-link"  onclick="firebase.auth().signOut()" href="#">logout</a>
-  //         </li>
