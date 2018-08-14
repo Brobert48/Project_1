@@ -20,6 +20,7 @@ $('#settingSubmit').on('click',function(){
     var notes = $(':radio[name=notes]:checked').val();
     var news = $(':radio[name=news]:checked').val();
     var todo = $(':radio[name=todo]:checked').val();
+    // targeting the user ID
     var uid = firebase.auth().currentUser.uid;
     console.log(fName, lName, city, state, zip, stocks,weather,notes,news,todo);
     console.log('clicked');

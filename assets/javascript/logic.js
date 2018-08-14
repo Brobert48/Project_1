@@ -44,6 +44,7 @@ firebase.auth().onAuthStateChanged(function (user) {
     userNameH5.attr('class', 'navbar-text')
       .text(firebase.auth().currentUser.displayName);
     userNameLi.append(userNameH5);
+    
     targetDiv.append(userNameH5);
     // Logout navbar link
     var logoutLi = $('<li>');
