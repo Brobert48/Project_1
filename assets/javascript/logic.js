@@ -33,7 +33,7 @@ firebase.auth().onAuthStateChanged(function (user) {
     settingsLi.attr('class', 'nav-item');
     var settingsA = $('<a>');
     settingsA.attr('class', 'nav-link')
-      .attr('href', '#')
+      .attr('href', 'settings.html')
       .text('Personalize');
     settingsLi.append(settingsA);
     targetDiv.append(settingsLi);
@@ -44,6 +44,7 @@ firebase.auth().onAuthStateChanged(function (user) {
     userNameH5.attr('class', 'navbar-text')
       .text(firebase.auth().currentUser.displayName);
     userNameLi.append(userNameH5);
+    
     targetDiv.append(userNameH5);
     // Logout navbar link
     var logoutLi = $('<li>');
