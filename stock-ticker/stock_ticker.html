@@ -7,13 +7,14 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u' crossorigin='anonymous'>
     <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css' integrity='sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp' crossorigin='anonymous'>
+    <script src="https://www.gstatic.com/firebasejs/5.3.1/firebase.js"></script>
     <link rel='stylesheet' href='stock_ticker.css'>
 </head>
 <body>
 
 
 
-<div class="stock-input-container">
+<!-- <div class="stock-input-container">
     <div class="row">
         <div class="col-xs-2"></div>
         <div class="col-xs-4 text-center">
@@ -31,27 +32,101 @@
             </form>
         </div>
     </div>
-</div>
+</div> -->
 
 
-<div class="stock-widget-container">
-    <div class="row">
-        <div class="col-xs-1"></div>
-        <div class="col-xs-10 text-cener">
-            Your Favorite Stocks
-        </div>
-        <div class="col-xs-1">
-            
+
+
+      
+    <!-- Modal -->
+    <div class="modal fade" id="stock-input-area" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+    
+                    <h3 class="modal-title">Add a stock ticker symbol to your watchlist.</h3>
+                    <h5 class="modal-title-sub">(Up to 5 stocks can be saved.)</h5>
+    
+    
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <span class="text-for-input">Enter Stock Symbol Here: </span>
+                        <input type="text" id="add-stock">
+    
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+                    <button class="btn btn-default" data-dismiss="modal" id="submit-stock">Submit</button>
+                </div>
+            </div>
         </div>
     </div>
+
+
+
+<!-- widget area  -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-4"></div>
+        <div class="col-xs-4">
+
+                <div class="stock-widget-container">
+                
+                    <!-- <div id="menu"><span class="glyphicon">&#xe236;</span></div> -->
+                    <div id="menu" data-toggle="modal" data-target="#stock-input-area"><span class="glyphicon">&#xe236;</span></div>
+                
+                   
+
+                    <div class="card text-center" >
+                            
+                            <div class="card-body text-center">
+                                <div class="card-title">Your Favorite Stocks</div>
+
+                                <div class="card-text stock stock-0">
+                                    <span id="stock-0-name"></span>
+                                    <span id="stock-0-data"></span>
+                                    <span id="stock-0-change"></span>
+                                </div>
+
+                                <div class="card-text stock stock-1">
+                                    <span id="stock-1-name"></span>
+                                    <span id="stock-1-data"></span>
+                                    <span id="stock-1-change"></span>
+                                </div>
+
+                                <div class="card-text stock stock-2">
+                                    <span id="stock-2-name"></span>
+                                    <span id="stock-2-data"></span>
+                                    <span id="stock-2-change"></span>
+                                </div>
+
+
+
+                          </div>
+                
+                
+                </div>
+                <div class="refresh-area text-center" id="click-me">Click to refresh</div>
+                </div>
+
+        </div>
+        <div class="col-xs-4"></div>
+    </div>
 </div>
+
     
-<button class="btn btn-default" id="enter-new-symbol">New Search Symbol</button>
+<!-- <button class="btn btn-default" id="enter-new-symbol">New Search Symbol</button>
     <br>
 
     <div id="click-me">Click to refresh</div>
     <br>
-    <!-- <div id="stock-1-data"></div> -->
+
 
    
     <div id="stock-0-data"></div>
@@ -62,11 +137,11 @@
     <br>
     <div id="stock-2-data"></div>
     <div id="stock-2-name"></div>
-    <br>
+    <br> -->
 
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js'></script>
     <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
     <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
-    <script type='text/javascript' src='stock_ticker_user_input.js'></script>
+    <script type='text/javascript' src='practice_stock_ticker.js'></script>
 </body>
 </html>

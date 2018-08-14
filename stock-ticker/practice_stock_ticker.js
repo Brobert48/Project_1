@@ -1,5 +1,17 @@
 
 
+var config = {
+    apiKey: "AIzaSyBZKFIjSuFa_PIeh-fgVVBK2dG5P5aIb3E",
+    authDomain: "getting-a-user-logged-in.firebaseapp.com",
+    databaseURL: "https://getting-a-user-logged-in.firebaseio.com",
+    projectId: "getting-a-user-logged-in",
+    storageBucket: "getting-a-user-logged-in.appspot.com",
+    messagingSenderId: "183862492872"
+  };
+  firebase.initializeApp(config);
+  var database = firebase.database();
+
+
 $( document ).ready(function() {
     $(".stock-input-container").hide();
 
@@ -12,6 +24,9 @@ $("#enter-new-symbol").on("click", function() {
 
 // array to hold the 3 stocks
 var symbolArray = ["INX", "DJI", "IXIC"];
+
+
+
 
 // click to add new stock and remove the last in the existing array
 $("#submit-stock").on("click", function(event) {
@@ -31,6 +46,10 @@ $("#submit-stock").on("click", function(event) {
         symbolArray.splice(3, 1,);
     };
 
+    database.ref("/user").child("stock").update({
+        "stocksArray":symbolArray,
+      });
+
     console.log(symbolArray);
    putOnPage();
   });
@@ -39,6 +58,7 @@ $("#submit-stock").on("click", function(event) {
 // ajax request and code to populate the dom
 function getData(symbol, i) {
     var queryURL = "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=" + symbol + "&interval=5min&apikey=RKF8M9LS2831VAA1";
+    console.log(queryURL);
 
     $.ajax({
         url: queryURL,
@@ -52,12 +72,30 @@ function getData(symbol, i) {
         // console.log(secondArray[3]);
         // console.log(gobal["Time Series (5min)"][objectArray[0]][secondArray[3]]);
         var stockPrice = Math.round(gobal["Time Series (5min)"][objectArray[0]][secondArray[3]] * 100) / 100;
+        // console.log("this is stockPrice: " + stockPrice)
         // var newSpan = $("<span>");
         // // console.log("this is symbol: " + symbol);
         // newSpan.text(symbol + ": " + stockPrice + " ");
+        var openPrice = Math.round(gobal["Time Series (5min)"][objectArray[0]][secondArray[0]] * 100) /100;
+        // console.log("this is open price: " + openPrice)
 
-        $("#stock-"+ i +"-data").text(stockPrice);
+        var priceChange = Math.round((stockPrice - openPrice) * 100) / 100;
+        console.log("this is priceChange: " + priceChange);
+
+        $("#stock-"+ i +"-data").text("$" +stockPrice);
         $("#stock-"+ i +"-name").text(symbol);
+
+
+        if (priceChange < 0) {
+            $("#stock-"+ i +"-change").css("color", "red");
+        } else {
+            $("#stock-"+ i +"-change").css("color", "green");
+        };
+
+        $("#stock-"+ i +"-change").text("$"+priceChange);
+
+        
+        
     });
 };
 
@@ -65,7 +103,20 @@ function getData(symbol, i) {
 // function to call the ajax with each index of the array
 function putOnPage() {
     $("#stock-1-data").empty();
-    for (var i = 0; i < symbolArray.length; i++) {
+    database.ref("/clicks").on("value", function(snapshot) {
+
+        var arrayFromDatabase = [];
+        console.log(snapshot.val());
+        arrayFromDatabase = snapshot.val() 
+      
+       
+      }, function(errorObject) {
+        console.log("The read failed: " + errorObject.code);
+      });
+
+
+
+    for (var i = 0; i < arrayFromDatabase.length; i++) {
         getData(symbolArray[i], i);
     };
 };

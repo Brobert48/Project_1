@@ -56,3 +56,9 @@ add a menu button to the widget
 move the refresh div to the left
 
 add the change amout to the stock price
+
+
+get an array into the database
+
+stocks
+    stocks: []
