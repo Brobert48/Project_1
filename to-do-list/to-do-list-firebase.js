@@ -8,18 +8,27 @@ var config = {
     projectId: "project-1-firebase-1b2fb",
     storageBucket: "project-1-firebase-1b2fb.appspot.com",
     messagingSenderId: "693404188715"
-  };
+};
 
 firebase.initializeApp(config);
-var database = firebase.database();
-
 
 $(document).ready(function () {
-console.log(firebase.auth().currentUser.uid);
-var uid = firebase.auth().currentUser.uid;
+    var database = firebase.database();
 
 
+    function wait() {
+        console.log(firebase.auth().currentUser.uid);
 
+        database.ref("/users").child(firebase.auth().currentUser.uid).child("widgets").child("notes").child("list").on("value", function (snapshot) {
+
+            clearDom();
+            putOnPage(snapshot);
+        });
+
+    };
+
+    setTimeout(wait, 1000); 
+   
 
 
 
@@ -29,9 +38,7 @@ var uid = firebase.auth().currentUser.uid;
             var task = child.key;
             var taskName = $("<div>").attr("class", "task");
             var a = $("<p>").attr("class", "task-name").attr("id", "task-" + task);
-
             taskName.append(a);
-
             $("#list").append(taskName);
 
             //--------this area puts the notes under the task from above ---
@@ -51,19 +58,12 @@ var uid = firebase.auth().currentUser.uid;
 
     };  // end of putOnPage function
 
-    // listener runs putonpage()
-    database.ref("/users").child(uid).child("widgets").child("notes").child("list").on("value", function (snapshot) {
-        clearDom();
-        putOnPage(snapshot);
-    })
+
 
     //----------- beginning of onclick area to add items -----
 
     $("#submit").on("click", function (event) {
         event.preventDefault();
-
-        // console.log(firebase.auth().currentUser.uid);
-        // var uid = firebase.auth().currentUser.uid;
 
         var task = capitalizeFirstLetter($("#task-input").val().trim());
         var note = $("#note-input").val().trim();
@@ -72,9 +72,7 @@ var uid = firebase.auth().currentUser.uid;
             return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
         };
 
-        database.ref("/users").child(uid).child("widgets").child("notes").child("list").child(task).update({
-
-        // database.ref("/list").child(task).update({
+        database.ref("/users").child(firebase.auth().currentUser.uid).child("widgets").child("notes").child("list").child(task).update({
             [task]: note,
         }); // end of push to database
 
@@ -92,9 +90,9 @@ var uid = firebase.auth().currentUser.uid;
         var task = $(this).attr("data-task");
         console.log(task);
 
-    // this is a "confirm", may need to add something else to look better
+        // this is a "confirm", may need to add something else to look better
         if (confirm('Are you sure?')) {
-            database.ref("/users").child(uid).child("widgets").child("notes").child("list").child(task).child(key).remove();
+            database.ref("/users").child(firebase.auth().currentUser.uid).child("widgets").child("notes").child("list").child(task).child(key).remove();
             // firebase.database().ref("/list").child(task).child(key).remove();
 
         }; // end of if statement
