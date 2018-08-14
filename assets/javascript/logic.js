@@ -33,7 +33,7 @@ firebase.auth().onAuthStateChanged(function (user) {
     settingsLi.attr('class', 'nav-item');
     var settingsA = $('<a>');
     settingsA.attr('class', 'nav-link')
-      .attr('href', '#')
+      .attr('href', 'settings.html')
       .text('Personalize');
     settingsLi.append(settingsA);
     targetDiv.append(settingsLi);

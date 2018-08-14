@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="assets/plugins/bootstrap-4.0.0-dist/css/bootstrap.css">
+    <!-- Jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/5.3.1/firebase.js"></script>
+    <!-- JQWidgets -->
+    
+    <title>Settings</title>
+
+    
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col"></div>
+            <div class="col">
+                <form id="testForm" action="./">
+                    <table class="register-table">
+                        <tr>
+                            <td>First Name:</td>
+                            <td>
+                                <input type="text" id="fNameInput" class="text-input" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Last Name:</td>
+                            <td>
+                                <input type="text" id="lNameInput" class="text-input" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Location</td>
+                        </tr>
+                        <tr>
+                            <td> City: </td>
+                            <td> State: </td>
+                            <td> Zip Code: </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" id="cityInput" class="text-input" />
+                            </td>
+                            <td>
+                                <input type="text" id="stateInput" class="text-input" />
+                            </td>
+                            <td>
+                                <input type="text" id="zipInput" class="text-input" />
+                            </td>
+                        </tr>
+                        <tr>
+                            Widgets:
+                        </tr>
+                        <tr>
+                            <td>Stocks:</td>
+                            <td><div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                    <label class="btn btn-secondary">
+                                      <input type="radio" name="stocks" id="stocksON" value="on" autocomplete="off"> ON
+                                    </label>
+                                    <label class="btn btn-secondary">
+                                      <input type="radio" name="stocks" id="stocksOFF" value="off" autocomplete="off"> OFF
+                                    </label></td>
+                        </tr>
+                        <tr>
+                                <td>Weather:</td>
+                                <td><div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                        <label class="btn btn-secondary">
+                                          <input type="radio" name="weather" id="weatherON" value="on" autocomplete="off"> ON
+                                        </label>
+                                        <label class="btn btn-secondary">
+                                          <input type="radio" name="weather" id="weatherOFF" value="off" autocomplete="off"> OFF
+                                        </label></td>
+                            </tr>
+                            <tr>
+                                    <td>Notes:</td>
+                                    <td><div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                            <label class="btn btn-secondary">
+                                              <input type="radio" name="notes" id="notesON" value="on" autocomplete="off"> ON
+                                            </label>
+                                            <label class="btn btn-secondary">
+                                              <input type="radio" name="notes" id="notesOFF" value="off" autocomplete="off"> OFF
+                                            </label></td>
+                                </tr>
+                                <tr>
+                                        <td>News:</td>
+                                        <td><div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                                <label class="btn btn-secondary">
+                                                  <input type="radio" name="news" id="newsON" value="on" autocomplete="off"> ON
+                                                </label>
+                                                <label class="btn btn-secondary">
+                                                  <input type="radio" name="news" id="newsOFF" value="off" autocomplete="off"> OFF
+                                                </label></td>
+                                    </tr>
+                                    <tr>
+                                            <td>Todo list:</td>
+                                            <td><div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                                    <label class="btn btn-secondary">
+                                                      <input type="radio" name="todo" id="newsON" value="on" autocomplete="off"> ON
+                                                    </label>
+                                                    <label class="btn btn-secondary">
+                                                      <input type="radio" name="todo" id="newsOFF" value="off" autocomplete="off"> OFF
+                                                    </label></td>
+                                        </tr>
+                                        <tr>
+                                               <td><button type="button" id="settingSubmit" class="btn btn-Primary">Submit</button> </td>                                        </tr>
+
+                    </table>
+                </form>
+            </div>
+            <div class="col"></div>
+            <div class="col"></div>
+            <div class="row">
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="row">
+                    <div class="col"></div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+
+                </div>
+            </div>
+
+
+
+            <!-- bootstrap JS -->
+            <script src="assets/plugins/bootstrap-4.0.0-dist/js/bootstrap.min.js"></script>
+            <script src="assets/javascript/settings.js"></script>
+</body>
+
+</html>
