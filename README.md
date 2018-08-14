@@ -2,8 +2,15 @@
 
 Git Hub:    https://github.com/Brobert48/Project_1.git
 
-Firebase:   https://project-1-firebase-1b2fb.firebaseio.com
+Firebase:   Weather Widget Firebase
+            https://project-1-firebase-1b2fb.firebaseio.com
             project-1-firebase-1b2fb
+            Stock Ticker Firebase
+            asdf
+            asdf
+            Login Credentials Firebase
+            asdf
+            asdf
 
 Coding Requirements:
     • Must use at least two APIs
