@@ -46,4 +46,13 @@ this app shows the latest stock price
             </div>
         </div>
 
-- 
+------------------------------
+
+8/14 to do
+
+add a menu button to the widget
+    - this button will open a search to add new tickers
+
+move the refresh div to the left
+
+add the change amout to the stock price
