@@ -78,8 +78,8 @@ $(document).ready( function() {
         // displayCurrentWeather();
         console.log("Now previousCallTime is: " + previousCallTime);
         $("#weather-card-text").text("Last API call time was: " + previousCallTime);
+        displayCurrentWeather();
     });
-    displayCurrentWeather();
 });
 
 // link weather API call to button click for control purposes
@@ -131,6 +131,7 @@ $(document).on("click", "#weather-button", function () {
             });
             //updated display of last call time
             $("#weather-card-text").text("Last API call time was: " + previousCallTime);
+            displayCurrentWeather();
         });
     }  
 });
@@ -182,6 +183,7 @@ $(document).on("click", "#five-day-weather-button", function () {
             });
             //updated display of last call time
             $("#weather-card-text").text("Last API call time was: " + previousCallTime);
+            displayCurrentWeather();
         });
     }  
 });
@@ -203,6 +205,12 @@ function displayCurrentWeather() {
         console.log("Description: " + description);
         console.log("Icon code: " + iconCode);
         console.log("Wind speed: " + windSpeed);
+        // var weatherDescription = $("<p>");
+        // weatherDescription.attr("class", "card-text")
+        // weatherDescription.attr("id", "weather-card-description");
+        // weatherDescription.text("Prevailing condition: " + description);
+        // console.log(weatherDescription.text);
+        // $("weather-card-text").append(weatherDescription);
         $("#weather-card-img").attr("src", "http://openweathermap.org/img/w/" + iconCode +".png");
     });
 }
