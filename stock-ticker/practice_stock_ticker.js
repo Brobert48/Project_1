@@ -46,7 +46,11 @@ $("#submit-stock").on("click", function(event) {
         symbolArray.splice(3, 1,);
     };
 
-    database.ref("/user").child("stock").update({
+    // pushing the new array to the database 
+
+
+
+database.ref("/users").child(firebase.auth().currentUser.uid).child("widgets").child("notes").child("stocks").update({
         "stocksArray":symbolArray,
       });
 
@@ -100,14 +104,19 @@ function getData(symbol, i) {
 };
 
 
+
+
+
+
 // function to call the ajax with each index of the array
 function putOnPage() {
     $("#stock-1-data").empty();
-    database.ref("/clicks").on("value", function(snapshot) {
+    database.ref("/users").child(firebase.auth().currentUser.uid).child("widgets").child("notes").child("stocks").on("value", function (snapshot) {
 
         var arrayFromDatabase = [];
         console.log(snapshot.val());
-        arrayFromDatabase = snapshot.val() 
+        arrayFromDatabase = snapshot.val().stocksArray;
+        console.log(arrayFromDatabase);
       
        
       }, function(errorObject) {
