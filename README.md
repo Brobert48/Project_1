@@ -2,28 +2,23 @@
 
 Git Hub:    https://github.com/Brobert48/Project_1.git
 
-Firebase:   Weather Widget Firebase
+Firebase:   Weather Widget Firebase,
+            Stock Ticker Firebase,
+            Login Credentials Firebase
             https://project-1-firebase-1b2fb.firebaseio.com
             project-1-firebase-1b2fb
-            Stock Ticker Firebase
-            asdf
-            asdf
-            Login Credentials Firebase
-            asdf
-            asdf
 
 Coding Requirements:
     • Must use at least two APIs
-        -  ⃠ 
-        - not yet implemented
-        1. https://openweathermap.org/api
-        2. (traffic, horoscope, etc.)
+        - ✓
+        1. weather - https://openweathermap.org/api
+        2. stock ticker - 
     • Must use AJAX to pull data
         - ✓
     • Must utilize at least one new library or technology that we haven’t discussed
-        -  ⃠ 
-        - not yet implemented
-        1. (that thing that lets us click and drag widgets right on the page)
+        - ✓
+        1. gridstack
+
     • Must have a polished frontend / UI
         -  ⃠ 
         - looks great already, but not yet polished
@@ -34,7 +29,9 @@ Coding Requirements:
         - ✓
     • Must have some sort of repeating element (table, columns, etc)
         -  ⃠ 
-        - not yet implemented
+        - to-do list planned
+        - stock ticker?
+        - does widget area count?
     • Must use Bootstrap or Alternative CSS Framework
         - ✓
         - Bootstrap
@@ -42,15 +39,14 @@ Coding Requirements:
         -  ⃠ 
         - not yet deployed
     • Must have User Input Validation
-        -  ⃠ 
-        - not yet implemented
+        - ✓
 
 Widget list
     • Weather (in progress)
     • Horoscope (in progress)
     • Traffic (planned)
     • To-do list (in progress)
-    • 
+    • Stock ticker
     • 
     • 
 

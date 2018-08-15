@@ -25,13 +25,15 @@ From website:
 */
 
 //var location = city + "," + country;
+var globalUID;
+var zip;
 var city = "Concord";
 var country = "us";
 var currentURL;
 var forecastURL;
 var previousCallTime = "2018-08-11 11:00:00";       // pull from firebase on page load
 var currentWeatherCallData = "nothing yet";         // store the API call here
-var fiveDayForecastCallData = "nothing yet";
+var fiveDayForecastCallData = "nothing yet";        // store the API call here
 
 var timeFormat = "YYYY-MM-DD HH:mm:ss";
 
@@ -40,18 +42,23 @@ var timeFormat = "YYYY-MM-DD HH:mm:ss";
 // example: api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=0c44f3ccfc31563e53f247c356d15c09
 // metric: units=metric
 // imperial: units=imperial
-var queryCurrentWeatherURL = 
-    "http://api.openweathermap.org/data/2.5/weather?q=" + city + "," + country 
-    + "&APPID=0c44f3ccfc31563e53f247c356d15c09&units=imperial";
+// api.openweathermap.org/data/2.5/weather?zip=94040,us
+var queryCurrentWeatherURL; 
+    // "http://api.openweathermap.org/data/2.5/weather?q=" + city + "," + country 
+    // + "&APPID=0c44f3ccfc31563e53f247c356d15c09&units=imperial";
+    // "http://api.openweathermap.org/data/2.5/weather?zip=" + zip + "," + country 
+    // + "&APPID=0c44f3ccfc31563e53f247c356d15c09&units=imperial";
 
 // for 5-day forecast
-var queryFiveDayForecastURL = 
-    "http://api.openweathermap.org/data/2.5/forecast?q" + city + "," + country 
+var queryFiveDayForecastURL; 
+    // "http://api.openweathermap.org/data/2.5/forecast?q" + city + "," + country 
+    // + "&APPID=0c44f3ccfc31563e53f247c356d15c09&units=imperial";
+    "http://api.openweathermap.org/data/2.5/forecast?zip=" + zip + "," + country 
     + "&APPID=0c44f3ccfc31563e53f247c356d15c09&units=imperial";
-
 
 
 // Initialize Firebase
+// https://project-1-firebase-1b2fb.firebaseio.com
 var config = {
     apiKey: "AIzaSyCiPgGOcvsJ0Ws54KMX1p0mCia3a1hJ2UI",
     authDomain: "project-1-firebase-1b2fb.firebaseapp.com",
@@ -67,17 +74,42 @@ var connectionsRef = database.ref("/connections");
 var connectedRef = database.ref(".info/connected");
 
 
+
+function constructCurrentWeatherURL() {
+    queryCurrentWeatherURL = 
+    "http://api.openweathermap.org/data/2.5/weather?zip=" + zip + "," + country 
+    + "&APPID=0c44f3ccfc31563e53f247c356d15c09&units=imperial";
+}
+
+function constructFiveDayWeatherURL() {
+    queryFiveDayForecastURL = 
+    "http://api.openweathermap.org/data/2.5/forecast?zip=" + zip + "," + country 
+    + "&APPID=0c44f3ccfc31563e53f247c356d15c09&units=imperial";
+}
+
 //pull data from firebase on page load
 $(document).ready( function() {
     console.log("previousCallTime is: " + previousCallTime);
     database.ref().once("value").then(function(childSnap) {
+        var uid = firebase.auth().currentUser.uid;
+        globalUID = uid;
+        console.log("Page load, uid is: " + uid);
+    
         // pull last API call time from firebase
-        previousCallTime = childSnap.child("Weather").child("firebaseLastWeatherCallTime").val();
+        //database.ref().child("users").child(uid).child("widgets").child("weather").child("data").val();
+        previousCallTime = childSnap.child("users").child(uid).child("widgets").child("weather").child("data").child("firebaseLastWeatherCallTime").val();
         // pull weather data from firebase
         // currentWeatherCallData = childSnap.val().firebaseWeatherAPIData;
         // displayCurrentWeather();
         console.log("Now previousCallTime is: " + previousCallTime);
         $("#weather-card-text").text("Last API call time was: " + previousCallTime);
+        console.log("Zip code was: " + zip);
+        zip = childSnap.child("users").child(uid).child("zip").val();
+        console.log("Zip code is: " + zip);
+        constructCurrentWeatherURL();
+        console.log(queryCurrentWeatherURL);
+        constructFiveDayWeatherURL();
+        console.log(queryFiveDayForecastURL);
         displayCurrentWeather();
     });
 });
@@ -88,6 +120,10 @@ $(document).ready( function() {
 // <!><!><!>
 $(document).on("click", "#weather-button", function () {
     console.log("Clicked 'Make Weather API Request'.");
+    // sets local uid to the current user's uid stored in globalUID
+    var uid = globalUID;
+    // var uid = firebase.auth().currentUser.uid;
+    console.log("Clicked 'Make Weather API Request', uid is: " + uid);
     // record current time
     var currentTime = moment();
     // set recorded current time to desired format
@@ -125,7 +161,7 @@ $(document).on("click", "#weather-button", function () {
             console.log("----------------------------------------");
             // send response data to Firebase
             // (will be able to read from Firebase as often as we like, since we can only call from the API once every 10 minutes)
-            database.ref("/Weather").set({
+            database.ref().child("users").child(uid).child("widgets").child("weather").child("data").set({
                 firebaseLastWeatherCallTime: adjustedTime,      
                 firebaseWeatherAPIData: currentWeatherCallData         
             });
@@ -138,6 +174,36 @@ $(document).on("click", "#weather-button", function () {
 
 
 
+// rework for weather folder placed in UID stuff
+/*
+Firebase Project-1
+    users
+        (user-id)
+            widgets
+                news
+                notes
+                stocks
+                todo
+                weather
+                    active
+                    data
+                        firebaseLastWeatherCallTime
+                        firebaseWeatherAPIData
+                        firebaseFiveDayAPIData
+
+var uid = firebase.auth().currentUser.uid;
+
+database.ref().child("users").child(uid).child("widgets").child("weather").child("data").set({
+    firebaseLastWeatherCallTime: adjustedTime,
+    firebaseWeatherAPIData: currentWeatherCallData,
+    firebaseFiveDayAPIData: fiveDayForecastCallData
+})
+*/
+
+
+
+// Five Day Forecast Functionality
+/*
 $(document).on("click", "#five-day-weather-button", function () {
     console.log("Clicked 'Make Five Day Weather API Request'.");
     // record current time
@@ -187,18 +253,20 @@ $(document).on("click", "#five-day-weather-button", function () {
         });
     }  
 });
+*/
 
 
-
+// Call this to update the weather widget with the correct data.
 function displayCurrentWeather() {
     database.ref().once("value").then(function(childSnap) {
-        var temperature = childSnap.child("Weather").child("firebaseWeatherAPIData").child("main").child("temp").val();
-        var clouds = childSnap.child("Weather").child("firebaseWeatherAPIData").child("clouds").child("all").val();
-        // var rain = 0;
-        var conditions = childSnap.child("Weather").child("firebaseWeatherAPIData").child("weather").child("0").child("main").val();
-        var description = childSnap.child("Weather").child("firebaseWeatherAPIData").child("weather").child("0").child("description").val();
-        var iconCode = childSnap.child("Weather").child("firebaseWeatherAPIData").child("weather").child("0").child("icon").val();
-        var windSpeed = childSnap.child("Weather").child("firebaseWeatherAPIData").child("wind").child("speed").val();
+        var uid = firebase.auth().currentUser.uid;
+        var temperature = childSnap.child("users").child(uid).child("widgets").child("weather").child("data").child("firebaseWeatherAPIData").child("main").child("temp").val();
+        var clouds = childSnap.child("users").child(uid).child("widgets").child("weather").child("data").child("firebaseWeatherAPIData").child("clouds").child("all").val();
+        var conditions = childSnap.child("users").child(uid).child("widgets").child("weather").child("data").child("firebaseWeatherAPIData").child("weather").child("0").child("main").val();
+        var description = childSnap.child("users").child(uid).child("widgets").child("weather").child("data").child("firebaseWeatherAPIData").child("weather").child("0").child("description").val();
+        var iconCode = childSnap.child("users").child(uid).child("widgets").child("weather").child("data").child("firebaseWeatherAPIData").child("weather").child("0").child("icon").val();
+        var windSpeed = childSnap.child("users").child(uid).child("widgets").child("weather").child("data").child("firebaseWeatherAPIData").child("wind").child("speed").val();
+
         console.log("Temperature: " + temperature);
         console.log("Clouds: " + clouds);
         console.log("Conditions: " + conditions);
@@ -212,6 +280,8 @@ function displayCurrentWeather() {
         // console.log(weatherDescription.text);
         // $("weather-card-text").append(weatherDescription);
         $("#weather-card-img").attr("src", "http://openweathermap.org/img/w/" + iconCode +".png");
+        $("#weather-card-text").append("Temperature: " + temperature + "°.");
+
     });
 }
 
