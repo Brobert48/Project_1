@@ -74,8 +74,6 @@ firebase.auth().onAuthStateChanged(function (user) {
     // weatherOBJ
     var weatherApp = {
       name: "weather",
-      text1: 'todays weather highlights',
-      text2: 'Full Weather',
       width: 2,
       height: 4,
       template: `<div class="card float-left">
