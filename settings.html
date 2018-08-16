@@ -12,158 +12,146 @@
     <!-- Firebase -->
     <script src="https://www.gstatic.com/firebasejs/5.3.1/firebase.js"></script>
     <!-- JQWidgets -->
-    
+
     <title>Settings</title>
 
-    
-    
+
+
 </head>
 
 <body>
-        <body style="margin: 0px; padding: 0px;">
-                <div class="container-fluid p-0">
-                    <div class="row" id="header">
-                        <div class="col">
-                            <div class="jumbotron jumbotron-fluid mb-0">
-                                <div class="container">
-                                    <h1 class="display-4">Settings</h1>
-                                    <p class="lead">(Variable sentance based on the Day/time)</p>
-                                </div>
-                            </div>
+
+    <body style="margin: 0px; padding: 0px;">
+        <div class="container-fluid p-0">
+            <div class="row" id="header">
+                <div class="col">
+                    <div class="jumbotron jumbotron-fluid mb-0">
+                        <div class="container">
+                            <h1 class="display-4">Settings</h1>
+                            <p class="lead">(Variable sentance based on the Day/time)</p>
                         </div>
                     </div>
                 </div>
-                <div class="container-fluid">
-                    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-2">
-                        <a class="navbar-brand" href="#">
-                            <img src="assets/images/brandLogo.png" width="30" height="30" class="d-inline-block align-top mr-1" alt="">Sweet Awesome App</a>
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-                            aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <div class="collapse navbar-collapse" id="navbarNav">
-                            <ul class="navbar-nav">
-                            </ul>
-                        </div>
-                    </nav>
-                    <div class="row">
-                        <div class="col-10">
-                            <div class="grid-stack" id="widgetArea">
-                                    <div class="container-fluid">
-                                            <div class="row">
-                                                <div class="col"></div>
-                                                <div class="col">
-                                                    <form id="testForm" action="./">
-                                                        <table class="register-table">
-                                                            <tr>
-                                                                <td>First Name:</td>
-                                                                <td>
-                                                                    <input type="text" id="fNameInput" class="text-input" />
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Last Name:</td>
-                                                                <td>
-                                                                    <input type="text" id="lNameInput" class="text-input" />
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Location</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td> City: </td>
-                                                                <td> State: </td>
-                                                                <td> Zip Code: </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>
-                                                                    <input type="text" id="cityInput" class="text-input" />
-                                                                </td>
-                                                                <td>
-                                                                    <input type="text" id="stateInput" class="text-input" />
-                                                                </td>
-                                                                <td>
-                                                                    <input type="text" id="zipInput" class="text-input" />
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                Widgets:
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Stocks:</td>
-                                                                <td><div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                                                        <label class="btn btn-secondary">
-                                                                          <input type="radio" name="stocks" id="stocksON" value="on" autocomplete="off"> ON
-                                                                        </label>
-                                                                        <label class="btn btn-secondary">
-                                                                          <input type="radio" name="stocks" id="stocksOFF" value="off" autocomplete="off"> OFF
-                                                                        </label></td>
-                                                            </tr>
-                                                            <tr>
-                                                                    <td>Weather:</td>
-                                                                    <td><div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                                                            <label class="btn btn-secondary">
-                                                                              <input type="radio" name="weather" id="weatherON" value="on" autocomplete="off"> ON
-                                                                            </label>
-                                                                            <label class="btn btn-secondary">
-                                                                              <input type="radio" name="weather" id="weatherOFF" value="off" autocomplete="off"> OFF
-                                                                            </label></td>
-                                                                </tr>
-                                                                <tr>
-                                                                        <td>Notes:</td>
-                                                                        <td><div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                                                                <label class="btn btn-secondary">
-                                                                                  <input type="radio" name="notes" id="notesON" value="on" autocomplete="off"> ON
-                                                                                </label>
-                                                                                <label class="btn btn-secondary">
-                                                                                  <input type="radio" name="notes" id="notesOFF" value="off" autocomplete="off"> OFF
-                                                                                </label></td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                            <td>News:</td>
-                                                                            <td><div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                                                                    <label class="btn btn-secondary">
-                                                                                      <input type="radio" name="news" id="newsON" value="on" autocomplete="off"> ON
-                                                                                    </label>
-                                                                                    <label class="btn btn-secondary">
-                                                                                      <input type="radio" name="news" id="newsOFF" value="off" autocomplete="off"> OFF
-                                                                                    </label></td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                                <td>Todo list:</td>
-                                                                                <td><div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                                                                        <label class="btn btn-secondary">
-                                                                                          <input type="radio" name="todo" id="newsON" value="on" autocomplete="off"> ON
-                                                                                        </label>
-                                                                                        <label class="btn btn-secondary">
-                                                                                          <input type="radio" name="todo" id="newsOFF" value="off" autocomplete="off"> OFF
-                                                                                        </label></td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                   <td><button type="button" id="settingSubmit" class="btn btn-Primary">Submit</button> </td>                                        </tr>
-                                    
-                                                        </table>
-                                                    </form>
-                                                </div>
-                                                
-                                    
-                                                    </div>
-                                                </div>
-                            </div>
-            
-                        </div>
-                    </div>
-                    <div class="row" id="footer">
-                        <div class="col"></div>
-                    </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-2">
+                <a class="navbar-brand" href="#">
+                    <img src="assets/images/brandLogo.png" width="30" height="30" class="d-inline-block align-top mr-1" alt="">Sweet Awesome App</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                    </ul>
                 </div>
-    
+            </nav>
+            <div class="row">
+                <div class="col-10">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <!-- <div class="col"></div> -->
+                            <div class="col">
+                                <form>
+                                    <div class="form-row">
+                                        <div class="col-md-4 mb-3">
+                                            <label for="fNameInput">First name</label>
+                                            <input type="text" class="form-control" id="fNameInput" placeholder="First name" required>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <label for="lNameInput">Last name</label>
+                                            <input type="text" class="form-control" id="lNameInput" placeholder="Last name" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col-md-6 mb-3">
+                                            <label for="cityInput">City</label>
+                                            <input type="text" class="form-control" id="cityInput" placeholder="City" required>
+                                        </div>
+                                        <div class="col-md-3 mb-3">
+                                            <label for="stateInput">State</label>
+                                            <input type="text" class="form-control" id="stateInput" placeholder="State" required>
+                                        </div>
+                                        <div class="col-md-3 mb-3">
+                                            <label for="zipInput">Zip</label>
+                                            <input type="text" class="form-control" id="zipInput" placeholder="Zip" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <label>Stocks: </label>
+                                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                            <label class="btn btn-secondary" id="stocks1">
+                                                <input type="radio" name="stocks" id="stocksON" value="on" autocomplete="off"> ON
+                                            </label>
+                                            <label class="btn btn-secondary" id="stocks2">
+                                                <input type="radio" name="stocks" id="stocksOFF" value="off" autocomplete="off"> OFF
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <label>Weather: </label>
+                                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                            <label class="btn btn-secondary" id="weather1">
+                                                <input type="radio" name="weather" id="weatherON" value="on" autocomplete="off"> ON
+                                            </label>
+                                            <label class="btn btn-secondary" id="weather2">
+                                                <input type="radio" name="weather" id="weatherOFF" value="off" autocomplete="off"> OFF
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <label>Notes: </label>
+                                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                            <label class="btn btn-secondary" id="notes1">
+                                                <input type="radio" name="notes" id="notesON" value="on" autocomplete="off"> ON
+                                            </label>
+                                            <label class="btn btn-secondary" id="notes2">
+                                                <input type="radio" name="notes" id="notesOFF" value="off" autocomplete="off"> OFF
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <label>News: </label>
+                                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                            <label class="btn btn-secondary" id="news1">
+                                                <input type="radio" name="news" id="newsON" value="on" autocomplete="off"> ON
+                                            </label>
+                                            <label class="btn btn-secondary" id="news2">
+                                                <input type="radio" name="news" id="newsOFF" value="off" autocomplete="off"> OFF
+                                            </label>
+                                        </div>
+
+                                    </div>
+                                    <div class="form-row">
+                                        <label>Todo list: </label>
+                                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                            <label class="btn btn-secondary" id="todo1">
+                                                <input type="radio" name="todo" id="todoON" value="on" autocomplete="off"> ON
+                                            </label>
+                                            <label class="btn btn-secondary" id="todo2">
+                                                <input type="radio" name="todo" id="todoOFF" value="off" autocomplete="off"> OFF
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-primary" id="settingSubmit" type="submit">Submit form</button>
+                                </form>
+
+                            </div>
+
+                        </div>
+
+                        <div class="row" id="footer">
+                            <div class="col"></div>
+                        </div>
+                    </div>
 
 
 
-            <!-- bootstrap JS -->
-            <script src="assets/plugins/bootstrap-4.0.0-dist/js/bootstrap.min.js"></script>
-            <script src="assets/javascript/settings.js"></script>
-</body>
+
+                    <!-- bootstrap JS -->
+                    <script src="assets/plugins/bootstrap-4.0.0-dist/js/bootstrap.min.js"></script>
+                    <script src="assets/javascript/settings.js"></script>
+    </body>
 
 </html>
