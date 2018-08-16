@@ -1,17 +1,40 @@
 
 
 
+var topic;
+
+$(".search-container").hide();
+
+$("#menu").on("click", function() {
+    $(".search-container").show();
+    $(".results-refresh-area").hide();
+});
+
 
 
 
 $("#submit-article").on("click", function () {
-    var topic = $("#article-search").val();
+    $(".search-container").hide();
+    $(".results-refresh-area").show();
+    topic = $("#article-search").val();
     $("#display-search-title").text(topic);
     getData(topic);
 });
 
 
+$(".refresh").on("click", function () {
+    if(!topic) {
+        alert("Use the menu to begin a search.");
+    } else {
+        $("#display-search-title").text(topic);
+        getData(topic);
+    };
+});
+
+
 function getData(topic) {
+    $("#display-results").empty();
+
     var url = "https://api.nytimes.com/svc/topstories/v2/" + topic + ".json";
     url += '?' + $.param({
         'api-key': "23586a59849d4b34bb6e7aeecae82f77"
@@ -35,7 +58,7 @@ function getData(topic) {
 
             // title div with modal onclick
             var modalDiv = $("<div>");
-            modalDiv.text(title);
+            modalDiv.text("¶ " +title);
             modalDiv.addClass("modal-area");
             modalDiv.attr("id", "show-article");
             modalDiv.attr("data-toggle", "modal");
