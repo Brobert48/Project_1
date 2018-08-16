@@ -24,9 +24,10 @@ let timeout= function() {
                 document.createTextNode(`${message.sender.name}: ${message.text}`)
               );
               ul.appendChild(li);
+              scrollSmoothToBottom();
             }
           },
-          messageLimit: 20,
+          messageLimit: 10,
         });
         console.log(currentUser);
 
@@ -44,9 +45,7 @@ let timeout= function() {
       .catch(error => {
         console.error("error:", error);
       });
-    //   var element = document.getElementById("message-list");
-    // element.scrollTop = element.scrollHeight;
-    setTimeout(scrollSmoothToBottom,1000)
+  
 }
 function scrollSmoothToBottom () {
     var div = document.getElementById('message-list');
