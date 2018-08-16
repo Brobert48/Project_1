@@ -20,117 +20,144 @@
 </head>
 
 <body>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col"></div>
-            <div class="col">
-                <form id="testForm" action="./">
-                    <table class="register-table">
-                        <tr>
-                            <td>First Name:</td>
-                            <td>
-                                <input type="text" id="fNameInput" class="text-input" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Last Name:</td>
-                            <td>
-                                <input type="text" id="lNameInput" class="text-input" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Location</td>
-                        </tr>
-                        <tr>
-                            <td> City: </td>
-                            <td> State: </td>
-                            <td> Zip Code: </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input type="text" id="cityInput" class="text-input" />
-                            </td>
-                            <td>
-                                <input type="text" id="stateInput" class="text-input" />
-                            </td>
-                            <td>
-                                <input type="text" id="zipInput" class="text-input" />
-                            </td>
-                        </tr>
-                        <tr>
-                            Widgets:
-                        </tr>
-                        <tr>
-                            <td>Stocks:</td>
-                            <td><div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                    <label class="btn btn-secondary">
-                                      <input type="radio" name="stocks" id="stocksON" value="on" autocomplete="off"> ON
-                                    </label>
-                                    <label class="btn btn-secondary">
-                                      <input type="radio" name="stocks" id="stocksOFF" value="off" autocomplete="off"> OFF
-                                    </label></td>
-                        </tr>
-                        <tr>
-                                <td>Weather:</td>
-                                <td><div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                        <label class="btn btn-secondary">
-                                          <input type="radio" name="weather" id="weatherON" value="on" autocomplete="off"> ON
-                                        </label>
-                                        <label class="btn btn-secondary">
-                                          <input type="radio" name="weather" id="weatherOFF" value="off" autocomplete="off"> OFF
-                                        </label></td>
-                            </tr>
-                            <tr>
-                                    <td>Notes:</td>
-                                    <td><div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                            <label class="btn btn-secondary">
-                                              <input type="radio" name="notes" id="notesON" value="on" autocomplete="off"> ON
-                                            </label>
-                                            <label class="btn btn-secondary">
-                                              <input type="radio" name="notes" id="notesOFF" value="off" autocomplete="off"> OFF
-                                            </label></td>
-                                </tr>
-                                <tr>
-                                        <td>News:</td>
-                                        <td><div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                                <label class="btn btn-secondary">
-                                                  <input type="radio" name="news" id="newsON" value="on" autocomplete="off"> ON
-                                                </label>
-                                                <label class="btn btn-secondary">
-                                                  <input type="radio" name="news" id="newsOFF" value="off" autocomplete="off"> OFF
-                                                </label></td>
-                                    </tr>
-                                    <tr>
-                                            <td>Todo list:</td>
-                                            <td><div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                                    <label class="btn btn-secondary">
-                                                      <input type="radio" name="todo" id="newsON" value="on" autocomplete="off"> ON
-                                                    </label>
-                                                    <label class="btn btn-secondary">
-                                                      <input type="radio" name="todo" id="newsOFF" value="off" autocomplete="off"> OFF
-                                                    </label></td>
-                                        </tr>
-                                        <tr>
-                                               <td><button type="button" id="settingSubmit" class="btn btn-Primary">Submit</button> </td>                                        </tr>
-
-                    </table>
-                </form>
-            </div>
-            <div class="col"></div>
-            <div class="col"></div>
-            <div class="row">
-                <div class="col"></div>
-                <div class="col"></div>
-                <div class="col"></div>
-                <div class="col"></div>
-                <div class="row">
-                    <div class="col"></div>
-                    <div class="col"></div>
-                    <div class="col"></div>
-                    <div class="col"></div>
-
+        <body style="margin: 0px; padding: 0px;">
+                <div class="container-fluid p-0">
+                    <div class="row" id="header">
+                        <div class="col">
+                            <div class="jumbotron jumbotron-fluid mb-0">
+                                <div class="container">
+                                    <h1 class="display-4">Settings</h1>
+                                    <p class="lead">(Variable sentance based on the Day/time)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
+                <div class="container-fluid">
+                    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-2">
+                        <a class="navbar-brand" href="#">
+                            <img src="assets/images/brandLogo.png" width="30" height="30" class="d-inline-block align-top mr-1" alt="">Sweet Awesome App</a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="navbar-nav">
+                            </ul>
+                        </div>
+                    </nav>
+                    <div class="row">
+                        <div class="col-10">
+                            <div class="grid-stack" id="widgetArea">
+                                    <div class="container-fluid">
+                                            <div class="row">
+                                                <div class="col"></div>
+                                                <div class="col">
+                                                    <form id="testForm" action="./">
+                                                        <table class="register-table">
+                                                            <tr>
+                                                                <td>First Name:</td>
+                                                                <td>
+                                                                    <input type="text" id="fNameInput" class="text-input" />
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Last Name:</td>
+                                                                <td>
+                                                                    <input type="text" id="lNameInput" class="text-input" />
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Location</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td> City: </td>
+                                                                <td> State: </td>
+                                                                <td> Zip Code: </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    <input type="text" id="cityInput" class="text-input" />
+                                                                </td>
+                                                                <td>
+                                                                    <input type="text" id="stateInput" class="text-input" />
+                                                                </td>
+                                                                <td>
+                                                                    <input type="text" id="zipInput" class="text-input" />
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                Widgets:
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Stocks:</td>
+                                                                <td><div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                                                        <label class="btn btn-secondary">
+                                                                          <input type="radio" name="stocks" id="stocksON" value="on" autocomplete="off"> ON
+                                                                        </label>
+                                                                        <label class="btn btn-secondary">
+                                                                          <input type="radio" name="stocks" id="stocksOFF" value="off" autocomplete="off"> OFF
+                                                                        </label></td>
+                                                            </tr>
+                                                            <tr>
+                                                                    <td>Weather:</td>
+                                                                    <td><div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                                                            <label class="btn btn-secondary">
+                                                                              <input type="radio" name="weather" id="weatherON" value="on" autocomplete="off"> ON
+                                                                            </label>
+                                                                            <label class="btn btn-secondary">
+                                                                              <input type="radio" name="weather" id="weatherOFF" value="off" autocomplete="off"> OFF
+                                                                            </label></td>
+                                                                </tr>
+                                                                <tr>
+                                                                        <td>Notes:</td>
+                                                                        <td><div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                                                                <label class="btn btn-secondary">
+                                                                                  <input type="radio" name="notes" id="notesON" value="on" autocomplete="off"> ON
+                                                                                </label>
+                                                                                <label class="btn btn-secondary">
+                                                                                  <input type="radio" name="notes" id="notesOFF" value="off" autocomplete="off"> OFF
+                                                                                </label></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                            <td>News:</td>
+                                                                            <td><div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                                                                    <label class="btn btn-secondary">
+                                                                                      <input type="radio" name="news" id="newsON" value="on" autocomplete="off"> ON
+                                                                                    </label>
+                                                                                    <label class="btn btn-secondary">
+                                                                                      <input type="radio" name="news" id="newsOFF" value="off" autocomplete="off"> OFF
+                                                                                    </label></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                                <td>Todo list:</td>
+                                                                                <td><div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                                                                        <label class="btn btn-secondary">
+                                                                                          <input type="radio" name="todo" id="newsON" value="on" autocomplete="off"> ON
+                                                                                        </label>
+                                                                                        <label class="btn btn-secondary">
+                                                                                          <input type="radio" name="todo" id="newsOFF" value="off" autocomplete="off"> OFF
+                                                                                        </label></td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                   <td><button type="button" id="settingSubmit" class="btn btn-Primary">Submit</button> </td>                                        </tr>
+                                    
+                                                        </table>
+                                                    </form>
+                                                </div>
+                                                
+                                    
+                                                    </div>
+                                                </div>
+                            </div>
+            
+                        </div>
+                    </div>
+                    <div class="row" id="footer">
+                        <div class="col"></div>
+                    </div>
+                </div>
+    
 
 
 
