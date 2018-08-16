@@ -70,6 +70,10 @@ var queryFiveDayForecastURL;
 //     messagingSenderId: "693404188715"
 // };
 // firebase.initializeApp(config);
+<<<<<<< HEAD
+=======
+
+>>>>>>> f9d4b6c7a249ae67bedc64a92f98f9476e360b66
 var database = firebase.database();
 // var connectionsRef = database.ref("/connections");
 // var connectedRef = database.ref(".info/connected");

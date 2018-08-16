@@ -16,20 +16,22 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.5.0/lodash.min.js"></script>
     <script src="assets/plugins/gridstack.js/dist/gridstack.js"></script>
     <script src="assets/plugins/gridstack.js/dist/gridstack.jQueryUI.js"></script>
+    <!-- News CSS -->
+    <!-- <link rel="stylesheet" href="top_news/top_news.css"> -->
     <!-- Firebase -->
     <script src="https://www.gstatic.com/firebasejs/5.3.1/firebase.js"></script>
     <!-- MomentJS -->
     <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
     <script>
-    var config = {
-    apiKey: "AIzaSyCiPgGOcvsJ0Ws54KMX1p0mCia3a1hJ2UI",
-    authDomain: "project-1-firebase-1b2fb.firebaseapp.com",
-    databaseURL: "https://project-1-firebase-1b2fb.firebaseio.com",
-    projectId: "project-1-firebase-1b2fb",
-    storageBucket: "",
-    messagingSenderId: "693404188715"
-};
-firebase.initializeApp(config);</script>
+        var config = {
+            apiKey: "AIzaSyCiPgGOcvsJ0Ws54KMX1p0mCia3a1hJ2UI",
+            authDomain: "project-1-firebase-1b2fb.firebaseapp.com",
+            databaseURL: "https://project-1-firebase-1b2fb.firebaseio.com",
+            projectId: "project-1-firebase-1b2fb",
+            storageBucket: "",
+            messagingSenderId: "693404188715"
+        };
+        firebase.initializeApp(config);</script>
     <!-- gridstack config -->
     <style type="text/css">
         .grid-stack {
@@ -60,7 +62,7 @@ firebase.initializeApp(config);</script>
             </div>
         </div>
     </div>
-    <div class="container-fluid p-0">
+    <div class="container-fluid">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-2">
             <a class="navbar-brand" href="#">
                 <img src="assets/images/brandLogo.png" width="30" height="30" class="d-inline-block align-top mr-1" alt="">Sweet Awesome App</a>
@@ -74,23 +76,29 @@ firebase.initializeApp(config);</script>
             </div>
         </nav>
         <div class="row">
-            <div class="col-10" id="widgetArea">
-                    </div>
-                </div>
-                <div class="row" id="footer">
-                    <div class="col"></div>
-                </div>
-            </div>
-            <!-- widget javascript files -->
-            <script type="text/javascript" src="assets\javascript\horoscope.js"></script>
-            <script type="text/javascript" src="weather\weather.js"></script>
+            <div class="col-10">
+                <div class="grid-stack" id="widgetArea">
 
-            <!-- bootstrap JS -->
-            <script src="assets/plugins/bootstrap-4.0.0-dist/js/bootstrap.min.js"></script>
-            <!-- stock ticker -->
-            <script src="stock-ticker/stock_ticker.js"></script>
-            <!-- logic JS -->
-            <script src="assets/javascript/logic.js"></script>
+                </div>
+
+            </div>
+        </div>
+        <div class="row" id="footer">
+            <div class="col"></div>
+        </div>
+    </div>
+    <!-- widget javascript files -->
+    <script type="text/javascript" src="assets\javascript\horoscope.js"></script>
+    <script type="text/javascript" src="weather\weather.js"></script>
+
+    <!-- bootstrap JS -->
+    <script src="assets/plugins/bootstrap-4.0.0-dist/js/bootstrap.min.js"></script>
+    <!-- stock ticker -->
+    <script src="stock-ticker/stock_ticker.js"></script>
+    <!-- logic JS -->
+    <script src="assets/javascript/logic.js"></script>
+    <!-- News JS -->
+    <script src="top_news/top_news.js"></script>
 </body>
 
 </html>
