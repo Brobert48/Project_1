@@ -21,15 +21,15 @@
     <!-- MomentJS -->
     <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
     <script>
-    var config = {
-    apiKey: "AIzaSyCiPgGOcvsJ0Ws54KMX1p0mCia3a1hJ2UI",
-    authDomain: "project-1-firebase-1b2fb.firebaseapp.com",
-    databaseURL: "https://project-1-firebase-1b2fb.firebaseio.com",
-    projectId: "project-1-firebase-1b2fb",
-    storageBucket: "",
-    messagingSenderId: "693404188715"
-};
-firebase.initializeApp(config);</script>
+        var config = {
+            apiKey: "AIzaSyCiPgGOcvsJ0Ws54KMX1p0mCia3a1hJ2UI",
+            authDomain: "project-1-firebase-1b2fb.firebaseapp.com",
+            databaseURL: "https://project-1-firebase-1b2fb.firebaseio.com",
+            projectId: "project-1-firebase-1b2fb",
+            storageBucket: "",
+            messagingSenderId: "693404188715"
+        };
+        firebase.initializeApp(config);</script>
     <!-- gridstack config -->
     <style type="text/css">
         .grid-stack {
@@ -74,23 +74,27 @@ firebase.initializeApp(config);</script>
             </div>
         </nav>
         <div class="row">
-            <div class="col-10" id="widgetArea">
-                    </div>
-                </div>
-                <div class="row" id="footer">
-                    <div class="col"></div>
-                </div>
-            </div>
-            <!-- widget javascript files -->
-            <script type="text/javascript" src="assets\javascript\horoscope.js"></script>
-            <script type="text/javascript" src="weather\weather.js"></script>
+            <div class="col-10">
+                <div class="grid-stack" id="widgetArea">
 
-            <!-- bootstrap JS -->
-            <script src="assets/plugins/bootstrap-4.0.0-dist/js/bootstrap.min.js"></script>
-            <!-- stock ticker -->
-            <script src="stock-ticker/stock_ticker.js"></script>
-            <!-- logic JS -->
-            <script src="assets/javascript/logic.js"></script>
+                </div>
+
+            </div>
+        </div>
+        <div class="row" id="footer">
+            <div class="col"></div>
+        </div>
+    </div>
+    <!-- widget javascript files -->
+    <script type="text/javascript" src="assets\javascript\horoscope.js"></script>
+    <script type="text/javascript" src="weather\weather.js"></script>
+
+    <!-- bootstrap JS -->
+    <script src="assets/plugins/bootstrap-4.0.0-dist/js/bootstrap.min.js"></script>
+    <!-- stock ticker -->
+    <script src="stock-ticker/stock_ticker.js"></script>
+    <!-- logic JS -->
+    <script src="assets/javascript/logic.js"></script>
 </body>
 
 </html>
