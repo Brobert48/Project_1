@@ -1,7 +1,21 @@
 
 
+ var config = {
+    apiKey: "AIzaSyCiPgGOcvsJ0Ws54KMX1p0mCia3a1hJ2UI",
+    authDomain: "project-1-firebase-1b2fb.firebaseapp.com",
+    databaseURL: "https://project-1-firebase-1b2fb.firebaseio.com",
+    projectId: "project-1-firebase-1b2fb",
+    storageBucket: "project-1-firebase-1b2fb.appspot.com",
+    messagingSenderId: "693404188715"
+};
 
-var topic;
+
+firebase.initializeApp(config);
+
+
+var database = firebase.database();
+
+
 
 $(".search-container").hide();
 
@@ -10,15 +24,44 @@ $("#menu").on("click", function() {
     $(".results-refresh-area").hide();
 });
 
+function pushToDatabase(topic) {
+    database.ref("/users").child(firebase.auth().currentUser.uid).child("widgets").child("news").child("topic").update({
+        "category":topic,
+    }); // end of push to database
+
+    getFromDatabase();
+};
+
+// get the category keyword from the database, then calls the api function
+function getFromDatabase() {
+    database.ref("/users").child(firebase.auth().currentUser.uid).child("widgets").child("news").once("value", function (snapshot) {
+        console.log(snapshot.child("topic").exists());
+      
+        if (snapshot.child("topic").exists()) {
+            console.log(snapshot.val().topic.category);
+            var topicFromDatabase = snapshot.val().topic.category;
+            getData(topicFromDatabase);
+
+        } else {
+            return;
+        };
+    });
+};
+
+// puts the stories on the page on load
+setTimeout(getFromDatabase, 1000);
 
 
 
 $("#submit-article").on("click", function () {
+    var topic;
     $(".search-container").hide();
     $(".results-refresh-area").show();
     topic = $("#article-search").val();
     $("#display-search-title").text(topic);
-    getData(topic);
+    pushToDatabase(topic);
+
+    // getData(topic);
 });
 
 
@@ -49,12 +92,18 @@ function getData(topic) {
         for (var i = 0; i < 3; i++) {
 
             var abstract = (result.results[i].abstract);
-            var date = (result.results[i].published_date);
+            // var date = (result.results[i].published_date);
+            var date = moment(result.results[i].published_date);
+            date.format("MM/DD/YYYY hh:mm a");
             var image = (result.results[i].multimedia[0].url);
             var author = (result.results[i].byline);
             var title = result.results[i].title;
             var link = result.results[i].url;
             console.log("this is image: " + image);
+
+           
+
+    
 
             // title div with modal onclick
             var modalDiv = $("<div>");
