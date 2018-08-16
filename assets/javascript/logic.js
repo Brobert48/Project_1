@@ -271,9 +271,21 @@ firebase.auth().onAuthStateChanged(function (user) {
       <div class="col-xs-1"></div>
   </div>`
     }
+    var chatApp= {
+        name: "chat",
+        height: 3,
+        width: 3,
+        template:`<ul style="height:200px;width:300px;border:1px solid #ccc;font:16px/26px Georgia, Garamond, Serif;overflow:auto;" id="message-list"></ul>
+        <form id="message-form">
+          <input type='text' id='message-text'>
+          <input type="submit">
+        </form>`
+    }
 
     database.ref().once('value').then(function (childsnap) {
-      // weather check
+        populateWidgets(chatApp.name, chatApp.width, chatApp.height, currentx, chatApp.template);
+      
+        // weather check
       if (childsnap.child('users').child(uid).child('widgets').child('weather').child('active').val() === "on") {
         populateWidgets(weatherApp.name, weatherApp.width, weatherApp.height, currentx, weatherApp.template);
       }
