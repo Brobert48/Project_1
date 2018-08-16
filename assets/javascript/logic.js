@@ -10,27 +10,9 @@ firebase.auth().onAuthStateChanged(function (user) {
     var todayA = $('<a>');
     todayA.attr('class', 'nav-link')
       .attr('href', 'index.html')
-      .text('Today');
+      .text('Home');
     todayLi.append(todayA);
     targetDiv.append(todayLi);
-    // Week navbar link
-    var weekLi = $('<li>');
-    weekLi.attr('class', 'nav-item');
-    var weekA = $('<a>');
-    weekA.attr('class', 'nav-link')
-      .attr('href', '#')
-      .text('Week Ahead');
-    weekLi.append(weekA);
-    targetDiv.append(weekLi);
-    // Calender navbar link
-    var calenderLi = $('<li>');
-    calenderLi.attr('class', 'nav-item');
-    var calenderA = $('<a>');
-    calenderA.attr('class', 'nav-link')
-      .attr('href', '#')
-      .text('Calender');
-    calenderLi.append(calenderA);
-    targetDiv.append(calenderLi);
     // Personalize navbar link
     var settingsLi = $('<li>');
     settingsLi.attr('class', 'nav-item');
@@ -271,9 +253,21 @@ firebase.auth().onAuthStateChanged(function (user) {
       <div class="col-xs-1"></div>
   </div>`
     }
+    var chatApp= {
+        name: "chat",
+        height: 3,
+        width: 3,
+        template:`<ul style="height:200px;width:300px;border:1px solid #ccc;font:16px/26px Georgia, Garamond, Serif;overflow:auto;" id="message-list"></ul>
+        <form id="message-form">
+          <input type='text' id='message-text'>
+          <input type="submit">
+        </form>`
+    }
 
     database.ref().once('value').then(function (childsnap) {
-      // weather check
+        populateWidgets(chatApp.name, chatApp.width, chatApp.height, currentx, chatApp.template);
+      
+        // weather check
       if (childsnap.child('users').child(uid).child('widgets').child('weather').child('active').val() === "on") {
         populateWidgets(weatherApp.name, weatherApp.width, weatherApp.height, currentx, weatherApp.template);
       }
