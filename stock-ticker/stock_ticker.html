@@ -12,32 +12,6 @@
 </head>
 <body>
 
-
-
-<!-- <div class="stock-input-container">
-    <div class="row">
-        <div class="col-xs-2"></div>
-        <div class="col-xs-4 text-center">
-            <div class="stock-title">
-                Enter Ticker Symbol
-            </div>
-            <div class="stock-subtitle">
-                (Max 3 Symbols)
-            </div>
-
-            <form>
-                <input type="text" id="add-stock">
-                <br>
-                <button class="btn btn-default" id="submit-stock">Add Symbol</button>
-            </form>
-        </div>
-    </div>
-</div> -->
-
-
-
-
-      
     <!-- Modal -->
     <div class="modal fade" id="stock-input-area" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -46,98 +20,57 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
-    
                     <h3 class="modal-title">Add a stock ticker symbol to your watchlist.</h3>
                     <h5 class="modal-title-sub">(Up to 5 stocks can be saved.)</h5>
-    
-    
                 </div>
                 <div class="modal-body">
                     <form>
                         <span class="text-for-input">Enter Stock Symbol Here: </span>
                         <input type="text" id="add-stock">
-    
-                    </form>
+                      </form>
                 </div>
                 <div class="modal-footer">
-                    <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
                     <button class="btn btn-default" data-dismiss="modal" id="submit-stock">Submit</button>
                 </div>
             </div>
         </div>
     </div>
-
-
-
 <!-- widget area  -->
-
 <div class="container">
     <div class="row">
-        <div class="col-xs-4"></div>
-        <div class="col-xs-4">
-
+        <div class="col-4"></div>
+        <div class="col-4">
                 <div class="stock-widget-container">
-                
-                    <!-- <div id="menu"><span class="glyphicon">&#xe236;</span></div> -->
                     <div id="menu" data-toggle="modal" data-target="#stock-input-area"><span class="glyphicon">&#xe236;</span></div>
-                
-                   
-
                     <div class="card text-center" >
-                            
                             <div class="card-body text-center">
                                 <div class="card-title">Your Favorite Stocks</div>
-
                                 <div class="card-text stock stock-0">
                                     <span id="stock-0-name"></span>
                                     <span id="stock-0-data"></span>
                                     <span id="stock-0-change"></span>
                                 </div>
-
                                 <div class="card-text stock stock-1">
                                     <span id="stock-1-name"></span>
                                     <span id="stock-1-data"></span>
                                     <span id="stock-1-change"></span>
                                 </div>
-
                                 <div class="card-text stock stock-2">
                                     <span id="stock-2-name"></span>
                                     <span id="stock-2-data"></span>
                                     <span id="stock-2-change"></span>
                                 </div>
-
-
-
                           </div>
-                
-                
                 </div>
                 <div class="refresh-area text-center" id="click-me">Click to refresh</div>
                 </div>
-
         </div>
-        <div class="col-xs-4"></div>
+        <div class="col-4"></div>
     </div>
 </div>
 
     
-<!-- <button class="btn btn-default" id="enter-new-symbol">New Search Symbol</button>
-    <br>
 
-    <div id="click-me">Click to refresh</div>
-    <br>
-
-
-   
-    <div id="stock-0-data"></div>
-    <div id="stock-0-name"></div>
-    <br>
-    <div id="stock-1-data"></div>
-    <div id="stock-1-name"></div>
-    <br>
-    <div id="stock-2-data"></div>
-    <div id="stock-2-name"></div>
-    <br> -->
 
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js'></script>
     <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>

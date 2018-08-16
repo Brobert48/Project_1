@@ -67,13 +67,25 @@ function getData(symbol, i) {
     }).then(function (response) {
         var gobal = response;
         var objectArray = Object.keys(gobal["Time Series (5min)"]);
+        // console.log(objectArray[0]);
+        // console.log(gobal["Time Series (5min)"][objectArray[0]]);
         var secondArray = Object.keys(gobal["Time Series (5min)"][objectArray[0]]);
+        // console.log(secondArray[3]);
+        // console.log(gobal["Time Series (5min)"][objectArray[0]][secondArray[3]]);
         var stockPrice = Math.round(gobal["Time Series (5min)"][objectArray[0]][secondArray[3]] * 100) / 100;
+        // console.log("this is stockPrice: " + stockPrice)
+        // var newSpan = $("<span>");
+        // // console.log("this is symbol: " + symbol);
+        // newSpan.text(symbol + ": " + stockPrice + " ");
         var openPrice = Math.round(gobal["Time Series (5min)"][objectArray[0]][secondArray[0]] * 100) /100;
+        // console.log("this is open price: " + openPrice)
+
         var priceChange = Math.round((stockPrice - openPrice) * 100) / 100;
- 
+        console.log("this is priceChange: " + priceChange);
+
         $("#stock-"+ i +"-data").text("$" +stockPrice);
         $("#stock-"+ i +"-name").text(symbol);
+
 
         if (priceChange < 0) {
             $("#stock-"+ i +"-change").css("color", "red");
@@ -83,8 +95,14 @@ function getData(symbol, i) {
 
         $("#stock-"+ i +"-change").text("$"+priceChange);
 
+        
+        
     });
 };
+
+
+
+
 
 
 // function to call the ajax with each index of the array
@@ -93,6 +111,11 @@ function getFromDatabase() {
     $("#stock-1-data").empty();
     database.ref("/users").child(firebase.auth().currentUser.uid).child("widgets").child("stocks").on("value", function (snapshot) {
 
+        
+
+
+        
+        // console.log(snapshot.val());
         arrayFromDatabase = snapshot.val().stocksArray;
         console.log(arrayFromDatabase);
 
@@ -100,9 +123,22 @@ function getFromDatabase() {
             getData(arrayFromDatabase[i], i);
         };
 
+
+
+      
+       
       }, function(errorObject) {
         console.log("The read failed: " + errorObject.code);
       });
+
+    //   console.log("this is the array:")
+    //   console.log(arrayFromDatabase)
+
+      
+
+    // for (var i = 0; i < arrayFromDatabase.length; i++) {
+    //     getData(arrayFromDatabase[i], i);
+    // };
 };
 
 
@@ -115,6 +151,7 @@ $("#click-me").on("click", function () {
 
 // call the function to put the array on the page at load
 setTimeout(getFromDatabase, 1000);
-});
+// getFromDatabase();
 
+});
 

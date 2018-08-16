@@ -10,8 +10,10 @@
         crossorigin='anonymous'>
     <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css' integrity='sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp'
         crossorigin='anonymous'>
-        <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
+
     <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
+
 
 
 
@@ -25,17 +27,15 @@
 <!-- widget card  -->
 <div class="container">
     <div class="row">
-        <div class="col-xs-3"></div>
-        <div class="col-xs-6 text-center">
+        <div class="col-3"></div>
+        <div class="col-6 text-center">
             <div class="card">
                 <div class="card-title text-center" id="search-title">Top News Stories</div>
-
                     <!-- search box popup -->
                 <div class="search-container">
                     <div class="search-title text-center">Select a search topic</div>
                         <div class="row">
-                        
-                            <div class="col-xs-6 text-center">
+                            <div class="col-6 text-center">
                                 <form id="form">
                                     <select name="search" id="article-search">
                                         <option value="world">world</option>
@@ -51,31 +51,25 @@
                                     </select>
                                 </form>
                             </div>
-                            <div class="col-xs-1"></div>
-                            <div class="col-xs-5">
+                            <div class="col-1"></div>
+                            <div class="col-5">
                                 <button class="btn btn-default" id="submit-article">Submit</button>
                             </div>
                     </div>
-                        
+                       
                 </div>
                     <!-- end of search popup -->
-
                 <div class="results-refresh-area">
                     <div class="text-center" id="display-search-title"></div>
-
                     <div class="display-top-stories" id="display-results"></div>
-
                     <div class="card-body">
                         <div class="refresh">Check for new stories</div>
-
                         <div id="menu" class="glyphicon">&#xe236;</div>
-
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
 </div>
 
 

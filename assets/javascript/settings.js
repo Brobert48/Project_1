@@ -8,9 +8,9 @@ var config = {
   };
   firebase.initializeApp(config);
   var database = firebase.database();
+  // var uid = firebase.auth().currentUser.uid;
   firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
-      var uid = firebase.auth().currentUser.uid;
       var targetDiv = $('.navbar-nav');
       // Today navbar link
       var todayLi = $('<li>');
@@ -50,11 +50,77 @@ var config = {
       logoutLi.append(logoutA);
       targetDiv.append(logoutLi);
   
+      database.ref().once('value').then(function(childsnap){
+        var storedfName = childsnap.child('users').child(firebase.auth().currentUser.uid).child('first').val();
+        var storedlName = childsnap.child('users').child(firebase.auth().currentUser.uid).child('last').val();
+        var storedCity = childsnap.child('users').child(firebase.auth().currentUser.uid).child('city').val();
+        var storedState = childsnap.child('users').child(firebase.auth().currentUser.uid).child('state').val();
+        var storedZip = childsnap.child('users').child(firebase.auth().currentUser.uid).child('zip').val();
+        var storedStocks = childsnap.child('users').child(firebase.auth().currentUser.uid).child('widgets').child('stocks').child('active').val();
+        var storedWeather = childsnap.child('users').child(firebase.auth().currentUser.uid).child('widgets').child('weather').child('active').val();
+        var storedNotes = childsnap.child('users').child(firebase.auth().currentUser.uid).child('widgets').child('notes').child('active').val();
+        var storedNews = childsnap.child('users').child(firebase.auth().currentUser.uid).child('widgets').child('news').child('active').val();
+        var storedTodo = childsnap.child('users').child(firebase.auth().currentUser.uid).child('widgets').child('todo').child('active').val();
+    
+        $('#fNameInput').val(storedfName);
+        $('#lNameInput').val(storedlName);
+        $('#cityInput').val(storedCity);
+        $('#stateInput').val(storedState);
+        $('#zipInput').val(storedZip);
+        if (storedStocks === "on"){
+          $('#stocksON').attr('checked', 'checked')
+          $('#stocks1').attr('class', 'btn btn-secondary active')
+        }
+        else{
+          $('#stocksOFF').attr('checked', 'checked')
+          $('#stocks2').attr('class', 'btn btn-secondary active')
+        }
+
+        if (storedWeather === "on"){
+          $('#weatherON').attr('checked', 'checked')
+          $('#weather1').attr('class', 'btn btn-secondary active')
+        }
+        else{
+          $('#weatherOFF').attr('checked', 'checked')
+          $('#weather2').attr('class', 'btn btn-secondary active')
+        }
+
+        if (storedNotes === "on"){
+          $('#notesON').attr('checked', 'checked')
+          $('#notes1').attr('class', 'btn btn-secondary active')
+        }
+        else{
+          $('#notesOFF').attr('checked', 'checked')
+          $('#notes2').attr('class', 'btn btn-secondary active')
+        }
+
+        if (storedNews === "on"){
+          $('#newsON').attr('checked', 'checked')
+          $('#news1').attr('class', 'btn btn-secondary active')
+        }
+        else{
+          $('#newsOFF').attr('checked', 'checked')
+          $('#news2').attr('class', 'btn btn-secondary active')
+        }
+
+        if (storedTodo === "on"){
+          $('#todoON').attr('checked', 'checked')
+          $('#todo1').attr('class', 'btn btn-secondary active')
+        }
+        else{
+          $('#todoOFF').attr('checked', 'checked')
+          $('#todo2').attr('class', 'btn btn-secondary active')
+        }
+      })
     }
     else {
       window.location = "login.html";
     }
   });
+
+
+  
+
 $('#settingSubmit').on('click',function(){
     var fName = $('#fNameInput').val();
     var lName = $('#lNameInput').val();
