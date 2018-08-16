@@ -285,6 +285,10 @@ function displayCurrentWeather() {
         
         // weather output to display on widget
         $("#weather-card-img").attr("src", "http://openweathermap.org/img/w/" + iconCode +".png");
+        $("#weather-card-img").attr("height", "50");
+        $("#weather-card-img").attr("width", "50");
+        $("#weather-card-img").attr("alt", "weather icon");
+        $("#weather-card-img").attr("class", "center");
         $("#weather-card-text").append("<br />");
         $("#weather-card-text").append("Summary: " + description);
         $("#weather-card-text").append("<br />");
