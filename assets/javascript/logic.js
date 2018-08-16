@@ -10,27 +10,9 @@ firebase.auth().onAuthStateChanged(function (user) {
     var todayA = $('<a>');
     todayA.attr('class', 'nav-link')
       .attr('href', 'index.html')
-      .text('Today');
+      .text('Home');
     todayLi.append(todayA);
     targetDiv.append(todayLi);
-    // Week navbar link
-    var weekLi = $('<li>');
-    weekLi.attr('class', 'nav-item');
-    var weekA = $('<a>');
-    weekA.attr('class', 'nav-link')
-      .attr('href', '#')
-      .text('Week Ahead');
-    weekLi.append(weekA);
-    targetDiv.append(weekLi);
-    // Calender navbar link
-    var calenderLi = $('<li>');
-    calenderLi.attr('class', 'nav-item');
-    var calenderA = $('<a>');
-    calenderA.attr('class', 'nav-link')
-      .attr('href', '#')
-      .text('Calender');
-    calenderLi.append(calenderA);
-    targetDiv.append(calenderLi);
     // Personalize navbar link
     var settingsLi = $('<li>');
     settingsLi.attr('class', 'nav-item');
