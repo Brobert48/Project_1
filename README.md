@@ -2,9 +2,10 @@
 
 Git Hub:    https://github.com/Brobert48/Project_1.git
 
-Firebase:   Weather Widget Firebase,
+Firebase:   (Weather Widget Firebase,
             Stock Ticker Firebase,
-            Login Credentials Firebase
+            Login Credentials Firebase...)
+            All data stored on single firebase:
             https://project-1-firebase-1b2fb.firebaseio.com
             project-1-firebase-1b2fb
 
@@ -28,10 +29,9 @@ Coding Requirements:
     • Must NOT use alerts, confirms, or prompts (look into modals!)
         - ✓
     • Must have some sort of repeating element (table, columns, etc)
-        -  ⃠ 
+        - ✓
+        - widget area with dynamically generated widgets
         - to-do list planned
-        - stock ticker?
-        - does widget area count?
     • Must use Bootstrap or Alternative CSS Framework
         - ✓
         - Bootstrap
@@ -42,7 +42,7 @@ Coding Requirements:
         - ✓
 
 Widget list
-    • Weather (in progress)
+    • Weather ✓
     • Horoscope (in progress)
     • Traffic (planned)
     • To-do list (in progress)
