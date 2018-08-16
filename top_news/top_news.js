@@ -49,12 +49,18 @@ function getData(topic) {
         for (var i = 0; i < 3; i++) {
 
             var abstract = (result.results[i].abstract);
-            var date = (result.results[i].published_date);
+            // var date = (result.results[i].published_date);
+            var date = moment(result.results[i].published_date);
+            date.format("MM/DD/YYYY hh:mm a");
             var image = (result.results[i].multimedia[0].url);
             var author = (result.results[i].byline);
             var title = result.results[i].title;
             var link = result.results[i].url;
             console.log("this is image: " + image);
+
+           
+
+    
 
             // title div with modal onclick
             var modalDiv = $("<div>");
