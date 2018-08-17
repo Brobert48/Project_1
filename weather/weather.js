@@ -108,7 +108,7 @@ $(document).ready( function() {
         // currentWeatherCallData = childSnap.val().firebaseWeatherAPIData;
         // displayCurrentWeather();
         console.log("Now previousCallTime is: " + previousCallTime);
-        $("#weather-card-text").text("Last API call time was: " + previousCallTime);
+        $("#weather-card-text").text("Last Updated: " + previousCallTime);
         console.log("Zip code was: " + zip);
         zip = childSnap.child("users").child(uid).child("zip").val();
         city = childSnap.child("users").child(uid).child("city").val();
@@ -175,7 +175,8 @@ $(document).on("click", "#weather-button", function () {
                 firebaseWeatherAPIData: currentWeatherCallData         
             });
             //updated display of last call time
-            $("#weather-card-text").text("Last API call time was: " + previousCallTime);
+            $("#weather-card-text").text("Last Update: " + previousCallTime);
+            
             displayCurrentWeather();
         });
     }  
@@ -274,7 +275,7 @@ function displayCurrentWeather() {
         var humidity = childSnap.child("users").child(uid).child("widgets").child("weather").child("data").child("firebaseWeatherAPIData").child("main").child("humidity").val();
         var clouds = childSnap.child("users").child(uid).child("widgets").child("weather").child("data").child("firebaseWeatherAPIData").child("clouds").child("all").val();
         var conditions = childSnap.child("users").child(uid).child("widgets").child("weather").child("data").child("firebaseWeatherAPIData").child("weather").child("0").child("main").val();
-        var description = childSnap.child("users").child(uid).child("widgets").child("weather").child("data").child("firebaseWeatherAPIData").child("weather").child("0").child("description").val();
+        var description = childSnap.child("users").child(uid).child("widgets").child("weather").child("data").child("firebaseWeatherAPIData").child("weather").child("0").child("description").val().toUpperCase();
         var iconCode = childSnap.child("users").child(uid).child("widgets").child("weather").child("data").child("firebaseWeatherAPIData").child("weather").child("0").child("icon").val();
         var windSpeed = childSnap.child("users").child(uid).child("widgets").child("weather").child("data").child("firebaseWeatherAPIData").child("wind").child("speed").val();
         console.log("Temperature: " + temperature);
@@ -286,16 +287,19 @@ function displayCurrentWeather() {
         
         // weather output to display on widget
         $("#weather-card-img").attr("src", "http://openweathermap.org/img/w/" + iconCode +".png");
-        $("#weather-card-img").attr("height", "50");
-        $("#weather-card-img").attr("width", "50");
+        $("#weather-card-img").attr("height", "30%");
+        $("#weather-card-img").attr("width", "30%");
         $("#weather-card-img").attr("alt", "weather icon");
         $("#weather-card-img").attr("class", "center");
-        $("#weather-card-text").append("<br />");
-        $("#weather-card-text").append("Summary: " + description);
-        $("#weather-card-text").append("<br />");
-        $("#weather-card-text").append("Temperature: " + temperature + "°.");
-        $("#weather-card-text").append("<br />");
-        $("#weather-card-text").append("Humidity: " + humidity + "%");
+        $("#weather-card-text").prepend("<br />");
+        $("#weather-card-text").prepend("Wind: " + windSpeed + "mph");
+        $("#weather-card-text").prepend("<br />");
+        $("#weather-card-text").prepend("Humidity: " + humidity + "%");
+        $("#weather-card-text").prepend("<br />");
+        $("#weather-card-text").prepend(temperature + "°");
+        $("#weather-card-text").prepend("<br />");
+        $("#weather-card-text").prepend(description);
+        // $("#weather-card-text").prepend("<br />");
     });
 }
 

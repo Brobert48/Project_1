@@ -36,8 +36,7 @@ Coding Requirements:
         - ✓
         - Bootstrap
     • Must be Deployed (Github Pages)
-        -  ⃠ 
-        - not yet deployed
+        - ✓
     • Must have User Input Validation
         - ✓
 

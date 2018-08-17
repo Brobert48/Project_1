@@ -19,7 +19,7 @@ let timeout= function() {
             onNewMessage: message => {
               const ul = document.getElementById("message-list");
               const li = document.createElement("li");
-              console.log(message);
+              
               li.appendChild(
                 document.createTextNode(`${message.sender.name}: ${message.text}`)
               );
@@ -29,7 +29,7 @@ let timeout= function() {
           },
           messageLimit: 10,
         });
-        console.log(currentUser);
+       
 
         const form = document.getElementById("message-form");
         form.addEventListener("submit", e => {
@@ -51,6 +51,6 @@ function scrollSmoothToBottom () {
     var div = document.getElementById('message-list');
     $('#' + 'message-list').animate({
        scrollTop: div.scrollHeight - div.clientHeight
-    }, 500);
+    }, 1);
  }
-      setTimeout(timeout, 1000)
+      setTimeout(timeout, 300)

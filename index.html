@@ -35,9 +35,7 @@
     </script>
     <!-- gridstack config -->
     <style type="text/css">
-        .grid-stack {
-            background: white;
-        }
+        
 
         .grid-stack-item-content {
             color: #2c3e50;
@@ -50,11 +48,11 @@
     <title>Today</title>
 </head>
 
-<body style="margin: 0px; padding: 0px;">
+<body style=" background-color: aquamarine; margin: 0px; padding: 0px;">
     <div class="container-fluid p-0">
-        <div class="row" id="header">
+        <div class="row no-gutters" id="header">
             <div class="col">
-                <div class="jumbotron jumbotron-fluid mb-0">
+                <div class="jumbotron jumbotron-fluid m-0">
                     <div class="container">
                         <h1 class="display-4">Today</h1>
                         <p class="lead">(Variable sentance based on the Day/time)</p>
@@ -63,8 +61,8 @@
             </div>
         </div>
     </div>
-    <div class="container-fluid">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-2">
+    <div class="container-fluid p-0">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-2">
             <a class="navbar-brand" href="#">
                 <img src="assets/images/brandLogo.png" width="30" height="30" class="d-inline-block align-top mr-1" alt="">Sweet Awesome App</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
@@ -76,15 +74,36 @@
                 </ul>
             </div>
         </nav>
-        <div class="row">
+        <div class="row no-gutters">
             <div class="col-10">
                 <div class="grid-stack" id="widgetArea">
-
                 </div>
-
+            </div>
+            <div id="newModal"></div>
+            <div class="modal fade" id="stock-input-area" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h3 class="modal-title">Add a stock ticker symbol to your watchlist.</h3>
+                            <h5 class="modal-title-sub">(Up to 3 stocks can be saved.)</h5>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <span class="text-for-input">Enter Stock Symbol Here: </span>
+                                <input type="text" id="add-stock">
+                              </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-default" data-dismiss="modal" id="submit-stock">Submit</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="row" id="footer">
+        <div class="row no-gutters" id="footer">
             <div class="col"></div>
         </div>
     </div>
