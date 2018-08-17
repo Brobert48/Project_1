@@ -52,7 +52,7 @@ firebase.auth().onAuthStateChanged(function (user) {
             Target.append(widget);
             // widgetContainer = $('<div>')    // widgetContainer.attr('class','grid-stack')    // .attr('id', widgetName) //change based on widget name    // widgetlocation = $('<div>')    // widgetlocation.attr('class','grid-stack-item')    // .attr('data-gs-x', currentX) //location on grid x-axis    // .attr('data-gs-y','0') //location on grid y-axis    // .attr('data-gs-width', widgetW) //width of widget    // .attr('data-gs-height', widgetH) //height of widget    // lastwidgetLayer = $('<div>')    // .attr('class','grid-stack-item-content card float-left border border-primary')    // TargetDiv.prepend(widgetContainer);    // widgetContainer.append(widgetlocation);    // widgetlocation.append(lastwidgetLayer);    // lastwidgetLayer.append(widgetContent);
             currentx = currentX + widgetW;
-            if (currentx >= 9) {
+            if (currentx >= 10) {
                 currenty++;
                 currentx = 0;
             }
@@ -217,7 +217,7 @@ firebase.auth().onAuthStateChanged(function (user) {
         <div class="input-group mb-0">
         <input type="text" class="form-control" id="message-text">
         <div class="input-group-append">
-          <button class="btn btn-success" type="submit">Button</button>
+          <button class="btn btn-success" onClick="event.preventDefault()" id="chatSubmit">Send</button>
         </div>
       </div>
         </form>`

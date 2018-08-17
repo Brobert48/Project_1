@@ -128,6 +128,7 @@ $(document).ready( function() {
 // limit to no more than 1 API call every 15 minutes (limit is 10, but we'll use 15 to be safe)
 // <!><!><!>
 $(document).on("click", "#weather-button", function () {
+    event.preventDefault();
     console.log("Clicked 'Make Weather API Request'.");
     // sets local uid to the current user's uid stored in globalUID
     var uid = globalUID;
@@ -278,17 +279,17 @@ function displayCurrentWeather() {
         var description = childSnap.child("users").child(uid).child("widgets").child("weather").child("data").child("firebaseWeatherAPIData").child("weather").child("0").child("description").val().toUpperCase();
         var iconCode = childSnap.child("users").child(uid).child("widgets").child("weather").child("data").child("firebaseWeatherAPIData").child("weather").child("0").child("icon").val();
         var windSpeed = childSnap.child("users").child(uid).child("widgets").child("weather").child("data").child("firebaseWeatherAPIData").child("wind").child("speed").val();
-        console.log("Temperature: " + temperature);
-        console.log("Clouds: " + clouds);
-        console.log("Conditions: " + conditions);
-        console.log("Description: " + description);
-        console.log("Icon code: " + iconCode);
-        console.log("Wind speed: " + windSpeed);
+        // console.log("Temperature: " + temperature);
+        // console.log("Clouds: " + clouds);
+        // console.log("Conditions: " + conditions);
+        // console.log("Description: " + description);
+        // console.log("Icon code: " + iconCode);
+        // console.log("Wind speed: " + windSpeed);
         
         // weather output to display on widget
         $("#weather-card-img").attr("src", "http://openweathermap.org/img/w/" + iconCode +".png");
         $("#weather-card-img").attr("height", "30%");
-        $("#weather-card-img").attr("width", "30%");
+        // $("#weather-card-img").attr("width", "30%");
         $("#weather-card-img").attr("alt", "weather icon");
         $("#weather-card-img").attr("class", "center");
         $("#weather-card-text").prepend("<br />");
