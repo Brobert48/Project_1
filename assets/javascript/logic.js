@@ -1,69 +1,69 @@
 var database = firebase.database();
 var currentx = 0;
-var currenty =0;
+var currenty = 0;
 firebase.auth().onAuthStateChanged(function (user) {
-  if (user) {
-    var uid = firebase.auth().currentUser.uid;
-    var targetDiv = $('.navbar-nav');
-    // Today navbar link
-    var todayLi = $('<li>');
-    todayLi.attr('class', 'nav-item active');
-    var todayA = $('<a>');
-    todayA.attr('class', 'nav-link')
-      .attr('href', 'index.html')
-      .text('Home');
-    todayLi.append(todayA);
-    targetDiv.append(todayLi);
-    // Personalize navbar link
-    var settingsLi = $('<li>');
-    settingsLi.attr('class', 'nav-item');
-    var settingsA = $('<a>');
-    settingsA.attr('class', 'nav-link')
-      .attr('href', 'settings.html')
-      .text('Personalize');
-    settingsLi.append(settingsA);
-    targetDiv.append(settingsLi);
-    // Username navbar text
-    // var userNameLi = $('<li>');
-    // userNameLi.attr('class', 'nav-item');
-    // var userNameH5 = $('<h5>');
-    // userNameH5.attr('class', 'navbar-text')
-    //   .text(firebase.auth().currentUser.displayName);
-    // userNameLi.append(userNameH5);
+    if (user) {
+        var uid = firebase.auth().currentUser.uid;
+        var targetDiv = $('.navbar-nav');
+        // Today navbar link
+        var todayLi = $('<li>');
+        todayLi.attr('class', 'nav-item active');
+        var todayA = $('<a>');
+        todayA.attr('class', 'nav-link')
+            .attr('href', 'index.html')
+            .text('Home');
+        todayLi.append(todayA);
+        targetDiv.append(todayLi);
+        // Personalize navbar link
+        var settingsLi = $('<li>');
+        settingsLi.attr('class', 'nav-item');
+        var settingsA = $('<a>');
+        settingsA.attr('class', 'nav-link')
+            .attr('href', 'settings.html')
+            .text('Personalize');
+        settingsLi.append(settingsA);
+        targetDiv.append(settingsLi);
+        // Username navbar text
+        // var userNameLi = $('<li>');
+        // userNameLi.attr('class', 'nav-item');
+        // var userNameH5 = $('<h5>');
+        // userNameH5.attr('class', 'navbar-text')
+        //   .text(firebase.auth().currentUser.displayName);
+        // userNameLi.append(userNameH5);
 
-    // targetDiv.append(userNameH5);
-    // Logout navbar link
-    var logoutLi = $('<li>');
-    logoutLi.attr('class', 'nav-item');
-    var logoutA = $('<a>')
-    logoutA.attr('class', 'nav-link')
-      .attr('onclick', 'firebase.auth().signOut()')
-      .attr('href', 'login.html')
-      .text('Logout');
-    logoutLi.append(logoutA);
-    targetDiv.append(logoutLi);
+        // targetDiv.append(userNameH5);
+        // Logout navbar link
+        var logoutLi = $('<li>');
+        logoutLi.attr('class', 'nav-item');
+        var logoutA = $('<a>')
+        logoutA.attr('class', 'nav-link')
+            .attr('onclick', 'firebase.auth().signOut()')
+            .attr('href', 'login.html')
+            .text('Logout');
+        logoutLi.append(logoutA);
+        targetDiv.append(logoutLi);
 
 
 
-    // Populate Widgets
-    let populateWidgets = function (widgetName, widgetW, widgetH, currentX, currentY, widgetContent) {
-      var Target = $('#widgetArea')
-      var widget = `<div class="grid-stack-item" data-gs-no-resize="true" id="${widgetName}" data-gs-x="${currentX}" data-gs-y="${currentY}" data-gs-width="${widgetW}" data-gs-height="${widgetH}"><div class="grid-stack-item-content card">${widgetContent}</div></div>`
-      Target.append(widget);
-      // widgetContainer = $('<div>')    // widgetContainer.attr('class','grid-stack')    // .attr('id', widgetName) //change based on widget name    // widgetlocation = $('<div>')    // widgetlocation.attr('class','grid-stack-item')    // .attr('data-gs-x', currentX) //location on grid x-axis    // .attr('data-gs-y','0') //location on grid y-axis    // .attr('data-gs-width', widgetW) //width of widget    // .attr('data-gs-height', widgetH) //height of widget    // lastwidgetLayer = $('<div>')    // .attr('class','grid-stack-item-content card float-left border border-primary')    // TargetDiv.prepend(widgetContainer);    // widgetContainer.append(widgetlocation);    // widgetlocation.append(lastwidgetLayer);    // lastwidgetLayer.append(widgetContent);
-      currentx = currentX + widgetW;
-      if(currentx >= 9){
-          currenty++;
-          currentx = 0;
-      }
-    }
+        // Populate Widgets
+        let populateWidgets = function (widgetName, widgetW, widgetH, currentX, currentY, widgetContent) {
+            var Target = $('#widgetArea')
+            var widget = `<div class="grid-stack-item" data-gs-no-resize="true" id="${widgetName}" data-gs-x="${currentX}" data-gs-y="${currentY}" data-gs-width="${widgetW}" data-gs-height="${widgetH}"><div class="grid-stack-item-content card">${widgetContent}</div></div>`
+            Target.append(widget);
+            // widgetContainer = $('<div>')    // widgetContainer.attr('class','grid-stack')    // .attr('id', widgetName) //change based on widget name    // widgetlocation = $('<div>')    // widgetlocation.attr('class','grid-stack-item')    // .attr('data-gs-x', currentX) //location on grid x-axis    // .attr('data-gs-y','0') //location on grid y-axis    // .attr('data-gs-width', widgetW) //width of widget    // .attr('data-gs-height', widgetH) //height of widget    // lastwidgetLayer = $('<div>')    // .attr('class','grid-stack-item-content card float-left border border-primary')    // TargetDiv.prepend(widgetContainer);    // widgetContainer.append(widgetlocation);    // widgetlocation.append(lastwidgetLayer);    // lastwidgetLayer.append(widgetContent);
+            currentx = currentX + widgetW;
+            if (currentx >= 9) {
+                currenty++;
+                currentx = 0;
+            }
+        }
 
-    // weatherOBJ
-    var weatherApp = {
-      name: "weather",
-      width: 2,
-      height: 3,
-      template: `<div class="bg-info p-0 m-0">
+        // weatherOBJ
+        var weatherApp = {
+            name: "weather",
+            width: 2,
+            height: 3,
+            template: `<div class="bg-info p-0 m-0">
         <img class="m-0" id="weather-card-img" src="">
         <div class="card-body m-0 pt-0">
     
@@ -71,25 +71,24 @@ firebase.auth().onAuthStateChanged(function (user) {
        <a href="#" class="btn btn-primary m-0" id="weather-button">Update Weather</a>
    </div>
 </div>`
-    }
-    var newsApp = {
-      name: "news",
-      text1: "",
-      width: 2,
-      height: 4,
-      template: `<div class="container">
-      <div class="row">
-          <div class="col-3"></div>
-          <div class="col-6 text-center">
+        }
+        var newsApp = {
+            name: "news",
+            text1: "",
+            width: 5,
+            height: 4,
+            template: `<div class="container">
+      <div class="row">          
+          <div class="col text-center">
               <div class="card">
                   <div class="card-title text-center" id="search-title">Top News Stories</div>
                       <!-- search box popup -->
                   <div class="search-container">
-                      <div class="search-title text-center">Select a search topic</div>
+                      <div class="search-title text-center">Select a Category</div>
                           <div class="row">
                               <div class="col-6 text-center">
                                   <form id="form">
-                                      <select name="search" id="article-search">
+                                      <select name="search"  id="article-search">
                                           <option value="world">world</option>
                                           <option value="national">national</option>
                                           <option value="politics">politics</option>
@@ -105,11 +104,10 @@ firebase.auth().onAuthStateChanged(function (user) {
                               </div>
                               <div class="col-1"></div>
                               <div class="col-5">
-                                  <button class="btn btn-default" id="submit-article">Submit</button>
+                              <button class="btn btn-default" id="submit-article">Submit</button>
                               </div>
                       </div>
-                         
-                  </div>
+                                    </div>
                       <!-- end of search popup -->
                   <div class="results-refresh-area">
                       <div class="text-center" id="display-search-title"></div>
@@ -121,40 +119,17 @@ firebase.auth().onAuthStateChanged(function (user) {
                   </div>
               </div>
           </div>
-      </div>
   </div>`
-    }
-    var stockApp = {
-      name: "stocks",
-      width: 3,
-      height: 4,
-      template: `<div class="modal fade" id="stock-input-area" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-          <div class="modal-content">
-              <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                  </button>
-                  <h3 class="modal-title">Add a stock ticker symbol to your watchlist.</h3>
-                  <h5 class="modal-title-sub">(Up to 5 stocks can be saved.)</h5>
-              </div>
-              <div class="modal-body">
-                  <form>
-                      <span class="text-for-input">Enter Stock Symbol Here: </span>
-                      <input type="text" id="add-stock">
-                    </form>
-              </div>
-              <div class="modal-footer">
-                  <button class="btn btn-default" data-dismiss="modal" id="submit-stock">Submit</button>
-              </div>
-          </div>
-      </div>
-  </div>
+        }
+        var stockApp = {
+            name: "stocks",
+            width: 3,
+            height: 4,
+            template: `
 <!-- widget area  -->
 <div class="container">
   <div class="row">
-      <div class="col-4"></div>
-      <div class="col-4">
+      <div class="col">
               <div class="stock-widget-container">
                   <div id="menu" data-toggle="modal" data-target="#stock-input-area"><span class="glyphicon">&#xe236;</span></div>
                   <div class="card text-center" >
@@ -180,15 +155,15 @@ firebase.auth().onAuthStateChanged(function (user) {
               <div class="refresh-area text-center" id="click-me">Click to refresh</div>
               </div>
       </div>
-      <div class="col-4"></div>
+      
   </div>
 </div>`
-    }
-    var todoApp={
-      name:"todo",
-      width: 2,
-      height: 4,
-      template:`<div class="row">
+        }
+        var todoApp = {
+            name: "todo",
+            width: 2,
+            height: 4,
+            template: `<div class="row">
       <div class="col-12">
           <div class="panel panel-default" id="panel-list-body">
               <div class="panel-heading" id="heading-box">
@@ -229,12 +204,12 @@ firebase.auth().onAuthStateChanged(function (user) {
       </div>
       <div class="col-1"></div>
   </div>`
-    }
-    var chatApp= {
-        name: "chat",
-        height: 3,
-        width: 4,
-        template:`
+        }
+        var chatApp = {
+            name: "chat",
+            height: 3,
+            width: 4,
+            template: `
         <div class="alert alert-warning m-0">
   <h4 class="alert-heading">Chat Room!</h4></div>
           <ul class="text-white bg-primary mb-0" style="height:90%; list-style: none; text-align: left; width:100%;border:1px solid #ccc;font:16px/26px Georgia, Garamond, Serif;overflow:auto;" id="message-list"></ul>
@@ -246,47 +221,47 @@ firebase.auth().onAuthStateChanged(function (user) {
         </div>
       </div>
         </form>`
+        }
+
+        database.ref().once('value').then(function (childsnap) {
+            populateWidgets(chatApp.name, chatApp.width, chatApp.height, currentx, currenty, chatApp.template);
+
+            // weather check
+            if (childsnap.child('users').child(uid).child('widgets').child('weather').child('active').val() === "on") {
+                populateWidgets(weatherApp.name, weatherApp.width, weatherApp.height, currentx, currenty, weatherApp.template);
+            }
+            // stock check
+            if (childsnap.child('users').child(uid).child('widgets').child('stocks').child('active').val() === "on") {
+                populateWidgets(stockApp.name, stockApp.width, stockApp.height, currentx, currenty, stockApp.template);
+            }
+            // todo check
+            if (childsnap.child('users').child(uid).child('widgets').child('todo').child('active').val() === "on") {
+                populateWidgets(todoApp.name, todoApp.width, todoApp.height, currentx, currenty, todoApp.template);
+            }
+            // news check
+            if (childsnap.child('users').child(uid).child('widgets').child('news').child('active').val() === "on") {
+                populateWidgets(newsApp.name, newsApp.width, newsApp.height, currentx, currenty, newsApp.template);
+            }
+            // notes check
+            if (childsnap.child('users').child(uid).child('widgets').child('notes').child('active').val() === "on") {
+                populateWidgets(weatherApp.name, weatherApp.width, weatherApp.height, currentx, currenty, weatherApp.template);
+            }
+            gridstackConfig();
+        })
+
     }
-
-    database.ref().once('value').then(function (childsnap) {
-        populateWidgets(chatApp.name, chatApp.width, chatApp.height, currentx,currenty, chatApp.template);
-      
-        // weather check
-      if (childsnap.child('users').child(uid).child('widgets').child('weather').child('active').val() === "on") {
-        populateWidgets(weatherApp.name, weatherApp.width, weatherApp.height, currentx,currenty, weatherApp.template);
-      }
-      // stock check
-      if (childsnap.child('users').child(uid).child('widgets').child('stocks').child('active').val() === "on") {
-        populateWidgets(stockApp.name, stockApp.width, stockApp.height, currentx,currenty, stockApp.template);
-      }
-      // todo check
-      if (childsnap.child('users').child(uid).child('widgets').child('todo').child('active').val() === "on") {
-        populateWidgets(todoApp.name, todoApp.width, todoApp.height, currentx,currenty, todoApp.template);
-      }
-      // news check
-      if (childsnap.child('users').child(uid).child('widgets').child('news').child('active').val() === "on") {
-        populateWidgets(newsApp.name, newsApp.width, newsApp.height, currentx,currenty, newsApp.template);
-      }
-      // notes check
-      if (childsnap.child('users').child(uid).child('widgets').child('notes').child('active').val() === "on") {
-        populateWidgets(weatherApp.name, weatherApp.width, weatherApp.height, currentx,currenty, weatherApp.template);
-      }
-      gridstackConfig();
-    })
-
-  }
-  else {
-    window.location = "login.html";
-  }
+    else {
+        window.location = "login.html";
+    }
 });
 
 let gridstackConfig = function () {
-  console.log('ran')
-  var options = {
-    cellHeight: 80,
-    verticalMargin: 10
-  };
-  $('.grid-stack').gridstack(options);
-  
+    console.log('ran')
+    var options = {
+        cellHeight: 80,
+        verticalMargin: 10
+    };
+    $('.grid-stack').gridstack(options);
+
 }
 

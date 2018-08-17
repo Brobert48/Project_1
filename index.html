@@ -77,9 +77,30 @@
         <div class="row no-gutters">
             <div class="col-10">
                 <div class="grid-stack" id="widgetArea">
-
                 </div>
-
+            </div>
+            <div id="newModal"></div>
+            <div class="modal fade" id="stock-input-area" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h3 class="modal-title">Add a stock ticker symbol to your watchlist.</h3>
+                            <h5 class="modal-title-sub">(Up to 3 stocks can be saved.)</h5>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <span class="text-for-input">Enter Stock Symbol Here: </span>
+                                <input type="text" id="add-stock">
+                              </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-default" data-dismiss="modal" id="submit-stock">Submit</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="row no-gutters" id="footer">
