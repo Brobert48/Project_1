@@ -48,7 +48,7 @@ firebase.auth().onAuthStateChanged(function (user) {
     // Populate Widgets
     let populateWidgets = function (widgetName, widgetW, widgetH, currentX, currentY, widgetContent) {
       var Target = $('#widgetArea')
-      var widget = `<div class="grid-stack-item" id="${widgetName}" data-gs-x="${currentX}" data-gs-y="${currentY}" data-gs-width="${widgetW}" data-gs-height="${widgetH}"><div class="grid-stack-item-content card">${widgetContent}</div></div>`
+      var widget = `<div class="grid-stack-item" data-gs-no-resize="true" id="${widgetName}" data-gs-x="${currentX}" data-gs-y="${currentY}" data-gs-width="${widgetW}" data-gs-height="${widgetH}"><div class="grid-stack-item-content card">${widgetContent}</div></div>`
       Target.append(widget);
       // widgetContainer = $('<div>')    // widgetContainer.attr('class','grid-stack')    // .attr('id', widgetName) //change based on widget name    // widgetlocation = $('<div>')    // widgetlocation.attr('class','grid-stack-item')    // .attr('data-gs-x', currentX) //location on grid x-axis    // .attr('data-gs-y','0') //location on grid y-axis    // .attr('data-gs-width', widgetW) //width of widget    // .attr('data-gs-height', widgetH) //height of widget    // lastwidgetLayer = $('<div>')    // .attr('class','grid-stack-item-content card float-left border border-primary')    // TargetDiv.prepend(widgetContainer);    // widgetContainer.append(widgetlocation);    // widgetlocation.append(lastwidgetLayer);    // lastwidgetLayer.append(widgetContent);
       currentx = currentX + widgetW;
@@ -290,4 +290,3 @@ let gridstackConfig = function () {
   
 }
 
-grid.resizable('.grid-stack-item', false);
