@@ -72,7 +72,7 @@ $(document).ready(function () {
             return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
         };
 
-        database.ref("/users").child(firebase.auth().currentUser.uid).child("widgets").child("list").child(task).update({
+        database.ref("/users").child(firebase.auth().currentUser.uid).child("widgets").child("todo").child(task).update({
 
             [task]: note,
         }); // end of push to database
@@ -94,7 +94,7 @@ $(document).ready(function () {
         // this is a "confirm", may need to add something else to look better
         if (confirm('Are you sure?')) {
 
-            database.ref("/users").child(firebase.auth().currentUser.uid).child("widgets").child("list").child(task).child(key).remove();
+            database.ref("/users").child(firebase.auth().currentUser.uid).child("widgets").child("todo").child(task).child(key).remove();
 
             // firebase.database().ref("/list").child(task).child(key).remove();
 

@@ -167,7 +167,7 @@ firebase.auth().onAuthStateChanged(function (user) {
       <div class="col-12">
           <div class="panel panel-default" id="panel-list-body">
               <div class="panel-heading" id="heading-box">
-                  <h1 class="panel-title" id="title"><span id="title-1">Get It Done List,</span><span id="title-2"> powered by firebase.</span></h1>
+                  <div class="panel-title" id="title"><span id="title-1">Get It Done List,</span><span id="title-2"> powered by firebase.</span></div>
               </div>
               <div class="panel-body" id="input-body">
                   <div class="row" id="top-row">
