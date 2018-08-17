@@ -1,12 +1,13 @@
 var database = firebase.database();
 var currentx = 0;
+var currenty =0;
 firebase.auth().onAuthStateChanged(function (user) {
   if (user) {
     var uid = firebase.auth().currentUser.uid;
     var targetDiv = $('.navbar-nav');
     // Today navbar link
     var todayLi = $('<li>');
-    todayLi.attr('class', 'nav-item');
+    todayLi.attr('class', 'nav-item active');
     var todayA = $('<a>');
     todayA.attr('class', 'nav-link')
       .attr('href', 'index.html')
@@ -23,14 +24,14 @@ firebase.auth().onAuthStateChanged(function (user) {
     settingsLi.append(settingsA);
     targetDiv.append(settingsLi);
     // Username navbar text
-    var userNameLi = $('<li>');
-    userNameLi.attr('class', 'nav-item');
-    var userNameH5 = $('<h5>');
-    userNameH5.attr('class', 'navbar-text')
-      .text(firebase.auth().currentUser.displayName);
-    userNameLi.append(userNameH5);
+    // var userNameLi = $('<li>');
+    // userNameLi.attr('class', 'nav-item');
+    // var userNameH5 = $('<h5>');
+    // userNameH5.attr('class', 'navbar-text')
+    //   .text(firebase.auth().currentUser.displayName);
+    // userNameLi.append(userNameH5);
 
-    targetDiv.append(userNameH5);
+    // targetDiv.append(userNameH5);
     // Logout navbar link
     var logoutLi = $('<li>');
     logoutLi.attr('class', 'nav-item');
@@ -45,25 +46,29 @@ firebase.auth().onAuthStateChanged(function (user) {
 
 
     // Populate Widgets
-    let populateWidgets = function (widgetName, widgetW, widgetH, currentX, widgetContent) {
+    let populateWidgets = function (widgetName, widgetW, widgetH, currentX, currentY, widgetContent) {
       var Target = $('#widgetArea')
-      var widget = `<div class="grid-stack-item" id="${widgetName}" data-gs-x="${currentX}" data-gs-y="0" data-gs-width="${widgetW}" data-gs-height="${widgetH}"><div class="grid-stack-item-content card border border-primary">${widgetContent}</div></div>`
+      var widget = `<div class="grid-stack-item" id="${widgetName}" data-gs-x="${currentX}" data-gs-y="${currentY}" data-gs-width="${widgetW}" data-gs-height="${widgetH}"><div class="grid-stack-item-content card">${widgetContent}</div></div>`
       Target.append(widget);
       // widgetContainer = $('<div>')    // widgetContainer.attr('class','grid-stack')    // .attr('id', widgetName) //change based on widget name    // widgetlocation = $('<div>')    // widgetlocation.attr('class','grid-stack-item')    // .attr('data-gs-x', currentX) //location on grid x-axis    // .attr('data-gs-y','0') //location on grid y-axis    // .attr('data-gs-width', widgetW) //width of widget    // .attr('data-gs-height', widgetH) //height of widget    // lastwidgetLayer = $('<div>')    // .attr('class','grid-stack-item-content card float-left border border-primary')    // TargetDiv.prepend(widgetContainer);    // widgetContainer.append(widgetlocation);    // widgetlocation.append(lastwidgetLayer);    // lastwidgetLayer.append(widgetContent);
       currentx = currentX + widgetW;
+      if(currentx >= 9){
+          currenty++;
+          currentx = 0;
+      }
     }
 
     // weatherOBJ
     var weatherApp = {
       name: "weather",
       width: 2,
-      height: 4,
-      template: `<div class="card float-left">
-   <img class="card-img-top" id="weather-card-img" src="" alt="Card image cap">
-   <div class="card-body">
-       <h5 class="card-title">weather</h5>
-       <p class="card-text" id="weather-card-text">todays weather highlights</p>
-       <a href="#" class="btn btn-primary" id="weather-button">Update Weather</a>
+      height: 3,
+      template: `<div class="bg-info p-0 m-0">
+        <img class="m-0" id="weather-card-img" src="">
+        <div class="card-body m-0 pt-0">
+    
+       <p class="card-text m-0" id="weather-card-text"></p>
+       <a href="#" class="btn btn-primary m-0" id="weather-button">Update Weather</a>
    </div>
 </div>`
     }
@@ -228,36 +233,43 @@ firebase.auth().onAuthStateChanged(function (user) {
     var chatApp= {
         name: "chat",
         height: 3,
-        width: 3,
-        template:`<ul style="height:200px;width:300px;border:1px solid #ccc;font:16px/26px Georgia, Garamond, Serif;overflow:auto;" id="message-list"></ul>
+        width: 4,
+        template:`
+        <div class="alert alert-warning m-0">
+  <h4 class="alert-heading">Chat Room!</h4></div>
+          <ul class="text-white bg-primary mb-0" style="height:90%; list-style: none; text-align: left; width:100%;border:1px solid #ccc;font:16px/26px Georgia, Garamond, Serif;overflow:auto;" id="message-list"></ul>
         <form id="message-form">
-          <input type='text' id='message-text'>
-          <input type="submit">
+        <div class="input-group mb-0">
+        <input type="text" class="form-control" id="message-text">
+        <div class="input-group-append">
+          <button class="btn btn-success" type="submit">Button</button>
+        </div>
+      </div>
         </form>`
     }
 
     database.ref().once('value').then(function (childsnap) {
-        populateWidgets(chatApp.name, chatApp.width, chatApp.height, currentx, chatApp.template);
+        populateWidgets(chatApp.name, chatApp.width, chatApp.height, currentx,currenty, chatApp.template);
       
         // weather check
       if (childsnap.child('users').child(uid).child('widgets').child('weather').child('active').val() === "on") {
-        populateWidgets(weatherApp.name, weatherApp.width, weatherApp.height, currentx, weatherApp.template);
+        populateWidgets(weatherApp.name, weatherApp.width, weatherApp.height, currentx,currenty, weatherApp.template);
       }
       // stock check
       if (childsnap.child('users').child(uid).child('widgets').child('stocks').child('active').val() === "on") {
-        populateWidgets(stockApp.name, stockApp.width, stockApp.height, currentx, stockApp.template);
+        populateWidgets(stockApp.name, stockApp.width, stockApp.height, currentx,currenty, stockApp.template);
       }
       // todo check
       if (childsnap.child('users').child(uid).child('widgets').child('todo').child('active').val() === "on") {
-        populateWidgets(todoApp.name, todoApp.width, todoApp.height, currentx, todoApp.template);
+        populateWidgets(todoApp.name, todoApp.width, todoApp.height, currentx,currenty, todoApp.template);
       }
       // news check
       if (childsnap.child('users').child(uid).child('widgets').child('news').child('active').val() === "on") {
-        populateWidgets(newsApp.name, newsApp.width, newsApp.height, currentx, newsApp.template);
+        populateWidgets(newsApp.name, newsApp.width, newsApp.height, currentx,currenty, newsApp.template);
       }
       // notes check
       if (childsnap.child('users').child(uid).child('widgets').child('notes').child('active').val() === "on") {
-        populateWidgets(weatherApp.name, weatherApp.width, weatherApp.height, currentx, weatherApp.template);
+        populateWidgets(weatherApp.name, weatherApp.width, weatherApp.height, currentx,currenty, weatherApp.template);
       }
       gridstackConfig();
     })
@@ -275,5 +287,7 @@ let gridstackConfig = function () {
     verticalMargin: 10
   };
   $('.grid-stack').gridstack(options);
+  
 }
 
+grid.resizable('.grid-stack-item', false);
