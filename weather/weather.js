@@ -71,7 +71,6 @@ var queryFiveDayForecastURL;
 // };
 // firebase.initializeApp(config);
 
-var database = firebase.database();
 // var connectionsRef = database.ref("/connections");
 // var connectedRef = database.ref(".info/connected");
 

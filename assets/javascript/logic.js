@@ -1,4 +1,3 @@
-var database = firebase.database();
 var currentx = 0;
 var currenty = 0;
 firebase.auth().onAuthStateChanged(function (user) {
@@ -189,7 +188,7 @@ firebase.auth().onAuthStateChanged(function (user) {
                       </div>
                       <div class="col-3 box"></div>
                       <div class="col-3 box">
-                          <button class="w3-button w3-border w3-xlarge" id="submit">Submit <span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button>
+                          <button class="w3-button w3-border w3-xlarge" id="submit-todo">Submit <span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button>
                       </div>
                   </div>
               </div>

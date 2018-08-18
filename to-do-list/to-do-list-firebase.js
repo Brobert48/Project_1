@@ -1,19 +1,5 @@
 
-
-var config = {
-    apiKey: "AIzaSyCiPgGOcvsJ0Ws54KMX1p0mCia3a1hJ2UI",
-    authDomain: "project-1-firebase-1b2fb.firebaseapp.com",
-    databaseURL: "https://project-1-firebase-1b2fb.firebaseio.com",
-    projectId: "project-1-firebase-1b2fb",
-    storageBucket: "project-1-firebase-1b2fb.appspot.com",
-    messagingSenderId: "693404188715"
-};
-
-firebase.initializeApp(config);
-
 $(document).ready(function () {
-    var database = firebase.database();
-
 
     function wait() {
         console.log(firebase.auth().currentUser.uid);
@@ -62,9 +48,9 @@ $(document).ready(function () {
 
     //----------- beginning of onclick area to add items -----
 
-    $("#submit").on("click", function (event) {
+    $(document).on("click", "#submit-todo",  function (event) {
         event.preventDefault();
-
+alert('yada');
         var task = capitalizeFirstLetter($("#task-input").val().trim());
         var note = $("#note-input").val().trim();
 
