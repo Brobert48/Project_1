@@ -57,7 +57,7 @@ let runLogic = function () {
     // Populate Widgets
     let populateWidgets = function (widgetName, widgetW, widgetH, currentX, currentY, widgetContent) {
         var Target = $('#widgetArea')
-        var widget = `<div class="grid-stack-item" data-gs-no-resize="true" id="${widgetName}" data-gs-x="${currentX}" data-gs-y="${currentY}" data-gs-width="${widgetW}" data-gs-height="${widgetH}"><div class="grid-stack-item-content bg-info card">${widgetContent}</div></div>`
+        var widget = `<div class="grid-stack-item" data-gs-no-resize="true" id="${widgetName}" data-gs-x="${currentX}" data-gs-y="${currentY}" data-gs-width="${widgetW}" data-gs-height="${widgetH}"><div class="grid-stack-item-content bg-info card" style="border: 2px ;border-style: groove">${widgetContent}</div></div>`
         Target.append(widget);
         // widgetContainer = $('<div>')    // widgetContainer.attr('class','grid-stack')    // .attr('id', widgetName) //change based on widget name    // widgetlocation = $('<div>')    // widgetlocation.attr('class','grid-stack-item')    // .attr('data-gs-x', currentX) //location on grid x-axis    // .attr('data-gs-y','0') //location on grid y-axis    // .attr('data-gs-width', widgetW) //width of widget    // .attr('data-gs-height', widgetH) //height of widget    // lastwidgetLayer = $('<div>')    // .attr('class','grid-stack-item-content card float-left border border-primary')    // TargetDiv.prepend(widgetContainer);    // widgetContainer.append(widgetlocation);    // widgetlocation.append(lastwidgetLayer);    // lastwidgetLayer.append(widgetContent);
         currentx = currentX + widgetW;
@@ -72,7 +72,7 @@ let runLogic = function () {
         name: "weather",
         width: 2,
         height: 3,
-        template: `<div class="bg-info p-0 m-0">
+        template: `<div class=" p-0 m-0">
         <img class="m-0" id="weather-card-img" src="">
         <div class="card-body m-0 pt-0">
     
@@ -81,6 +81,7 @@ let runLogic = function () {
    </div>
 </div>`
     }
+    
     var newsApp = {
         name: "news",
         text1: "",
@@ -89,25 +90,9 @@ let runLogic = function () {
         template: `
             <div class="row no-gutters">
                 <div class="col text-center">
-                <div class="alert alert-warning m-0">
+                <div class="alert m-0" style="background-color:chocolate">
   <h4 class="alert-heading">Top News Stories</h4>
-  <form id="form">
-  <select name="search" id="article-search">
-      <option value="world">World</option>
-      <option value="national">National</option>
-      <option value="politics">Politics</option>
-      <option value="business">Business</option>
-      <option value="technology">Technology</option>
-      <option value="science">Science</option>
-      <option value="health">Health</option>
-      <option value="fashion">Fashion</option>
-      <option value="obituaries">Obituaries</option>
-  </select>
-  <button class="btn btn-success" id="submit-article" onclick="changeCat()">Submit</button>
-
-</form>
-
-                                    
+                                      
   </div>
                          <!-- search box popup -->
                                  <div class="row">
@@ -122,7 +107,22 @@ let runLogic = function () {
                         <div class="results-refresh-area">
                             <div class="text-center text-white" id="display-search-title"></div>
                             <div class="display-top-stories" id="display-results"></div>
-                            
+                            <form id="form">
+  <select name="search" id="article-search">
+     <option></option>
+      <option value="world">World</option>
+      <option value="national">National</option>
+      <option value="politics">Politics</option>
+      <option value="business">Business</option>
+      <option value="technology">Technology</option>
+      <option value="science">Science</option>
+      <option value="health">Health</option>
+      <option value="fashion">Fashion</option>
+      <option value="obituaries">Obituaries</option>
+  </select>
+  <button class="btn btn-success" id="submit-article" onclick="changeCat()">Submit</button>
+
+</form>
                         </div>
                     </div>
                 </div>
@@ -135,8 +135,8 @@ let runLogic = function () {
         template: `
 
               <div class="stock-widget-container">
-                  <div class="card text-center" >
-                          <div class="alert alert-warning m-0">
+                  <div class="card text-center bg-info" >
+                          <div class="alert m-0" style="background-color:chocolate">
   <h4 class="alert-heading">Your Favorite Stocks</h4></div>
                               <div class="card-text stock stock-0">
                                   <span id="stock-0-name"></span>
@@ -174,7 +174,7 @@ let runLogic = function () {
                 <div class="to-do-header">
                     <div class="todo-heading">
                         <div class="todo-title text-center" id="title">
-                        <div class="alert alert-warning m-0">
+                        <div class="alert m-0" style="background-color:chocolate">
                             <h4 class="alert-heading">Get It Done List</h4>
                             <h5> powered by firebase.</h5>
                         </div>
@@ -209,7 +209,7 @@ let runLogic = function () {
         height: 3,
         width: 4,
         template: `
-        <div class="alert alert-warning m-0">
+        <div class="alert m-0" style="background-color:chocolate">
   <h4 class="alert-heading">Chat Room!</h4></div>
           <ul class="text-white bg-primary mb-0" style="height:90%; list-style: none; text-align: left; width:100%;border:1px solid #ccc;font:16px/26px Georgia, Garamond, Serif;overflow:auto;" id="message-list"></ul>
         <form id="message-form">

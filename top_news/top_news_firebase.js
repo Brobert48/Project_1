@@ -104,7 +104,7 @@ function getData(topic) {
             // title div with modal onclick
             var modalDiv = $("<div>");
             modalDiv.text(title);
-            modalDiv.addClass("modal-area text-white");
+            modalDiv.addClass("modal-area");
             modalDiv.attr("id", "show-article");
             modalDiv.attr("data-toggle", "modal");
             modalDiv.attr("data-target", "#modal-" + i);
