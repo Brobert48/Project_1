@@ -77,7 +77,6 @@ $(document).ready(function () {
             [task]: note,
         }); // end of push to database
 
-
         $("#task-input").val('');
         $("#note-input").val('');
 
