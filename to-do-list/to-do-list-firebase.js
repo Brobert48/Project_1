@@ -48,7 +48,7 @@ $(document).ready(function () {
 
                 var key = i;
                 var value = list[i];
-                var p = $("<p>").attr("id", key).text("  " + key + "  :  " + value).attr("class", "task-items");
+                var p = $("<p>").attr("id", key).text("  " + key + "  :  " + value).attr("class", "task-items text-white font-weight-bold");
                 var b = $("<button class='delete'>").text("✓").attr("data-key", key).attr("data-task", task);
                 p.prepend(b);
                 $("#task-" + task).append(p);
