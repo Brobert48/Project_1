@@ -1,5 +1,4 @@
 
-
 // var config = {
 //     apiKey: "AIzaSyCiPgGOcvsJ0Ws54KMX1p0mCia3a1hJ2UI",
 //     authDomain: "project-1-firebase-1b2fb.firebaseapp.com",
@@ -8,6 +7,7 @@
 //     storageBucket: "project-1-firebase-1b2fb.appspot.com",
 //     messagingSenderId: "693404188715"
 // };
+
 
 // firebase.initializeApp(config);
 
@@ -18,7 +18,7 @@ $(document).ready(function () {
     function wait() {
         console.log(firebase.auth().currentUser.uid);
 
-        database.ref("/users").child(firebase.auth().currentUser.uid).child("widgets").child("todo").on("value", function (snapshot) {
+        database.ref("/users").child(firebase.auth().currentUser.uid).child("widgets").child("todo").child("list").on("value", function (snapshot) {
 
 
             clearDom();
@@ -40,7 +40,7 @@ $(document).ready(function () {
             var a = $("<p>").attr("class", "task-name").attr("id", "task-" + task);
             taskName.append(a);
             $("#list").append(taskName);
-
+            console.log(taskName)
             //--------this area puts the notes under the task from above ---
             var list = snapshot.child(task).val();
 
@@ -62,7 +62,7 @@ $(document).ready(function () {
 
     //----------- beginning of onclick area to add items -----
 
-    $("#submit").on("click", function (event) {
+    $(document).on("click", "#submit-todo",  function (event) {
         event.preventDefault();
 
         var task = capitalizeFirstLetter($("#task-input").val().trim());
@@ -72,7 +72,7 @@ $(document).ready(function () {
             return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
         };
 
-        database.ref("/users").child(firebase.auth().currentUser.uid).child("widgets").child("todo").child(task).update({
+        database.ref("/users").child(firebase.auth().currentUser.uid).child("widgets").child("todo").child("list").child(task).update({
 
             [task]: note,
         }); // end of push to database
@@ -92,13 +92,13 @@ $(document).ready(function () {
         console.log(task);
 
         // this is a "confirm", may need to add something else to look better
-        if (confirm('Are you sure?')) {
+        // if (confirm('Are you sure?')) {
 
-            database.ref("/users").child(firebase.auth().currentUser.uid).child("widgets").child("todo").child(task).child(key).remove();
+            database.ref("/users").child(firebase.auth().currentUser.uid).child("widgets").child("todo").child("list").child(task).child(key).remove();
 
             // firebase.database().ref("/list").child(task).child(key).remove();
 
-        }; // end of if statement
+        // }; // end of if statement
 
     }); // end of delete function onclick
 
