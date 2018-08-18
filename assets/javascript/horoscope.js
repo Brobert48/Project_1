@@ -1,1 +1,0 @@
-// searching for free horoscope API
