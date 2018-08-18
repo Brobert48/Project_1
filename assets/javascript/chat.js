@@ -32,8 +32,8 @@ let timeout= function() {
        
 
         const form = document.getElementById("message-form");
-        form.addEventListener("submit", e => {
-          e.preventDefault();
+        $("#chatSubmit") .on('click', function() {
+          event.preventDefault();
           const input = document.getElementById("message-text");
           currentUser.sendMessage({
             text: input.value,

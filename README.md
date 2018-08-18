@@ -36,16 +36,17 @@ Coding Requirements:
         - ✓
         - Bootstrap
     • Must be Deployed (Github Pages)
-        - ✓
+        -  ⃠ 
+        - not yet deployed
     • Must have User Input Validation
         - ✓
 
 Widget list
     • Weather ✓
-    • Horoscope (in progress)
+    • Horoscope (cancelled)
     • Traffic (planned)
     • To-do list (in progress)
-    • Stock ticker
-    • 
+    • Stock ticker ✓
+    • Chatroom (in-progress)
     • 
 

@@ -54,8 +54,8 @@
             <div class="col">
                 <div class="jumbotron jumbotron-fluid m-0">
                     <div class="container">
-                        <h1 class="display-4">Today</h1>
-                        <p class="lead">(Variable sentance based on the Day/time)</p>
+                        <h1 class="display-4" id="index-header-text">Today</h1>
+                        <p class="lead" id="index-lead-text">(Variable sentance based on the Day/time)</p>
                     </div>
                 </div>
             </div>
@@ -75,6 +75,7 @@
             </div>
         </nav>
         <div class="row no-gutters">
+            <div class="col-1"></div>
             <div class="col-10">
                 <div class="grid-stack" id="widgetArea">
                 </div>
@@ -104,21 +105,25 @@
             </div>
         </div>
         <div class="row no-gutters" id="footer">
-            <div class="col"></div>
+            <div class="col">
+                <div id="newsModals"></div>
+            </div>
         </div>
     </div>
     <!-- widget javascript files -->
+    <!-- weather JS -->
     <script type="text/javascript" src="assets\javascript\horoscope.js"></script>
     <script type="text/javascript" src="weather\weather.js"></script>
-
+    <!-- header JS -->
+    <script type="text/javascript" src="assets\javascript\header.js"></script>
     <!-- bootstrap JS -->
     <script src="assets/plugins/bootstrap-4.0.0-dist/js/bootstrap.min.js"></script>
-    <!-- stock ticker -->
-    <script src="stock-ticker/practice_stock_ticker.js"></script>
     <!-- logic JS -->
     <script src="assets/javascript/logic.js"></script>
+    <!-- stock ticker -->
+    <script src="stock-ticker/practice_stock_ticker.js"></script>
     <!-- News JS -->
-    <script src="top_news/top_news.js"></script>
+    <script src="top_news/top_news_firebase.js"></script>
     <!-- to-do-list JS -->
     <script src="to-do-list/to-do-list-firebase.js"></script>
     <!-- chat JS -->

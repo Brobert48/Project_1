@@ -3,6 +3,15 @@ var currentx = 0;
 var currenty = 0;
 firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
+        runLogic();
+    }
+        
+        else {
+            window.location = "login.html";
+        }
+    });
+
+let runLogic = function(){
         var uid = firebase.auth().currentUser.uid;
         var targetDiv = $('.navbar-nav');
         // Today navbar link
@@ -52,7 +61,7 @@ firebase.auth().onAuthStateChanged(function (user) {
             Target.append(widget);
             // widgetContainer = $('<div>')    // widgetContainer.attr('class','grid-stack')    // .attr('id', widgetName) //change based on widget name    // widgetlocation = $('<div>')    // widgetlocation.attr('class','grid-stack-item')    // .attr('data-gs-x', currentX) //location on grid x-axis    // .attr('data-gs-y','0') //location on grid y-axis    // .attr('data-gs-width', widgetW) //width of widget    // .attr('data-gs-height', widgetH) //height of widget    // lastwidgetLayer = $('<div>')    // .attr('class','grid-stack-item-content card float-left border border-primary')    // TargetDiv.prepend(widgetContainer);    // widgetContainer.append(widgetlocation);    // widgetlocation.append(lastwidgetLayer);    // lastwidgetLayer.append(widgetContent);
             currentx = currentX + widgetW;
-            if (currentx >= 9) {
+            if (currentx >= 10) {
                 currenty++;
                 currentx = 0;
             }
@@ -75,51 +84,45 @@ firebase.auth().onAuthStateChanged(function (user) {
         var newsApp = {
             name: "news",
             text1: "",
-            width: 5,
-            height: 4,
+            width: 4,
+            height: 3,
             template: `<div class="container">
-      <div class="row">          
-          <div class="col text-center">
-              <div class="card">
-                  <div class="card-title text-center" id="search-title">Top News Stories</div>
-                      <!-- search box popup -->
-                  <div class="search-container">
-                      <div class="search-title text-center">Select a Category</div>
-                          <div class="row">
-                              <div class="col-6 text-center">
-                                  <form id="form">
-                                      <select name="search"  id="article-search">
-                                          <option value="world">world</option>
-                                          <option value="national">national</option>
-                                          <option value="politics">politics</option>
-                                          <option value="business">business</option>
-                                          <option value="technology">technology</option>
-                                          <option value="science">science</option>
-                                          <option value="Technology">Technology</option>
-                                          <option value="health">health</option>
-                                          <option value="fashion">fashion</option>
-                                          <option value="obituaries">obituaries</option>
-                                      </select>
-                                  </form>
-                              </div>
-                              <div class="col-1"></div>
-                              <div class="col-5">
-                              <button class="btn btn-default" id="submit-article">Submit</button>
-                              </div>
-                      </div>
+            <div class="row">
+                <div class="col text-center">
+                    <div class="card">
+                        <div class="card-title text-center" id="search-title">Top News Stories</div>
+                            <!-- search box popup -->
+                                 <div class="row">
+                                    <div class="col-6 text-center">
+                                        <form id="form">
+                                            <select name="search" id="article-search">
+                                                <option value="world">World</option>
+                                                <option value="national">National</option>
+                                                <option value="politics">Politics</option>
+                                                <option value="business">Business</option>
+                                                <option value="technology">Technology</option>
+                                                <option value="science">Science</option>
+                                                <option value="health">Health</option>
+                                                <option value="fashion">Fashion</option>
+                                                <option value="obituaries">Obituaries</option>
+                                            </select>
+                                        </form>
                                     </div>
-                      <!-- end of search popup -->
-                  <div class="results-refresh-area">
-                      <div class="text-center" id="display-search-title"></div>
-                      <div class="display-top-stories" id="display-results"></div>
-                      <div class="card-body">
-                          <div class="refresh">Check for new stories</div>
-                          <div id="menu" class="glyphicon">&#xe236;</div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-  </div>`
+                                    <div class="col-1"></div>
+                                    <div class="col-5" id="catChange">
+                                        <button class="btn btn-default" id="submit-article" onclick="changeCat()">Submit</button>
+                                    </div>
+                            </div> 
+                        </div>
+                            <!-- end of search popup -->
+                        <div class="results-refresh-area">
+                            <div class="text-center" id="display-search-title"></div>
+                            <div class="display-top-stories" id="display-results"></div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>`
         }
         var stockApp = {
             name: "stocks",
@@ -212,7 +215,7 @@ firebase.auth().onAuthStateChanged(function (user) {
         <div class="input-group mb-0">
         <input type="text" class="form-control" id="message-text">
         <div class="input-group-append">
-          <button class="btn btn-success" type="submit">Button</button>
+          <button class="btn btn-success" onClick="event.preventDefault()" id="chatSubmit">Send</button>
         </div>
       </div>
         </form>`
@@ -244,11 +247,8 @@ firebase.auth().onAuthStateChanged(function (user) {
             gridstackConfig();
         })
 
-    }
-    else {
-        window.location = "login.html";
-    }
-});
+    };
+    
 
 let gridstackConfig = function () {
     console.log('ran')

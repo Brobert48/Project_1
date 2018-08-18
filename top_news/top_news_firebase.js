@@ -1,27 +1,19 @@
 
- var config = {
-    apiKey: "AIzaSyCiPgGOcvsJ0Ws54KMX1p0mCia3a1hJ2UI",
-    authDomain: "project-1-firebase-1b2fb.firebaseapp.com",
-    databaseURL: "https://project-1-firebase-1b2fb.firebaseio.com",
-    projectId: "project-1-firebase-1b2fb",
-    storageBucket: "project-1-firebase-1b2fb.appspot.com",
-    messagingSenderId: "693404188715"
-};
+//  var config = {
+//     apiKey: "AIzaSyCiPgGOcvsJ0Ws54KMX1p0mCia3a1hJ2UI",
+//     authDomain: "project-1-firebase-1b2fb.firebaseapp.com",
+//     databaseURL: "https://project-1-firebase-1b2fb.firebaseio.com",
+//     projectId: "project-1-firebase-1b2fb",
+//     storageBucket: "project-1-firebase-1b2fb.appspot.com",
+//     messagingSenderId: "693404188715"
+// };
 
 
-firebase.initializeApp(config);
+// firebase.initializeApp(config);
 
 
 var database = firebase.database();
 
-
-
-$(".search-container").hide();
-
-$("#menu").on("click", function() {
-    $(".search-container").show();
-    $(".results-refresh-area").hide();
-});
 
 function pushToDatabase(topic) {
     database.ref("/users").child(firebase.auth().currentUser.uid).child("widgets").child("news").child("topic").update({
@@ -39,6 +31,8 @@ function getFromDatabase() {
         if (snapshot.child("topic").exists()) {
             console.log(snapshot.val().topic.category);
             var topicFromDatabase = snapshot.val().topic.category;
+            var topic2 = snapshot.val().topic.category.toUpperCase();            
+            $("#display-search-title").text(topic2);            
             getData(topicFromDatabase);
 
         } else {
@@ -52,26 +46,29 @@ setTimeout(getFromDatabase, 1000);
 
 
 
-$("#submit-article").on("click", function () {
+$(document).on("click", "#submit-article" ,function () {
     var topic;
-    $(".search-container").hide();
-    $(".results-refresh-area").show();
-    topic = $("#article-search").val();
-    $("#display-search-title").text(topic);
+    console.log('News submit clicked')
+    // $(".search-container").hide();
+    // $(".results-refresh-area").show();
+    topic = $("#article-search").val().toLowerCase();
+    topic2 = $("#article-search").val().toUpperCase();
+    $("#display-search-title").text(topic2);
     pushToDatabase(topic);
+    $('#newsModals').empty();
 
     // getData(topic);
 });
 
 
-$(".refresh").on("click", function () {
-    if(!topic) {
-        alert("Use the menu to begin a search.");
-    } else {
-        $("#display-search-title").text(topic);
-        getData(topic);
-    };
-});
+// $(".refresh").on("click", function () {
+//     if(!topic) {
+//         alert("Use the menu to begin a search.");
+//     } else {
+//         $("#display-search-title").text(topic);
+//         getData(topic);
+//     };
+// });
 
 
 function getData(topic) {
@@ -196,7 +193,7 @@ function getData(topic) {
 
             modal2.append(modalBody);
 
-            $("#display-results").append(container);
+            $("#newsModals").append(container);
         };
 
 
