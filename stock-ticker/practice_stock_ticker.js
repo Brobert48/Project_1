@@ -1,20 +1,20 @@
 
 
-var config = {
-    apiKey: "AIzaSyCiPgGOcvsJ0Ws54KMX1p0mCia3a1hJ2UI",
-    authDomain: "project-1-firebase-1b2fb.firebaseapp.com",
-    databaseURL: "https://project-1-firebase-1b2fb.firebaseio.com",
-    projectId: "project-1-firebase-1b2fb",
-    storageBucket: "project-1-firebase-1b2fb.appspot.com",
-    messagingSenderId: "693404188715"
-};
+// var config = {
+//     apiKey: "AIzaSyCiPgGOcvsJ0Ws54KMX1p0mCia3a1hJ2UI",
+//     authDomain: "project-1-firebase-1b2fb.firebaseapp.com",
+//     databaseURL: "https://project-1-firebase-1b2fb.firebaseio.com",
+//     projectId: "project-1-firebase-1b2fb",
+//     storageBucket: "project-1-firebase-1b2fb.appspot.com",
+//     messagingSenderId: "693404188715"
+// };
 
-  firebase.initializeApp(config);
+//   firebase.initializeApp(config);
   var database = firebase.database();
 
 
 $( document ).ready(function() {
-    $(".stock-input-container").hide();
+//     $(".stock-input-container").hide();
 
 
 // button to open window to add new stock
@@ -144,7 +144,7 @@ function getFromDatabase() {
 
 // this click will refresh the page
 $("#click-me").on("click", function () {
-    alert("refreshing");
+    event.preventDefault();
     getFromDatabase();
 });
 
