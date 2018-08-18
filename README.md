@@ -13,13 +13,12 @@ Coding Requirements:
     • Must use at least two APIs
         - ✓
         1. weather - https://openweathermap.org/api
-        2. stock ticker - 
+        2. stock ticker - https://www.alphavantage.co/documentation/
     • Must use AJAX to pull data
         - ✓
     • Must utilize at least one new library or technology that we haven’t discussed
         - ✓
         1. gridstack
-
     • Must have a polished frontend / UI
         -  ⃠ 
         - looks great already, but not yet polished
@@ -36,10 +35,11 @@ Coding Requirements:
         - ✓
         - Bootstrap
     • Must be Deployed (Github Pages)
-        -  ⃠ 
-        - not yet deployed
+        - ✓
+        - https://brobert48.github.io/Project_1/
     • Must have User Input Validation
         - ✓
+        - Firebase
 
 Widget list
     • Weather ✓
@@ -48,5 +48,5 @@ Widget list
     • To-do list (in progress)
     • Stock ticker ✓
     • Chat (in-progress)
-    • 
+    • Top News ✓
 
