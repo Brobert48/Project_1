@@ -103,8 +103,8 @@ function getData(topic) {
 
             // title div with modal onclick
             var modalDiv = $("<div>");
-            modalDiv.text("¶ " +title);
-            modalDiv.addClass("modal-area");
+            modalDiv.text(title);
+            modalDiv.addClass("modal-area text-white");
             modalDiv.attr("id", "show-article");
             modalDiv.attr("data-toggle", "modal");
             modalDiv.attr("data-target", "#modal-" + i);
@@ -187,6 +187,7 @@ function getData(topic) {
             var modallink = $("<a>");
             modallink.addClass("modal-link");
             modallink.attr("href", link)
+            .attr("target","_blank")
             modallink.text(link);
 
             modalBody.append(modalImage).append(modalArticle).append(modalAuthor).append(modalDate).append(modallink);

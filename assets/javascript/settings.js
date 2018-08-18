@@ -125,6 +125,7 @@ var config = {
   
 
 $('#settingSubmit').on('click',function(){
+  var clicked = true;
     var fName = $('#fNameInput').val();
     var lName = $('#lNameInput').val();
     var city = $('#cityInput').val();
@@ -151,5 +152,6 @@ $('#settingSubmit').on('click',function(){
     userRef.child(uid).child('widgets').child('weather').child('active').set(weather);
     userRef.child(uid).child('widgets').child('notes').child('active').set(notes);
     userRef.child(uid).child('widgets').child('todo').child('active').set(todo);
-
+    if(clicked){
+    window.location = "index.html";}
 });
