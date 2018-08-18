@@ -61,7 +61,7 @@ let runLogic = function () {
         Target.append(widget);
         // widgetContainer = $('<div>')    // widgetContainer.attr('class','grid-stack')    // .attr('id', widgetName) //change based on widget name    // widgetlocation = $('<div>')    // widgetlocation.attr('class','grid-stack-item')    // .attr('data-gs-x', currentX) //location on grid x-axis    // .attr('data-gs-y','0') //location on grid y-axis    // .attr('data-gs-width', widgetW) //width of widget    // .attr('data-gs-height', widgetH) //height of widget    // lastwidgetLayer = $('<div>')    // .attr('class','grid-stack-item-content card float-left border border-primary')    // TargetDiv.prepend(widgetContainer);    // widgetContainer.append(widgetlocation);    // widgetlocation.append(lastwidgetLayer);    // lastwidgetLayer.append(widgetContent);
         currentx = currentX + widgetW;
-        if (currentx >= 10) {
+        if (currentx >= 9) {
             currenty++;
             currentx = 0;
         }
@@ -183,7 +183,7 @@ let runLogic = function () {
                     <div class="input-body" >
                                 <input class="text-center" type="text" id="task-input" placeholder=" Enter Task">
                         <br>
-                                <input class="text-center" style="margin-top: 10px;" type="text" id="note-input" placeholder=" Enter notes">
+                                <input class="text-center" style="margin-top: 10px;" type="text" id="note-input" placeholder=" Enter chat">
                         <br>
                             <div class="button-area text-center" style="margin-bottom: 10px;">
                                     <button class="btn btn-warning" id="submit-todo">Submit</button>
@@ -223,7 +223,6 @@ let runLogic = function () {
     }
 
     database.ref().once('value').then(function (childsnap) {
-        populateWidgets(chatApp.name, chatApp.width, chatApp.height, currentx, currenty, chatApp.template);
 
         // weather check
         if (childsnap.child('users').child(uid).child('widgets').child('weather').child('active').val() === "on") {
@@ -241,9 +240,10 @@ let runLogic = function () {
         if (childsnap.child('users').child(uid).child('widgets').child('news').child('active').val() === "on") {
             populateWidgets(newsApp.name, newsApp.width, newsApp.height, currentx, currenty, newsApp.template);
         }
-        // notes check
-        if (childsnap.child('users').child(uid).child('widgets').child('notes').child('active').val() === "on") {
-            populateWidgets(weatherApp.name, weatherApp.width, weatherApp.height, currentx, currenty, weatherApp.template);
+        // chat check
+        if (childsnap.child('users').child(uid).child('widgets').child('chat').child('active').val() === "on") {
+        populateWidgets(chatApp.name, chatApp.width, chatApp.height, currentx, currenty, chatApp.template);
+
         }
         gridstackConfig();
     })
