@@ -164,8 +164,8 @@ let runLogic = function(){
         }
         var todoApp = {
             name: "todo",
-            width:3,
-            height: 4,
+            width:4,
+            height: 5,
             template: `
             <div class="container">
         <div class="row">
@@ -193,10 +193,9 @@ let runLogic = function(){
             </div>
         </div>
         <div class="row" style="overflow: auto;">
-            <div class="col-xs-1"></div>
-            <div class="col-xs-10">
+            <div class="col">
                 <p id="list-heading">Things To Do....</p>
-                <div style="overflow-y: auto;" id="list"></div>
+                <div style="overflow: auto; text-align: left; height: 40%; width:100%;" id="list"></div>
             </div>
            
         </div>
