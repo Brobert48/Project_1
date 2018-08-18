@@ -3,8 +3,9 @@
 var globalUID;
 var firstName;
 var timeFormat = "dddd, MMMM Do YYYY h:mm:ss a";
-var datetime = null,
-        date = null;
+var datetime = null;
+var datetimeSettings = null;
+date = null;
 var database = firebase.database();
 
 
@@ -12,6 +13,7 @@ var database = firebase.database();
 var update = function () {
     date = moment(new Date())
     datetime.html(date.format(timeFormat));
+    datetimeSettings.html(date.format(timeFormat));
 };
 
 
@@ -24,6 +26,7 @@ $(document).ready(function() {
         updateHeaderDisplay();
     });
     datetime = $('#index-lead-text')
+    datetimeSettings = $('#settings-lead-text')
     update();
     setInterval(update, 1000);
 });
@@ -32,6 +35,7 @@ $(document).ready(function() {
 
 function updateHeaderDisplay() {
     $("#index-header-text").text("Good " + getTimeOfDay(moment()) + ", " + firstName + ".");
+    $("#settings-header-text").text("Good " + getTimeOfDay(moment()) + ", " + firstName + ".");
     //$("#index-header-text").text("Hello, " + firstName + ".");
 }
 
