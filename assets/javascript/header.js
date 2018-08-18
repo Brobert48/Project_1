@@ -1,4 +1,4 @@
-console.log("Is this even running?");
+// console.log("Is this even running?");
 
 var globalUID;
 var firstName;
@@ -48,11 +48,11 @@ function getTimeOfDay (time) {   //enter moment(), so getTimeOfDay( moment() );
 	var startEvening = 17 //24hr time to split the evening
 	var currentHour = parseFloat(time.format("HH"));
 	if(currentHour >= startAfternoon && currentHour <= startEvening) {
-		period = "afternoon";
+		period = "Afternoon";
 	} else if(currentHour >= startEvening) {
-		period = "evening";
+		period = "Evening";
 	} else {
-		period = "morning";
+		period = "Morning";
 	}
 	return period;
 }

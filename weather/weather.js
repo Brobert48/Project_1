@@ -95,11 +95,11 @@ function constructFiveDayWeatherURL() {
 
 //pull data from firebase on page load
 $(document).ready( function() {
-    console.log("previousCallTime is: " + previousCallTime);
+    //console.log("previousCallTime is: " + previousCallTime);
     database.ref().once("value").then(function(childSnap) {
         var uid = firebase.auth().currentUser.uid;
         globalUID = uid;
-        console.log("Page load, uid is: " + uid);
+        //console.log("Page load, uid is: " + uid);
     
         // pull last API call time from firebase
         //database.ref().child("users").child(uid).child("widgets").child("weather").child("data").val();
@@ -107,16 +107,16 @@ $(document).ready( function() {
         // pull weather data from firebase
         // currentWeatherCallData = childSnap.val().firebaseWeatherAPIData;
         // displayCurrentWeather();
-        console.log("Now previousCallTime is: " + previousCallTime);
+        //console.log("Now previousCallTime is: " + previousCallTime);
         $("#weather-card-text").text("Last Updated: " + previousCallTime);
-        console.log("Zip code was: " + zip);
+        //console.log("Zip code was: " + zip);
         zip = childSnap.child("users").child(uid).child("zip").val();
         city = childSnap.child("users").child(uid).child("city").val();
-        console.log("Zip code is: " + zip);
+        //console.log("Zip code is: " + zip);
         constructCurrentWeatherURL();
-        console.log(queryCurrentWeatherURL);
+        //console.log(queryCurrentWeatherURL);
         constructFiveDayWeatherURL();
-        console.log(queryFiveDayForecastURL);
+        //console.log(queryFiveDayForecastURL);
         displayCurrentWeather();
     });
 });
@@ -129,23 +129,23 @@ $(document).ready( function() {
 // <!><!><!>
 $(document).on("click", "#weather-button", function () {
     event.preventDefault();
-    console.log("Clicked 'Make Weather API Request'.");
+    // console.log("Clicked 'Make Weather API Request'.");
     // sets local uid to the current user's uid stored in globalUID
     var uid = globalUID;
     // var uid = firebase.auth().currentUser.uid;
-    console.log("Clicked 'Make Weather API Request', uid is: " + uid);
+    // console.log("Clicked 'Make Weather API Request', uid is: " + uid);
     // record current time
     var currentTime = moment();
     // set recorded current time to desired format
     var adjustedTime = moment(currentTime).format(timeFormat);
-    console.log("Adjusted current time is " + adjustedTime);
+    // console.log("Adjusted current time is " + adjustedTime);
     // calculate and record number of minutes since last call time
     var elapsedMinutes = moment(adjustedTime).diff(moment(previousCallTime, timeFormat), "minutes");
-    console.log("It has been " + elapsedMinutes + " minutes since " + previousCallTime);
+    // console.log("It has been " + elapsedMinutes + " minutes since " + previousCallTime);
     // if it has not been 15 minutes since last API call, do nothing and print a console message
     if (elapsedMinutes < 15) {
         // make no API call, instead use previous API data stored in firebase
-        console.log("It has not been 15 minutes yet. No current weather update.");
+        // console.log("It has not been 15 minutes yet. No current weather update.");
         // currentWeatherCallData = databaseChildThing.val().firebaseWeatherAPIData;
         displayCurrentWeather();
     }
@@ -158,17 +158,17 @@ $(document).on("click", "#weather-button", function () {
             method: "GET"
         })
         .then(function(response) {
-            console.log("----------------------------------------");
-            console.log("current weather URL below");
-            console.log(queryCurrentWeatherURL);
-            console.log("----------------------------------------");
-            console.log("'response' below");
-            console.log(response);
-            console.log("----------------------------------------");
+            // console.log("----------------------------------------");
+            // console.log("current weather URL below");
+            // console.log(queryCurrentWeatherURL);
+            // console.log("----------------------------------------");
+            // console.log("'response' below");
+            // console.log(response);
+            // console.log("----------------------------------------");
             currentWeatherCallData = response;
-            console.log("currentWeatherCallData below should match 'response' above");
-            console.log(currentWeatherCallData);
-            console.log("----------------------------------------");
+            // console.log("currentWeatherCallData below should match 'response' above");
+            // console.log(currentWeatherCallData);
+            // console.log("----------------------------------------");
             // send response data to Firebase
             // (will be able to read from Firebase as often as we like, since we can only call from the API once every 10 minutes)
             database.ref().child("users").child(uid).child("widgets").child("weather").child("data").set({
