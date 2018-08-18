@@ -11,9 +11,17 @@
 
 //   firebase.initializeApp(config);
   var database = firebase.database();
+  firebase.auth().onAuthStateChanged(function (user) {
+    if (user) {
+        stockApp();
+    }
+        
+        else {
+            
+        }
+    });
 
-
-$( document ).ready(function() {
+let stockApp = function() {
 //     $(".stock-input-container").hide();
 
 
@@ -150,8 +158,8 @@ $("#click-me").on("click", function () {
 
 
 // call the function to put the array on the page at load
-setTimeout(getFromDatabase, 1000);
-// getFromDatabase();
+// setTimeout(getFromDatabase, 1000);
+getFromDatabase();
 
-});
+};
 
