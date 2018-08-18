@@ -48,7 +48,7 @@ setTimeout(getFromDatabase, 1000);
 
 $(document).on("click", "#submit-article" ,function () {
     var topic;
-    console.log('News submit clicked')
+    event.preventDefault();
     // $(".search-container").hide();
     // $(".results-refresh-area").show();
     topic = $("#article-search").val().toLowerCase();
