@@ -55,6 +55,7 @@ $(document).on("click", "#submit-article" ,function () {
     topic2 = $("#article-search").val().toUpperCase();
     $("#display-search-title").text(topic2);
     pushToDatabase(topic);
+    $('#newsModals').empty();
 
     // getData(topic);
 });

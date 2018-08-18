@@ -3,6 +3,15 @@ var currentx = 0;
 var currenty = 0;
 firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
+        runLogic();
+    }
+        
+        else {
+            window.location = "login.html";
+        }
+    });
+
+let runLogic = function(){
         var uid = firebase.auth().currentUser.uid;
         var targetDiv = $('.navbar-nav');
         // Today navbar link
@@ -243,11 +252,8 @@ firebase.auth().onAuthStateChanged(function (user) {
             gridstackConfig();
         })
 
-    }
-    else {
-        window.location = "login.html";
-    }
-});
+    };
+    
 
 let gridstackConfig = function () {
     console.log('ran')
