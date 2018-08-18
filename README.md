@@ -44,9 +44,9 @@ Coding Requirements:
 Widget list
     • Weather ✓
     • Horoscope (cancelled)
-    • Traffic (planned)
+    • Traffic (cancelled)
     • To-do list (in progress)
     • Stock ticker ✓
-    • Chatroom (in-progress)
+    • Chat (in-progress)
     • 
 

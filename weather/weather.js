@@ -147,7 +147,7 @@ $(document).on("click", "#weather-button", function () {
         // make no API call, instead use previous API data stored in firebase
         console.log("It has not been 15 minutes yet. No current weather update.");
         // currentWeatherCallData = databaseChildThing.val().firebaseWeatherAPIData;
-        // displayCurrentWeather();
+        displayCurrentWeather();
     }
     else {
         // update time of last API call to current time
