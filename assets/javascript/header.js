@@ -2,7 +2,7 @@
 
 var globalUID;
 var firstName;
-var timeFormat = "dddd, MMMM Do YYYY hh:mm:ss a";
+var timeFormat = "dddd, MMMM Do YYYY h:mm:ss a";
 var datetime = null,
         date = null;
 var database = firebase.database();
