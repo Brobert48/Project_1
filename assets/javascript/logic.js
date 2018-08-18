@@ -161,49 +161,44 @@ firebase.auth().onAuthStateChanged(function (user) {
         }
         var todoApp = {
             name: "todo",
-            width: 2,
+            width:3,
             height: 4,
-            template: `<div class="row">
-      <div class="col-12">
-          <div class="panel panel-default" id="panel-list-body">
-              <div class="panel-heading" id="heading-box">
-                  <div class="panel-title" id="title"><span id="title-1">Get It Done List,</span><span id="title-2"> powered by firebase.</span></div>
-              </div>
-              <div class="panel-body" id="input-body">
-                  <div class="row" id="top-row">
-                      <div class="col-3 box">
-                          <div id="store-title">Task</div>
-                      </div>
-                      <div class="col-3 box">
-                          <div id="item-title">Notes</div>
-                      </div>
-                      <div class="col-3 box"></div>
-                      <div class="col-3 box"></div>
-                  </div>
-                  <div class="row" id="bottom-row">
-                      <div class="col-3 box">
-                          <input type="text" id="task-input" placeholder=" Enter Task">
-                      </div>
-                      <div class="col-3 box">
-                          <input type="text" id="note-input" placeholder=" Enter notes">
-                      </div>
-                      <div class="col-3 box"></div>
-                      <div class="col-3 box">
-                          <button class="w3-button w3-border w3-xlarge" id="submit">Submit <span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
-  <div class="row">
-      <div class="col-1"></div>
-      <div class="col-10">
-          <p id="list-heading">Things To Do....</p>
-          <div id="list"></div>
-      </div>
-      <div class="col-1"></div>
-  </div>`
+            template: `
+            <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="to-do-header">
+                    <div class="todo-heading">
+                        <div class="todo-title text-center" id="title">
+                            <div id="title-1" style="font-size: 26px;">Get It Done List,</div>
+                            <div id="title-2" style="font-size: 12px;"> powered by firebase.</div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="input-body" >
+                                <input class="text-center" type="text" id="task-input" placeholder=" Enter Task">
+                        <br>
+               
+                                <input class="text-center" style="margin-top: 10px;" type="text" id="note-input" placeholder=" Enter notes">
+                        <br>
+                        <br>
+                            <div class="button-area text-center" style="margin-bottom: 10px;">
+                                    <button class="btn btn-default" id="submit-todo">Submit</button>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="overflow: auto;">
+            <div class="col-xs-1"></div>
+            <div class="col-xs-10">
+                <p id="list-heading">Things To Do....</p>
+                <div style="overflow-y: auto;" id="list"></div>
+            </div>
+           
+        </div>
+    </div>
+        `
         }
         var chatApp = {
             name: "chat",
