@@ -79,7 +79,7 @@ var database = firebase.database();
 
 function constructCurrentWeatherURL() {
     queryCurrentWeatherURL = 
-    "http://api.openweathermap.org/data/2.5/weather?zip=" + zip + "," + country 
+    "https://api.openweathermap.org/data/2.5/weather?zip=" + zip + "," + country 
     + "&APPID=0c44f3ccfc31563e53f247c356d15c09&units=imperial";
 }
 
@@ -87,7 +87,7 @@ function constructCurrentWeatherURL() {
 
 function constructFiveDayWeatherURL() {
     queryFiveDayForecastURL = 
-    "http://api.openweathermap.org/data/2.5/forecast?zip=" + zip + "," + country 
+    "https://api.openweathermap.org/data/2.5/forecast?zip=" + zip + "," + country 
     + "&APPID=0c44f3ccfc31563e53f247c356d15c09&units=imperial";
 }
 
@@ -287,7 +287,7 @@ function displayCurrentWeather() {
         // console.log("Wind speed: " + windSpeed);
         
         // weather output to display on widget
-        $("#weather-card-img").attr("src", "http://openweathermap.org/img/w/" + iconCode +".png");
+        $("#weather-card-img").attr("src", "https://openweathermap.org/img/w/" + iconCode +".png");
         $("#weather-card-img").attr("height", "30%");
         // $("#weather-card-img").attr("width", "30%");
         $("#weather-card-img").attr("alt", "weather icon");
