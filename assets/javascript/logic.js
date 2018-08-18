@@ -70,7 +70,7 @@ let runLogic = function () {
     // weatherOBJ
     var weatherApp = {
         name: "weather",
-        width: 2,
+        width: 3,
         height: 3,
         template: `<div class=" p-0 m-0">
         <img class="m-0" id="weather-card-img" src="">
