@@ -211,7 +211,7 @@ let runLogic = function () {
         template: `
         <div class="alert m-0" style="background-color:chocolate">
   <h4 class="alert-heading">Chat Room!</h4></div>
-          <ul class="text-white bg-primary mb-0" style="height:90%; list-style: none; text-align: left; width:100%;border:1px solid #ccc;font:16px/26px Georgia, Garamond, Serif;overflow:auto;" id="message-list"></ul>
+          <ul class="text-white bg-primary mb-0 p-1" style="height:90%; list-style: none; text-align: left; width:100%;border:1px solid #ccc;font:16px/26px Georgia, Garamond, Serif;overflow:auto;" id="message-list"></ul>
         <form id="message-form">
         <div class="input-group mb-0">
         <input type="text" class="form-control" id="message-text">
