@@ -1,3 +1,18 @@
+
+
+firebase.auth().onAuthStateChanged(function (user) {
+  if (user) {
+    runChat();}
+    
+  else {
+    window.location = "login.html";
+  }
+});
+
+let runChat= function() {
+
+
+
 let timeout= function() {
     const tokenProvider = new Chatkit.TokenProvider({
       url: "https://us1.pusherplatform.io/services/chatkit_token_provider/v1/11950995-bcfd-44da-8dac-b36da8dc825c/token",
@@ -54,3 +69,4 @@ function scrollSmoothToBottom () {
     }, 1);
  }
       setTimeout(timeout, 300)
+}

@@ -17,46 +17,46 @@ var config = {
       window.location = "login.html";
     }
   });
-
+var redirect=false;
   let runSettings = function(){
-     var targetDiv = $('.navbar-nav');
-  // Today navbar link
-  var todayLi = $('<li>');
-  todayLi.attr('class', 'nav-item');
-  var todayA = $('<a>');
-  todayA.attr('class', 'nav-link')
-    .attr('href', 'index.html')
-    .text('Home');
-  todayLi.append(todayA);
-  targetDiv.append(todayLi);
-  // Personalize navbar link
-  var settingsLi = $('<li>');
-  settingsLi.attr('class', 'nav-item');
-  var settingsA = $('<a>');
-  settingsA.attr('class', 'nav-link')
-    .attr('href', 'settings.html')
-    .text('Personalize');
-  settingsLi.append(settingsA);
-  targetDiv.append(settingsLi);
-  // Username navbar text
-  var userNameLi = $('<li>');
-  userNameLi.attr('class', 'nav-item');
-  var userNameH5 = $('<h5>');
-  userNameH5.attr('class', 'navbar-text')
-    .text(firebase.auth().currentUser.displayName);
-  userNameLi.append(userNameH5);
+    var targetDiv = $('.navbar-nav');
+    // Today navbar link
+    var todayLi = $('<li>');
+    todayLi.attr('class', 'nav-item');
+    var todayA = $('<a>');
+    todayA.attr('class', 'nav-link')
+        .attr('href', 'index.html')
+        .text('Home');
+    todayLi.append(todayA);
+    targetDiv.append(todayLi);
+    // Personalize navbar link
+    var settingsLi = $('<li>');
+    settingsLi.attr('class', 'nav-item  active');
+    var settingsA = $('<a>');
+    settingsA.attr('class', 'nav-link')
+        .attr('href', 'settings.html')
+        .text('Personalize');
+    settingsLi.append(settingsA);
+    targetDiv.append(settingsLi);
+    // Username navbar text
+    // var userNameLi = $('<li>');
+    // userNameLi.attr('class', 'nav-item');
+    // var userNameH5 = $('<h5>');
+    // userNameH5.attr('class', 'navbar-text')
+    //   .text(firebase.auth().currentUser.displayName);
+    // userNameLi.append(userNameH5);
 
-  targetDiv.append(userNameH5);
-  // Logout navbar link
-  var logoutLi = $('<li>');
-  logoutLi.attr('class', 'nav-item');
-  var logoutA = $('<a>')
-  logoutA.attr('class', 'nav-link')
-    .attr('onclick', 'firebase.auth().signOut()')
-    .attr('href', 'login.html')
-    .text('Logout');
-  logoutLi.append(logoutA);
-  targetDiv.append(logoutLi);
+    // targetDiv.append(userNameH5);
+    // Logout navbar link
+    var logoutLi = $('<li>');
+    logoutLi.attr('class', 'nav-item');
+    var logoutA = $('<a>')
+    logoutA.attr('class', 'nav-link')
+        .attr('onclick', 'firebase.auth().signOut()')
+        .attr('href', 'login.html')
+        .text('Logout');
+    logoutLi.append(logoutA);
+    targetDiv.append(logoutLi);
 
   database.ref().once('value').then(function(childsnap){
     var storedfName = childsnap.child('users').child(firebase.auth().currentUser.uid).child('first').val();
@@ -66,7 +66,7 @@ var config = {
     var storedZip = childsnap.child('users').child(firebase.auth().currentUser.uid).child('zip').val();
     var storedStocks = childsnap.child('users').child(firebase.auth().currentUser.uid).child('widgets').child('stocks').child('active').val();
     var storedWeather = childsnap.child('users').child(firebase.auth().currentUser.uid).child('widgets').child('weather').child('active').val();
-    var storedNotes = childsnap.child('users').child(firebase.auth().currentUser.uid).child('widgets').child('notes').child('active').val();
+    var storedchat = childsnap.child('users').child(firebase.auth().currentUser.uid).child('widgets').child('chat').child('active').val();
     var storedNews = childsnap.child('users').child(firebase.auth().currentUser.uid).child('widgets').child('news').child('active').val();
     var storedTodo = childsnap.child('users').child(firebase.auth().currentUser.uid).child('widgets').child('todo').child('active').val();
 
@@ -93,13 +93,13 @@ var config = {
       $('#weather2').attr('class', 'btn btn-secondary active')
     }
 
-    if (storedNotes === "on"){
-      $('#notesON').attr('checked', 'checked')
-      $('#notes1').attr('class', 'btn btn-secondary active')
+    if (storedchat === "on"){
+      $('#chatON').attr('checked', 'checked')
+      $('#chat1').attr('class', 'btn btn-secondary active')
     }
     else{
-      $('#notesOFF').attr('checked', 'checked')
-      $('#notes2').attr('class', 'btn btn-secondary active')
+      $('#chatOFF').attr('checked', 'checked')
+      $('#chat2').attr('class', 'btn btn-secondary active')
     }
 
     if (storedNews === "on"){
@@ -125,6 +125,7 @@ var config = {
   
 
 $('#settingSubmit').on('click',function(){
+  // event.preventDefault();
   var clicked = true;
     var fName = $('#fNameInput').val();
     var lName = $('#lNameInput').val();
@@ -133,7 +134,7 @@ $('#settingSubmit').on('click',function(){
     var zip = $('#zipInput').val();
     var stocks = $(':radio[name=stocks]:checked').val();
     var weather = $(':radio[name=weather]:checked').val();
-    var notes = $(':radio[name=notes]:checked').val();
+    var chat = $(':radio[name=chat]:checked').val();
     var news = $(':radio[name=news]:checked').val();
     var todo = $(':radio[name=todo]:checked').val();
     // targeting the user ID
@@ -148,10 +149,16 @@ $('#settingSubmit').on('click',function(){
     userRef.child(uid).child('state').set(state);
     userRef.child(uid).child('zip').set(zip);
     userRef.child(uid).child('widgets').child('news').child('active').set(news);
+    database.ref("/users").child(firebase.auth().currentUser.uid).child("widgets").child("news").child("topic").update({
+      "category": "national",
+  });
     userRef.child(uid).child('widgets').child('stocks').child('active').set(stocks);
     userRef.child(uid).child('widgets').child('weather').child('active').set(weather);
-    userRef.child(uid).child('widgets').child('notes').child('active').set(notes);
+    userRef.child(uid).child('widgets').child('chat').child('active').set(chat);
     userRef.child(uid).child('widgets').child('todo').child('active').set(todo);
     if(clicked){
-    window.location = "index.html";}
+    redirect=true;}
 });
+ if(redirect===true){
+  window.location = "index.html";
+ }

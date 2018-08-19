@@ -43,8 +43,16 @@
   width: auto;
   z-index: 0 !important;
   overflow-x: hidden;
-  overflow-y: hidden;
+  overflow-y: auto;
 }
+
+@media screen and (max-width: 750px) {
+  .grid-stack > .grid-stack-item > .grid-stack-item-content {
+    overflow-x: auto;
+    overflow-y: auto;
+  }
+}
+
 
 .grid-stack > .grid-stack-item > .ui-resizable-handle {
   position: absolute;
