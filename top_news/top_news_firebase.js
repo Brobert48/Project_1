@@ -55,7 +55,7 @@ $(document).on("click", "#submit-article" ,function () {
     topic2 = $("#article-search").val().toUpperCase();
     $("#display-search-title").text(topic2);
     pushToDatabase(topic);
-    $('#newsModals').empty();
+    $('.carousel-inner').empty();
 
     // getData(topic);
 });
@@ -91,110 +91,125 @@ function getData(topic) {
             // var date = (result.results[i].published_date);
             var date = moment(result.results[i].published_date);
             date.format("MM/DD/YYYY hh:mm a");
-            var image = (result.results[i].multimedia[0].url);
+            var image = (result.results[i].multimedia[4].url);
             var author = (result.results[i].byline);
             var title = result.results[i].title;
             var link = result.results[i].url;
             console.log("this is image: " + image);
 
            
+            var carouselTemplate=`<div class="carousel-item content-center">
+            <img src="${image}" data-holder-rendered="true">
+            <a href="${link}" target="_blank">
+            <div class="carousel-caption d-none d-md-block text-primary">
+            
+              <h6>${title}</h6>
+              <p>${abstract}</p>
+              
+            </div>
+          </div>
+            `;
 
+            $('.carousel-inner').append(carouselTemplate);
+            if(i===0){
+                $('.carousel-item').attr('class','carousel-item active content-center')
+            }
     
 
-            // title div with modal onclick
-            var modalDiv = $("<div>");
-            modalDiv.text(title);
-            modalDiv.addClass("modal-area");
-            modalDiv.attr("id", "show-article");
-            modalDiv.attr("data-toggle", "modal");
-            modalDiv.attr("data-target", "#modal-" + i).css('line-height','1.5rem').css('white-space','nowrap');
+            // // title div with modal onclick
+            // var modalDiv = $("<div>");
+            // modalDiv.text(title);
+            // modalDiv.addClass("modal-area");
+            // modalDiv.attr("id", "show-article");
+            // modalDiv.attr("data-toggle", "modal");
+            // modalDiv.attr("data-target", "#modal-" + i).css('line-height','1.5rem').css('white-space','nowrap');
 
-            $("#display-results").append(modalDiv);
-
-
-            // modal container includes all new <elements> below
-            var container = $("<div>");
-            container.addClass("container");
-
-            // modal
-            var modal = $("<div>");
-            modal.addClass("modal").addClass("fade");
-            modal.attr("id", "modal-" + i);
-            modal.attr("role", "dialog");
-
-            // modal inner div 1
-            var modal1 = $("<div>");
-            modal1.addClass("modal-dialog");
-
-            // modal inner div 2
-            var modal2 = $("<div>");
-            modal2.addClass("modal-content").css('background-color','#ecf0f1').css('border-radius', '1.25rem');
-
-            modal1.append(modal2);
-
-            modal.append(modal1);
-
-            container.append(modal);
+            // $("#display-results").append(modalDiv);
 
 
-            // modal header
-            var modalHeader = $("<div>");
-            modalHeader.addClass("modal-header bg-primary text-white text-center").css('border-radius', '1.25rem');
-            // modalHeader.text(title);
+            // // modal container includes all new <elements> below
+            // var container = $("<div>");
+            // container.addClass("container");
 
-            //modal inner button
-            var modalClose = $("<button>");
-            modalClose.attr("type", "button");
-            modalClose.attr("data-dismiss", "modal");
-            modalClose.addClass("close");
-            modalClose.text("X"+" ");
+            // // modal
+            // var modal = $("<div>");
+            // modal.addClass("modal").addClass("fade");
+            // modal.attr("id", "modal-" + i);
+            // modal.attr("role", "dialog");
 
-            // modal title
-            var modalTitle = $("<div>");
-            modalTitle.addClass("modal-title");
-            modalTitle.text(title);
+            // // modal inner div 1
+            // var modal1 = $("<div>");
+            // modal1.addClass("modal-dialog");
 
-            modalHeader.append(modalClose).append(modalTitle);
+            // // modal inner div 2
+            // var modal2 = $("<div>");
+            // modal2.addClass("modal-content").css('background-color','#ecf0f1').css('border-radius', '1.25rem');
 
-            modal2.append(modalHeader);
+            // modal1.append(modal2);
 
-            // modal body
-            var modalBody = $("<div>");
-            modalBody.addClass("modal-body text-primary text-center").css('background-color','#ecf0f1').css('border-radius', '1.25rem');
+            // modal.append(modal1);
 
-            // modal image
-            var modalImage = $("<img>");
-            modalImage.attr("src", image);
-            modalImage.addClass("modal-image");
+            // container.append(modal);
 
-            // modal date
-            var modalDate = $("<div>");
-            modalDate.addClass("modal-date");
-            modalDate.addClass("text-center");
-            modalDate.text(date);
 
-            // modal article
-            var modalArticle = $("<div>");
-            modalArticle.addClass("modal-article");
-            modalArticle.text(abstract);
+            // // modal header
+            // var modalHeader = $("<div>");
+            // modalHeader.addClass("modal-header bg-primary text-white text-center").css('border-radius', '1.25rem');
+            // // modalHeader.text(title);
 
-            // modal author
-            var modalAuthor = $("<div>");
-            modalAuthor.addClass("modal-author");
-            modalAuthor.text(author);
+            // //modal inner button
+            // var modalClose = $("<button>");
+            // modalClose.attr("type", "button");
+            // modalClose.attr("data-dismiss", "modal");
+            // modalClose.addClass("close");
+            // modalClose.text("X"+" ");
 
-            // modal link
-            var modallink = $("<a>");
-            modallink.addClass("modal-link");
-            modallink.attr("href", link)
-            .attr("target","_blank")
-            modallink.text(link);
+            // // modal title
+            // var modalTitle = $("<div>");
+            // modalTitle.addClass("modal-title");
+            // modalTitle.text(title);
 
-            modalBody.append(modalImage).append(modalArticle).append(modalAuthor).append(modalDate).append(modallink);
+            // modalHeader.append(modalClose).append(modalTitle);
 
-            modal2.append(modalBody);
+            // modal2.append(modalHeader);
 
-            $("#newsModals").append(container);
+            // // modal body
+            // var modalBody = $("<div>");
+            // modalBody.addClass("modal-body text-primary text-center").css('background-color','#ecf0f1').css('border-radius', '1.25rem');
+
+            // // modal image
+            // var modalImage = $("<img>");
+            // modalImage.attr("src", image);
+            // modalImage.addClass("modal-image");
+
+            // // modal date
+            // var modalDate = $("<div>");
+            // modalDate.addClass("modal-date");
+            // modalDate.addClass("text-center");
+            // modalDate.text(date);
+
+            // // modal article
+            // var modalArticle = $("<div>");
+            // modalArticle.addClass("modal-article");
+            // modalArticle.text(abstract);
+
+            // // modal author
+            // var modalAuthor = $("<div>");
+            // modalAuthor.addClass("modal-author");
+            // modalAuthor.text(author);
+
+            // // modal link
+            // var modallink = $("<a>");
+            // modallink.addClass("modal-link");
+            // modallink.attr("href", link)
+            // .attr("target","_blank")
+            // modallink.text(link);
+
+            // modalBody.append(modalImage).append(modalArticle).append(modalAuthor).append(modalDate).append(modallink);
+
+            // modal2.append(modalBody);
+
+            // $("#newsModals").append(container);
         };
 
 

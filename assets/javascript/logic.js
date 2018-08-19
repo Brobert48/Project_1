@@ -85,20 +85,13 @@ let runLogic = function () {
     var newsApp = {
         name: "news",
         text1: "",
-        width: 4,
-        height: 3,
+        width: 6,
+        height: 6,
         template: `
             <div class="row no-gutters">
                 <div class="col text-center">
                 <div class="alert m-0" style="background-color:#7a7445">
-  <h4 class="alert-heading">Top News Stories</h4>
-                                      
-  </div>
-    
-                        <div class="results-refresh-area">
-                            <div class="text-center text-primary" id="display-search-title"></div>
-                            <div class="display-top-stories text-center" id="display-results"></div>
-                            <form id="form">
+  <h4 class="alert-heading">Top News Stories</h4>      <form id="form">
   <select name="search" id="article-search">
      <option></option>
       <option value="world">World</option>
@@ -113,7 +106,27 @@ let runLogic = function () {
   </select>
   <button class="btn btn-primary" id="submit-article" onclick="changeCat()">Submit</button>
 
-</form>
+</form>                           
+  </div>
+  <div class="carousel-container">
+  <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+
+
+</div>
+<a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+</div>
+</div>
+                        <div class="results-refresh-area">
+                            
+                           
                         </div>
                     </div>
                 </div>
