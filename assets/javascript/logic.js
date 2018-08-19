@@ -94,19 +94,10 @@ let runLogic = function () {
   <h4 class="alert-heading">Top News Stories</h4>
                                       
   </div>
-                         <!-- search box popup -->
-                                 <div class="row">
-                                    <div class="col-6 text-center">
-                                       
-                                    </div>
-                                    <div class="col-1"></div>
-                                    
-                            </div> 
-                        </div>
-                            <!-- end of search popup -->
+    
                         <div class="results-refresh-area">
                             <div class="text-center text-primary" id="display-search-title"></div>
-                            <div class="display-top-stories" id="display-results"></div>
+                            <div class="display-top-stories text-center" id="display-results"></div>
                             <form id="form">
   <select name="search" id="article-search">
      <option></option>
@@ -193,7 +184,7 @@ let runLogic = function () {
         if (!childsnap.child('users').hasChild(uid)) {
             window.location = "settings.html";
           }
-        else if(!childsnap.child('users').hasChild(uid))
+        // else if(!childsnap.child('users').hasChild(uid));
         
         // weather check
         if (childsnap.child('users').child(uid).child('widgets').child('weather').child('active').val() === "on") {

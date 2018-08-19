@@ -27,7 +27,7 @@ $(document).ready(function () {
 
     };
 
-    setTimeout(wait, 1000); 
+    setTimeout(wait, 2000); 
    
 
 
