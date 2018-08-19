@@ -57,7 +57,7 @@ let runLogic = function () {
     // Populate Widgets
     let populateWidgets = function (widgetName, widgetW, widgetH, currentX, currentY, widgetContent) {
         var Target = $('#widgetArea')
-        var widget = `<div class="grid-stack-item" data-gs-no-resize="true" id="${widgetName}" data-gs-x="${currentX}" data-gs-y="${currentY}" data-gs-width="${widgetW}" data-gs-height="${widgetH}"><div class="grid-stack-item-content bg-info card" style="border: 2px ;border-style: groove">${widgetContent}</div></div>`
+        var widget = `<div class="grid-stack-item" data-gs-no-resize="true" id="${widgetName}" data-gs-x="${currentX}" data-gs-y="${currentY}" data-gs-width="${widgetW}" data-gs-height="${widgetH}"><div class="grid-stack-item-content card" style="background-color:#ecf0f1; border: 2px ;border-style: groove">${widgetContent}</div></div>`
         Target.append(widget);
         // widgetContainer = $('<div>')    // widgetContainer.attr('class','grid-stack')    // .attr('id', widgetName) //change based on widget name    // widgetlocation = $('<div>')    // widgetlocation.attr('class','grid-stack-item')    // .attr('data-gs-x', currentX) //location on grid x-axis    // .attr('data-gs-y','0') //location on grid y-axis    // .attr('data-gs-width', widgetW) //width of widget    // .attr('data-gs-height', widgetH) //height of widget    // lastwidgetLayer = $('<div>')    // .attr('class','grid-stack-item-content card float-left border border-primary')    // TargetDiv.prepend(widgetContainer);    // widgetContainer.append(widgetlocation);    // widgetlocation.append(lastwidgetLayer);    // lastwidgetLayer.append(widgetContent);
         currentx = currentX + widgetW;
@@ -90,7 +90,7 @@ let runLogic = function () {
         template: `
             <div class="row no-gutters">
                 <div class="col text-center">
-                <div class="alert m-0" style="background-color:chocolate">
+                <div class="alert m-0" style="background-color:#7a7445">
   <h4 class="alert-heading">Top News Stories</h4>
                                       
   </div>
@@ -105,7 +105,7 @@ let runLogic = function () {
                         </div>
                             <!-- end of search popup -->
                         <div class="results-refresh-area">
-                            <div class="text-center text-white" id="display-search-title"></div>
+                            <div class="text-center text-primary" id="display-search-title"></div>
                             <div class="display-top-stories" id="display-results"></div>
                             <form id="form">
   <select name="search" id="article-search">
@@ -120,7 +120,7 @@ let runLogic = function () {
       <option value="fashion">Fashion</option>
       <option value="obituaries">Obituaries</option>
   </select>
-  <button class="btn btn-success" id="submit-article" onclick="changeCat()">Submit</button>
+  <button class="btn btn-primary" id="submit-article" onclick="changeCat()">Submit</button>
 
 </form>
                         </div>
@@ -130,78 +130,43 @@ let runLogic = function () {
     }
     var stockApp = {
         name: "stocks",
-        width: 2,
-        height: 3,
+        width: 3,
+        height: 4,
         template: `
-
-              <div class="stock-widget-container">
-                  <div class="card text-center bg-info" >
-                          <div class="alert m-0" style="background-color:chocolate">
-  <h4 class="alert-heading">Your Favorite Stocks</h4></div>
-                              <div class="card-text stock stock-0">
-                                  <span id="stock-0-name"></span>
-                                  <span id="stock-0-data"></span>
-                                  <span id="stock-0-change"></span>
-                              </div>
-                              <div class="card-text stock stock-1">
-                                  <span id="stock-1-name"></span>
-                                  <span id="stock-1-data"></span>
-                                  <span id="stock-1-change"></span>
-                              </div>
-                              <div class="card-text stock stock-2">
-                                  <span id="stock-2-name"></span>
-                                  <span id="stock-2-data"></span>
-                                  <span id="stock-2-change"></span>
-                              </div>
-                  <button id="menu" data-toggle="modal" data-target="#stock-input-area"><span class="glyphicon">Add Symbol</span></button>
-
-                        </div>
-              </div>
-              
-      </div>
-      
-  </div>
-</div>`
+        <div class="todo-title text-center" id="title">
+        <div class="alert m-0" style="background-color:#7a7445">
+            <h4 class="alert-heading">Your Favorite Stocks</h4>
+          <button class="btn btn-primary" id="menu" data-toggle="modal" data-target="#stock-input-area">Add Symbol</button>
+        </div>
+    </div>
+    <div style="overflow: auto; text-align:center;" id="stockResults"></div>`
     }
     var todoApp = {
         name: "todo",
         width: 4,
         height: 5,
         template: `
-           
-        <div class="row">
-            <div class="col-12">
-                <div class="to-do-header">
-                    <div class="todo-heading">
-                        <div class="todo-title text-center" id="title">
-                        <div class="alert m-0" style="background-color:chocolate">
-                            <h4 class="alert-heading">Get It Done List</h4>
-                            <h5> powered by firebase.</h5>
-                        </div>
-                    </div>
-                    
-                    <div class="input-body" >
-                                <input class="text-center" type="text" id="task-input" placeholder=" Enter Task">
-                        <br>
-                                <input class="text-center" style="margin-top: 10px;" type="text" id="note-input" placeholder=" Enter chat">
-                        <br>
-                            <div class="button-area text-center" style="margin-bottom: 10px;">
-                                    <button class="btn btn-warning" id="submit-todo">Submit</button>
-                            </div>
-                    </div>
-                </div>
-            </div>
+        <div class="todo-title text-center" id="title">
+        <div class="alert m-0" style="background-color:#7a7445">
+            <h4 class="alert-heading">Get It Done List</h4>
+            <h5> powered by firebase.</h5>
         </div>
-        <br>
-            <div class="col">
-            <div id="list-heading" class="alert alert-secondary m-0">
-                <h4 class="alert-heading">Things To Do....</h4>
+        <div class="input-body">
+            <input class="text-center" type="text" id="task-input" placeholder=" Enter Task">
+            <br>
+            <input class="text-center" style="margin-top: 10px;" type="text" id="note-input" placeholder=" Enter chat">
+            <br>
+            <div class="button-area text-center" style="margin-bottom: 10px;">
+    <button class="btn btn-primary" id="submit-todo">Submit</button>
+                
             </div>
-                <div style="overflow: auto; text-align: left; height: 70%; width:100%;" id="list"></div>
-            </div>
-           
         </div>
     </div>
+    
+    <div id="list-heading" class="alert alert-secondary m-0">
+        <h4 class="alert-heading">Things To Do....</h4>
+    </div>
+    <div style="overflow: auto; text-align:left;" id="list"></div>
         `
     }
     var chatApp = {
@@ -209,14 +174,14 @@ let runLogic = function () {
         height: 3,
         width: 4,
         template: `
-        <div class="alert m-0" style="background-color:chocolate">
+        <div class="alert m-0" style="background-color:#7a7445">
   <h4 class="alert-heading">Chat Room!</h4></div>
-          <ul class="text-white bg-primary mb-0 p-1" style="height:90%; list-style: none; text-align: left; width:100%;border:1px solid #ccc;font:16px/26px Georgia, Garamond, Serif;overflow:auto;" id="message-list"></ul>
+          <ul class="text-primary mb-0 p-1" style="height:90%; list-style: none; text-align: left; width:100%;border:1px solid #ccc;font:16px/26px Georgia, Garamond, Serif;overflow:auto;" id="message-list">During the Beta, If You Want To Join The Chat Room You Must Validate Your Account With An Admin</ul>
         <form id="message-form">
         <div class="input-group mb-0">
         <input type="text" class="form-control" id="message-text">
         <div class="input-group-append">
-          <button class="btn btn-success" onClick="event.preventDefault()" id="chatSubmit">Send</button>
+          <button class="btn btn-primary" onClick="event.preventDefault()" id="chatSubmit">Send</button>
         </div>
       </div>
         </form>`
@@ -224,6 +189,12 @@ let runLogic = function () {
 
     database.ref().once('value').then(function (childsnap) {
 
+        // First time log in check
+        if (!childsnap.child('users').hasChild(uid)) {
+            window.location = "settings.html";
+          }
+        else if(!childsnap.child('users').hasChild(uid))
+        
         // weather check
         if (childsnap.child('users').child(uid).child('widgets').child('weather').child('active').val() === "on") {
             populateWidgets(weatherApp.name, weatherApp.width, weatherApp.height, currentx, currenty, weatherApp.template);
@@ -243,8 +214,8 @@ let runLogic = function () {
         // chat check
         if (childsnap.child('users').child(uid).child('widgets').child('chat').child('active').val() === "on") {
         populateWidgets(chatApp.name, chatApp.width, chatApp.height, currentx, currenty, chatApp.template);
-
         }
+        
         gridstackConfig();
     })
 

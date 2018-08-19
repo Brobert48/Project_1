@@ -103,7 +103,7 @@ $(document).ready( function() {
     
         // pull last API call time from firebase
         //database.ref().child("users").child(uid).child("widgets").child("weather").child("data").val();
-        previousCallTime = childSnap.child("users").child(uid).child("widgets").child("weather").child("data").child("firebaseLastWeatherCallTime").val();
+        // previousCallTime = childSnap.child("users").child(uid).child("widgets").child("weather").child("data").child("firebaseLastWeatherCallTime").val();
         // pull weather data from firebase
         // currentWeatherCallData = childSnap.val().firebaseWeatherAPIData;
         // displayCurrentWeather();

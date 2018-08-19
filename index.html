@@ -33,9 +33,26 @@
         };
         firebase.initializeApp(config);
     </script>
-    <!-- gridstack config -->
+    <!-- gridstack config plus scrollbar customization-->
     <style type="text/css">
-        
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            box-shadow: inset 0 0 5px grey; 
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #6d457a;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #4c3054;
+        }
 
         .grid-stack-item-content {
             color: #2c3e50;
@@ -48,7 +65,7 @@
     <title>Today</title>
 </head>
 
-<body style=" background-color: grey; margin: 0px; padding: 0px;">
+<body style=" background-color: #455f7a; margin: 0px; padding: 0px;">
     <div class="container-fluid p-0">
         <div class="row no-gutters" id="header">
             <div class="col">
@@ -62,7 +79,7 @@
         </div>
     </div>
     <div class="container-fluid p-0">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-2">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-5">
             <a class="navbar-brand" href="#">
                 <img src="assets/images/brandLogo.png" width="30" height="30" class="d-inline-block align-top mr-1" alt="">Sweet Awesome App</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
@@ -80,54 +97,49 @@
                 <div class="grid-stack" id="widgetArea">
                 </div>
             </div>
-            <div id="newModal"></div>
+            <!-- <div id="newModal"></div> -->
             <div class="modal fade" id="stock-input-area" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                            <h3 class="modal-title">Add a stock ticker symbol to your watchlist.</h3>
-                            <h5 class="modal-title-sub">(Up to 3 stocks can be saved.)</h5>
-                        </div>
+                    <div class="modal-content" style="background-color: rgb(236, 240, 241); border-radius: 1.25rem;">
+                        <h3 class="modal-title bg-primary text-white text-center" style="border-radius: 1.2rem;">
+                            <button type="button" data-dismiss="modal" class="close btn">X</button>Add New Symbol to Watchlist</h3>
                         <div class="modal-body">
                             <form>
-                                <span class="text-for-input">Enter Stock Symbol Here: </span>
+                                <span class="text-for-input" style="background-color: rgb(236, 240, 241); border-radius: 1.25rem;">Enter Stock Symbol Here: </span>
                                 <input type="text" id="add-stock">
-                              </form>
+                            </form>
                         </div>
                         <div class="modal-footer">
-                            <button class="btn btn-default" data-dismiss="modal" id="submit-stock">Submit</button>
+                            <button class="btn btn-primary" data-dismiss="modal" id="submit-stock">Submit</button>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="row no-gutters" id="footer">
-            <div class="col">
-                <div id="newsModals"></div>
+
+            <div class="row no-gutters" id="footer">
+                <div class="col">
+                    <div id="newsModals"></div>
+                </div>
             </div>
         </div>
-    </div>
-    <!-- widget javascript files -->
-    <!-- weather JS -->
-    <script type="text/javascript" src="weather\weather.js"></script>
-    <!-- header JS -->
-    <script type="text/javascript" src="assets\javascript\header.js"></script>
-    <!-- bootstrap JS -->
-    <script src="assets/plugins/bootstrap-4.0.0-dist/js/bootstrap.min.js"></script>
-    <!-- logic JS -->
-    <script src="assets/javascript/logic.js"></script>
-    <!-- stock ticker -->
-    <script src="stock-ticker/practice_stock_ticker.js"></script>
-    <!-- News JS -->
-    <script src="top_news/top_news_firebase.js"></script>
-    <!-- to-do-list JS -->
-    <script src="to-do-list/to-do-list-firebase.js"></script>
-    <!-- chat JS -->
-    <script src="https://unpkg.com/@pusher/chatkit/dist/web/chatkit.js"></script>
-    <script src="assets/javascript/chat.js"></script>
+        <!-- widget javascript files -->
+        <!-- weather JS -->
+        <script type="text/javascript" src="weather\weather.js"></script>
+        <!-- header JS -->
+        <script type="text/javascript" src="assets\javascript\header.js"></script>
+        <!-- bootstrap JS -->
+        <script src="assets/plugins/bootstrap-4.0.0-dist/js/bootstrap.min.js"></script>
+        <!-- logic JS -->
+        <script src="assets/javascript/logic.js"></script>
+        <!-- stock ticker -->
+        <script src="stock-ticker/stock-ticker-updated.js"></script>
+        <!-- News JS -->
+        <script src="top_news/top_news_firebase.js"></script>
+        <!-- to-do-list JS -->
+        <script src="to-do-list/to-do-list-firebase.js"></script>
+        <!-- chat JS -->
+        <script src="https://unpkg.com/@pusher/chatkit/dist/web/chatkit.js"></script>
+        <script src="assets/javascript/chat.js"></script>
 </body>
 
 </html>

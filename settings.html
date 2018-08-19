@@ -14,151 +14,191 @@
     <!-- JQWidgets -->
     <!-- MomentJS -->
     <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
-    
+    <style type="text/css">
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
 
-    <title>Settings</title>
+        ::-webkit-scrollbar-track {
+            box-shadow: inset 0 0 5px grey;
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #6d457a;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #4c3054;
+        }
+    </style>
+
+    <title>Personalize</title>
 
 
 
 </head>
 
-<body>
-
-    <body style="margin: 0px; padding: 0px;">
-        <div class="container-fluid p-0">
-            <div class="row" id="header">
-                <div class="col">
-                    <div class="jumbotron jumbotron-fluid mb-0">
-                        <div class="container">
-                            <h1 class="display-4" id="settings-header-text"></h1>
-                            <p class="lead" id="settings-lead-text"></p>
-                        </div>
+<body style=" background-color: #455f7a; margin: 0px; padding: 0px;">
+    <div class="container-fluid p-0">
+        <div class="row no-gutters" id="header">
+            <div class="col">
+                <div class="jumbotron jumbotron-fluid m-0">
+                    <div class="container">
+                        <h1 class="display-4" id="index-header-text"></h1>
+                        <p class="lead" id="index-lead-text"></p>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="container-fluid">
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-2">
-                <a class="navbar-brand" href="#">
-                    <img src="assets/images/brandLogo.png" width="30" height="30" class="d-inline-block align-top mr-1" alt="">Sweet Awesome App</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                    </ul>
-                </div>
-            </nav>
-            <div class="row">
-                <div class="col-10">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-3"></div>
-                            <div class="col">
-                                <form>
-                                    <div class="form-row">
-                                        <div class="col-md-4 mb-3">
-                                            <label for="fNameInput">First name</label>
-                                            <input type="text" class="form-control" id="fNameInput" placeholder="First name" required>
-                                        </div>
-                                        <div class="col-md-4 mb-3">
-                                            <label for="lNameInput">Last name</label>
-                                            <input type="text" class="form-control" id="lNameInput" placeholder="Last name" required>
-                                        </div>
+    </div>
+    <div class="container-fluid p-0">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-5">
+            <a class="navbar-brand" href="#">
+                <img src="assets/images/brandLogo.png" width="30" height="30" class="d-inline-block align-top mr-1" alt="">Sweet Awesome App</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                </ul>
+            </div>
+        </nav>
+        <div class="row no-gutters">
+            <div class="col-10">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-3"></div>
+                        <div class="col-9 p-5" style="background-color: rgb(236, 240, 241); border-radius: 1.25rem;">
+                            <form>
+                                <div class="form-row">
+                                    <div class="col-md-4 mb-3">
+                                        <label for="fNameInput">First name</label>
+                                        <input type="text" class="form-control" id="fNameInput"  required>
                                     </div>
-                                    <div class="form-row">
-                                        <div class="col-md-6 mb-3">
-                                            <label for="cityInput">City</label>
-                                            <input type="text" class="form-control" id="cityInput" placeholder="City" required>
-                                        </div>
+                                    <div class="col-md-4 mb-3">
+                                        <label for="lNameInput">Last name</label>
+                                        <input type="text" class="form-control" id="lNameInput"  required>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="cityInput">City</label>
+                                        <input type="text" class="form-control" id="cityInput"  required>
+                                    </div>
+                                    <div class="col-md-3 mb-3">
+                                        <label for="stateInput">State</label>
+                                        <input type="text" class="form-control" id="stateInput"  required>
+                                    </div>
+                                    <div class="col-md-3 mb-3">
+                                        <label for="zipInput">Zip</label>
+                                        <input type="numbers" class="form-control" id="zipInput"  required>
+                                    </div>
+                                </div>
+                                <div class="form-row">
                                         <div class="col-md-3 mb-3">
-                                            <label for="stateInput">State</label>
-                                            <input type="text" class="form-control" id="stateInput" placeholder="State" required>
-                                        </div>
-                                        <div class="col-md-3 mb-3">
-                                            <label for="zipInput">Zip</label>
-                                            <input type="text" class="form-control" id="zipInput" placeholder="Zip" required>
-                                        </div>
+                                    <label style="margin-right: 20px">Stocks: </label>
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                        <label class="btn btn-outline-primary" id="stocks1">
+                                            <input type="radio" name="stocks" id="stocksON" value="on" autocomplete="off"> ON
+                                        </label>
+                                        <label class="btn btn-outline-primary" id="stocks2">
+                                            <input type="radio" name="stocks" id="stocksOFF" value="off" autocomplete="off"> OFF
+                                        </label>
                                     </div>
-                                    <div class="form-row">
-                                        <label style="margin-right: 20px">Stocks: </label>
-                                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                            <label class="btn btn-outline-primary" id="stocks1">
-                                                <input type="radio" name="stocks" id="stocksON" value="on" autocomplete="off"> ON
-                                            </label>
-                                            <label class="btn btn-outline-primary" id="stocks2">
-                                                <input type="radio" name="stocks" id="stocksOFF" value="off" autocomplete="off"> OFF
-                                            </label>
-                                        </div>
+                                </div>
+                                </div>
+                                <div class="form-row">
+                                    
+                                    <div class="col-md-3 mb-3">
+                                    <label style="margin-right: 20px">Weather: </label>
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                        <label class="btn btn-outline-primary" id="weather1">
+                                            <input type="radio" name="weather" id="weatherON" value="on" autocomplete="off"> ON
+                                        </label>
+                                        <label class="btn btn-outline-primary" id="weather2">
+                                            <input type="radio" name="weather" id="weatherOFF" value="off" autocomplete="off"> OFF
+                                        </label>
                                     </div>
-                                    <div class="form-row">
-                                        <label style="margin-right: 20px">Weather: </label>
-                                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                            <label class="btn btn-outline-primary" id="weather1">
-                                                <input type="radio" name="weather" id="weatherON" value="on" autocomplete="off"> ON
-                                            </label>
-                                            <label class="btn btn-outline-primary" id="weather2">
-                                                <input type="radio" name="weather" id="weatherOFF" value="off" autocomplete="off"> OFF
-                                            </label>
-                                        </div>
+                                </div>
+                                </div>
+                                <div class="form-row">
+                                
+                                    <div class="col-md-3 mb-3">
+                                    <label style="margin-right: 20px">Chat: </label>
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                        <label class="btn btn-outline-primary" id="chat1">
+                                            <input type="radio" name="chat" id="chatON" value="on" autocomplete="off"> ON
+                                        </label>
+                                        <label class="btn btn-outline-primary" id="chat2">
+                                            <input type="radio" name="chat" id="chatOFF" value="off" autocomplete="off"> OFF
+                                        </label>
                                     </div>
-                                    <div class="form-row">
-                                        <label style="margin-right: 20px">Chat: </label>
-                                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                            <label class="btn btn-outline-primary" id="chat1">
-                                                <input type="radio" name="chat" id="chatON" value="on" autocomplete="off"> ON
-                                            </label>
-                                            <label class="btn btn-outline-primary" id="chat2">
-                                                <input type="radio" name="chat" id="chatOFF" value="off" autocomplete="off"> OFF
-                                            </label>
-                                        </div>
+                                </div>
+                                </div>
+                                <div class="form-row">
+                          
+                                    <div class="col-md-3 mb-3">
+                                    <label style="margin-right: 20px">News: </label>
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                        <label class="btn btn-outline-primary" id="news1">
+                                            <input type="radio" name="news" id="newsON" value="on" autocomplete="off"> ON
+                                        </label>
+                                        <label class="btn btn-outline-primary" id="news2">
+                                            <input type="radio" name="news" id="newsOFF" value="off" autocomplete="off"> OFF
+                                        </label>
                                     </div>
-                                    <div class="form-row">
-                                        <label style="margin-right: 20px">News: </label>
-                                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                            <label class="btn btn-outline-primary" id="news1">
-                                                <input type="radio" name="news" id="newsON" value="on" autocomplete="off"> ON
-                                            </label>
-                                            <label class="btn btn-outline-primary" id="news2">
-                                                <input type="radio" name="news" id="newsOFF" value="off" autocomplete="off"> OFF
-                                            </label>
-                                        </div>
-
+      </div>
+                                </div>
+                                <div class="form-row">
+                              
+                                    <div class="col-md-3 mb-3">
+                                    <label style="margin-right: 20px">Todo list: </label>
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                        <label class="btn btn-outline-primary" id="todo1">
+                                            <input type="radio" name="todo" id="todoON" value="on" autocomplete="off"> ON
+                                        </label>
+                                        <label class="btn btn-outline-primary" id="todo2">
+                                            <input type="radio" name="todo" id="todoOFF" value="off" autocomplete="off"> OFF
+                                        </label>
                                     </div>
-                                    <div class="form-row">
-                                        <label style="margin-right: 20px">Todo list: </label>
-                                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                            <label class="btn btn-outline-primary" id="todo1">
-                                                <input type="radio" name="todo" id="todoON" value="on" autocomplete="off"> ON
-                                            </label>
-                                            <label class="btn btn-outline-primary" id="todo2">
-                                                <input type="radio" name="todo" id="todoOFF" value="off" autocomplete="off"> OFF
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <button class="btn btn-primary" id="settingSubmit" type="submit">Submit form</button>
-                                </form>
-
-                            </div>
-                            <div class ="col-3"></div>
+                                </div>
+                                </div>
+                                <div class="form-row">
+                                <button class="btn btn-primary" id="settingSubmit" type="submit">Save</button>
+                                </div>
+                            </form>
 
                         </div>
+                        <div class="col-3"></div>
 
-                        <div class="row" id="footer">
-                            <div class="col"></div>
-                        </div>
                     </div>
-</div>
-</div>
-</div>
 
-                    <!-- bootstrap JS -->
-                    <script src="assets/plugins/bootstrap-4.0.0-dist/js/bootstrap.min.js"></script>
-                    <script src="assets/javascript/settings.js"></script>
-                    <!-- header JS -->
-                    <script type="text/javascript" src="assets\javascript\header.js"></script>
 
-    </body>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- bootstrap JS -->
+    <script src="assets/plugins/bootstrap-4.0.0-dist/js/bootstrap.min.js"></script>
+    <script src="assets/javascript/settings.js"></script>
+    <!-- header JS -->
+    <script type="text/javascript" src="assets\javascript\header.js"></script>
+
+</body>
 
 </html>

@@ -1,18 +1,19 @@
-var config = {
-    apiKey: "AIzaSyCiPgGOcvsJ0Ws54KMX1p0mCia3a1hJ2UI",
-    authDomain: "project-1-firebase-1b2fb.firebaseapp.com",
-    databaseURL: "https://project-1-firebase-1b2fb.firebaseio.com",
-    projectId: "project-1-firebase-1b2fb",
-    storageBucket: "project-1-firebase-1b2fb.appspot.com",
-    messagingSenderId: "693404188715"
-};
-firebase.initializeApp(config);
+// var config = {
+//     apiKey: "AIzaSyCiPgGOcvsJ0Ws54KMX1p0mCia3a1hJ2UI",
+//     authDomain: "project-1-firebase-1b2fb.firebaseapp.com",
+//     databaseURL: "https://project-1-firebase-1b2fb.firebaseio.com",
+//     projectId: "project-1-firebase-1b2fb",
+//     storageBucket: "project-1-firebase-1b2fb.appspot.com",
+//     messagingSenderId: "693404188715"
+// };
+// firebase.initializeApp(config);
 
 
 var database = firebase.database();
 firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
-        stockApp();
+        setTimeout(stockApp, 500);
+
     }
 
     else {
@@ -23,15 +24,15 @@ firebase.auth().onAuthStateChanged(function (user) {
 let stockApp = function () {
 
     // button to open window to add new stock
-    $("#enter-new-symbol").on("click", function () {
-        $(".stock-input-container").show();
-    });
+    // $("#enter-new-symbol").on("click", function () {
+    //     $(".stock-input-container").show();
+    // });
 
 
     // click to add new stock 
     $("#submit-stock").on("click", function (event) {
         event.preventDefault();
-        $(".stock-input-container").hide();
+        // $(".stock-input-container").hide();
         var stock = $("#add-stock").val().trim();
         stock = stock.toUpperCase();
         $("#add-stock").val("");
@@ -48,6 +49,7 @@ let stockApp = function () {
             url: queryURL,
             method: "GET"
         }).then(function (response) {
+            console.log(response)
             var gobal = response;
             var objectArray = Object.keys(gobal["Time Series (5min)"]);
             var secondArray = Object.keys(gobal["Time Series (5min)"][objectArray[0]]);
@@ -70,7 +72,7 @@ let stockApp = function () {
 
 
     function getFromDatabase() {
-        $("#stock-results").empty();
+        $("#stockResults").empty();
 
         database.ref("/users").child(firebase.auth().currentUser.uid).child("widgets").child("stocks").child("MyStocks").on("value", function (snapshot) {
 
@@ -80,20 +82,23 @@ let stockApp = function () {
                 var priceChange = snapshot.child(stockName).child("price-change").val();
 
                 var stockDiv = $("<div>").attr("class", stockName).attr("data-name", stockName);
-                var name = $("<span>").attr("class", "stock-name").css("margin-right", "10px").text(stockName);
-                var price = $("<span>").attr("class", "stock-price").css("margin-right", "10px").text(stockPrice);
-                var change = $("<span>").attr("class", "stock-change").text(priceChange);
+                var name = $("<span>").attr("class", "stock-name").text(stockName+" : ").css('font-size','0.90rem');
+                var price = $("<span>").attr("class", "stock-price").text(stockPrice).css('font-size','1rem');
+                var change = $("<span>").attr("class", "stock-change").css('font-size','0.75rem').text(priceChange);
 
                 if (priceChange < 0) {
+
                     change.css("color", "red");
                 } else {
+
                     change.css("color", "green");
                 };
 
                 stockDiv.append(name).append(price).append(change);
-                var b = $("<span>").attr("data-name", stockName).addClass("delete").css("margin-right", "10px").css("font-size", "10px").text("remove").css("color", "red");
+                var b = $("<span>").attr("data-name", stockName).addClass("delete").css("margin-right", "10px").css("line-height", "3").css("font-size", "10px").text("X").css("color", "red");
                 stockDiv.prepend(b);
-                $("#stock-results").append(stockDiv);
+                $("#stockResults").append(stockDiv);
+
             });  // end of snapshot for each child
 
         }, function (errorObject) {

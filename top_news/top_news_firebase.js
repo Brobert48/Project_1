@@ -128,7 +128,7 @@ function getData(topic) {
 
             // modal inner div 2
             var modal2 = $("<div>");
-            modal2.addClass("modal-content");
+            modal2.addClass("modal-content").css('background-color','#ecf0f1').css('border-radius', '1.25rem');
 
             modal1.append(modal2);
 
@@ -139,7 +139,7 @@ function getData(topic) {
 
             // modal header
             var modalHeader = $("<div>");
-            modalHeader.addClass("modal-header");
+            modalHeader.addClass("modal-header bg-primary text-white text-center").css('border-radius', '1.25rem');
             // modalHeader.text(title);
 
             //modal inner button
@@ -147,7 +147,7 @@ function getData(topic) {
             modalClose.attr("type", "button");
             modalClose.attr("data-dismiss", "modal");
             modalClose.addClass("close");
-            modalClose.text("X");
+            modalClose.text("X"+" ");
 
             // modal title
             var modalTitle = $("<div>");
@@ -160,7 +160,7 @@ function getData(topic) {
 
             // modal body
             var modalBody = $("<div>");
-            modalBody.addClass("modal-body");
+            modalBody.addClass("modal-body text-primary text-center").css('background-color','#ecf0f1').css('border-radius', '1.25rem');
 
             // modal image
             var modalImage = $("<img>");
