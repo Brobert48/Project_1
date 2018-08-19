@@ -85,7 +85,7 @@ function getData(topic) {
     }).done(function (result) {
         console.log(result);
 
-        for (var i = 0; i < 3; i++) {
+        for (var i = 0; i < 5; i++) {
 
             var abstract = (result.results[i].abstract);
             // var date = (result.results[i].published_date);
@@ -107,7 +107,7 @@ function getData(topic) {
             modalDiv.addClass("modal-area");
             modalDiv.attr("id", "show-article");
             modalDiv.attr("data-toggle", "modal");
-            modalDiv.attr("data-target", "#modal-" + i);
+            modalDiv.attr("data-target", "#modal-" + i).css('line-height','1.5rem').css('white-space','nowrap');
 
             $("#display-results").append(modalDiv);
 
