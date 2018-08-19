@@ -62,3 +62,25 @@ get an array into the database
 
 stocks
     stocks: []
+
+    ---------------------------------
+
+
+    8/18 to do
+
+
+    put stock info into the database
+        - save the price so a refresh will work.
+
+    
+    database
+    
+        - stocks
+            - myList
+                - BAC
+                    - { current price : change }
+                - JPM
+                    - { current price : change }
+                - AMZN
+                    - { current price : change }
+
