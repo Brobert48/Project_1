@@ -20,7 +20,7 @@ Coding Requirements:
         - ✓
         1. gridstack
     • Must have a polished frontend / UI
-        -  ⃠ 
+        - ✓
         - looks great already, but not yet polished
         - Bootswatch recommended by Kevin
     • Must meet good quality coding standards (indentation, scoping, naming)
@@ -45,8 +45,8 @@ Widget list
     • Weather ✓
     • Horoscope (cancelled)
     • Traffic (cancelled)
-    • To-do list (in progress)
+    • To-do list ✓
     • Stock ticker ✓
-    • Chat (in-progress)
+    • Chat ✓
     • Top News ✓
 
