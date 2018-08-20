@@ -50,3 +50,54 @@ Widget list
     • Chat ✓
     • Top News ✓
 
+
+Stock ticker widget
+
+files
+- stock_ticker-updated.js
+this app uses the api, https://www.alphavantage.co/documentation/
+
+the stocks will be displayed on the widget screen
+the user can click the refresh button to get the current price
+
+if the user wishes to add a new stock
+- click the menu button in the top left corner
+- enter the stock symbol and click submit
+- the stock entered last will show at the top of the users list.
+
+
+To do list
+- user inputs the task and notes.
+- the information input appears in the datbase and list with a checkbox
+- if the checkbox is clicked the information is removed from the database
+list is saved to firebase
+
+
+
+Top News
+- top_news_firebase.js
+- uses the NYT devloper API
+- searches the predefiend topice and returns the latest stories
+- last 3 stores are displayed.
+- click the story line to open the modal to view additional information
+
+
+weather
+- uses api.openweathermap.org API
+- user will enter their city location on setup
+- the users information is stored and the current weather considtions displayed
+
+chat
+- users can use the chat function to send messages to other app users
+
+display information
+- the users name will appear in the jumbotron along with a welcome depending on the time of day
+
+
+widget area
+- each app can be repositioned in the screen by clicking and dragging the app to the desired location
+- apps will not be overlapped but pushed out of the way of the current app while it is in focus.
+
+Firebase auth
+- Firebase is used to allow each user to create a user id and have a personalized widget.
+
