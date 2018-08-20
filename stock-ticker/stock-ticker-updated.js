@@ -82,9 +82,9 @@ let stockApp = function () {
                 var priceChange = snapshot.child(stockName).child("price-change").val();
 
                 var stockDiv = $("<div>").attr("class", stockName).attr("data-name", stockName);
-                var name = $("<span>").attr("class", "stock-name").text(stockName+" : ").css('font-size','0.90rem');
-                var price = $("<span>").attr("class", "stock-price").text(stockPrice).css('font-size','1rem');
-                var change = $("<span>").attr("class", "stock-change").css('font-size','0.75rem').text(priceChange);
+                var name = $("<span>").attr("class", "stock-name").text(stockName+" : ").css('font-size','0.90rem').css("margin-right", "10px");
+                var price = $("<span>").attr("class", "stock-price").text("$" + stockPrice).css('font-size','1rem').css("margin-right", "10px");
+                var change = $("<span>").attr("class", "stock-change").css('font-size','0.75rem').text("$" + priceChange);
 
                 if (priceChange < 0) {
 
