@@ -14,7 +14,7 @@
     <!-- JQWidgets -->
     <!-- MomentJS -->
     <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
-    <style type="text/css">
+    <style>
         ::-webkit-scrollbar {
             width: 10px;
         }
@@ -59,7 +59,9 @@
     <div class="container-fluid p-0">
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-5">
             <a class="navbar-brand" href="#">
-                <img src="assets/images/brandLogo.png" width="30" height="30" class="d-inline-block align-top mr-1" alt="">Sweet Awesome App <span style="font-size: .6rem">Open Beta</span></a>
+                <img src="assets/images/brandLogo.png" width="30" height="30" class="d-inline-block align-top mr-1" alt="">Sweet Awesome App
+                <span style="font-size: .6rem">Open Beta</span>
+            </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
                 aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -69,138 +71,138 @@
                 </ul>
             </div>
         </nav>
-        </div>
-        <div class="row no-gutters">
-            <div class="col-10">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-3"></div>
-                        <div class="col-9 p-5" style="background-color: rgb(236, 240, 241); border-radius: 1.25rem;">
-                            <form>
-                                <div class="form-row">
-                                    <div class="col-md-4 mb-3">
-                                        <label for="fNameInput">First name</label>
-                                        <input type="text" class="form-control" id="fNameInput"  required>
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                        <label for="lNameInput">Last name</label>
-                                        <input type="text" class="form-control" id="lNameInput"  required>
-                                    </div>
+    </div>
+    <div class="row no-gutters">
+        <div class="col-10">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-3"></div>
+                    <div class="col-9 p-5" style="background-color: rgb(236, 240, 241); border-radius: 1.25rem;">
+                        <form>
+                            <div class="form-row">
+                                <div class="col-md-4 mb-3">
+                                    <label for="fNameInput">First name</label>
+                                    <input type="text" class="form-control" id="fNameInput" required>
                                 </div>
-                                <div class="form-row">
-                                    <div class="col-md-6 mb-3">
-                                        <label for="cityInput">City</label>
-                                        <input type="text" class="form-control" id="cityInput"  required>
-                                    </div>
-                                    <div class="col-md-3 mb-3">
-                                        <label for="stateInput">State</label>
-                                        <input type="text" class="form-control" id="stateInput"  required>
-                                    </div>
-                                    <div class="col-md-3 mb-3">
-                                        <label for="zipInput">Zip</label>
-                                        <input type="numbers" class="form-control" id="zipInput"  required>
-                                    </div>
+                                <div class="col-md-4 mb-3">
+                                    <label for="lNameInput">Last name</label>
+                                    <input type="text" class="form-control" id="lNameInput" required>
                                 </div>
-                                <div class="form-row">
-                                        <div class="col-md-3 mb-3">
+                            </div>
+                            <div class="form-row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="cityInput">City</label>
+                                    <input type="text" class="form-control" id="cityInput" required>
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <label for="stateInput">State</label>
+                                    <input type="text" class="form-control" id="stateInput" required>
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <label for="zipInput">Zip</label>
+                                    <input type="number" class="form-control" id="zipInput" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-md-3 mb-3">
                                     <label style="margin-right: 20px">Stocks: </label>
                                 </div>
                                 <div class="col-md-3 mb-3">
                                     <div class="btn-group btn-group-toggle" data-toggle="buttons">
                                         <label class="btn btn-outline-primary" id="stocks1">
-                                            <input type="radio" name="stocks" id="stocksON" value="on" autocomplete="off"> ON
+                                            <input type="radio" name="stocks" id="stocksON" value="on"> ON
                                         </label>
                                         <label class="btn btn-outline-primary" id="stocks2">
-                                            <input type="radio" name="stocks" id="stocksOFF" value="off" autocomplete="off"> OFF
+                                            <input type="radio" name="stocks" id="stocksOFF" value="off"> OFF
                                         </label>
                                     </div>
                                 </div>
-                                </div>
-                                <div class="form-row">
-                                    
-                                    <div class="col-md-3 mb-3">
+                            </div>
+                            <div class="form-row">
+
+                                <div class="col-md-3 mb-3">
                                     <label style="margin-right: 20px">Weather: </label>
                                 </div>
                                 <div class="col-md-3 mb-3">
                                     <div class="btn-group btn-group-toggle" data-toggle="buttons">
                                         <label class="btn btn-outline-primary" id="weather1">
-                                            <input type="radio" name="weather" id="weatherON" value="on" autocomplete="off"> ON
+                                            <input type="radio" name="weather" id="weatherON" value="on"> ON
                                         </label>
                                         <label class="btn btn-outline-primary" id="weather2">
-                                            <input type="radio" name="weather" id="weatherOFF" value="off" autocomplete="off"> OFF
+                                            <input type="radio" name="weather" id="weatherOFF" value="off"> OFF
                                         </label>
                                     </div>
                                 </div>
-                                </div>
-                                <div class="form-row">
-                                
-                                    <div class="col-md-3 mb-3">
+                            </div>
+                            <div class="form-row">
+
+                                <div class="col-md-3 mb-3">
                                     <label style="margin-right: 20px">Chat: </label>
                                 </div>
                                 <div class="col-md-3 mb-3">
                                     <div class="btn-group btn-group-toggle" data-toggle="buttons">
                                         <label class="btn btn-outline-primary" id="chat1">
-                                            <input type="radio" name="chat" id="chatON" value="on" autocomplete="off"> ON
+                                            <input type="radio" name="chat" id="chatON" value="on"> ON
                                         </label>
                                         <label class="btn btn-outline-primary" id="chat2">
-                                            <input type="radio" name="chat" id="chatOFF" value="off" autocomplete="off"> OFF
+                                            <input type="radio" name="chat" id="chatOFF" value="off"> OFF
                                         </label>
                                     </div>
                                 </div>
-                                </div>
-                                <div class="form-row">
-                          
-                                    <div class="col-md-3 mb-3">
+                            </div>
+                            <div class="form-row">
+
+                                <div class="col-md-3 mb-3">
                                     <label style="margin-right: 20px">News: </label>
                                 </div>
                                 <div class="col-md-3 mb-3">
                                     <div class="btn-group btn-group-toggle" data-toggle="buttons">
                                         <label class="btn btn-outline-primary" id="news1">
-                                            <input type="radio" name="news" id="newsON" value="on" autocomplete="off"> ON
+                                            <input type="radio" name="news" id="newsON" value="on"> ON
                                         </label>
                                         <label class="btn btn-outline-primary" id="news2">
-                                            <input type="radio" name="news" id="newsOFF" value="off" autocomplete="off"> OFF
+                                            <input type="radio" name="news" id="newsOFF" value="off"> OFF
                                         </label>
                                     </div>
-      </div>
                                 </div>
-                                <div class="form-row">
-                              
-                                    <div class="col-md-3 mb-3">
+                            </div>
+                            <div class="form-row">
+
+                                <div class="col-md-3 mb-3">
                                     <label style="margin-right: 20px">Todo list: </label>
                                 </div>
                                 <div class="col-md-3 mb-3">
                                     <div class="btn-group btn-group-toggle" data-toggle="buttons">
                                         <label class="btn btn-outline-primary" id="todo1">
-                                            <input type="radio" name="todo" id="todoON" value="on" autocomplete="off"> ON
+                                            <input type="radio" name="todo" id="todoON" value="on"> ON
                                         </label>
                                         <label class="btn btn-outline-primary" id="todo2">
-                                            <input type="radio" name="todo" id="todoOFF" value="off" autocomplete="off"> OFF
+                                            <input type="radio" name="todo" id="todoOFF" value="off"> OFF
                                         </label>
                                     </div>
                                 </div>
-                                </div>
-                                <div class="form-row">
+                            </div>
+                            <div class="form-row">
                                 <button class="btn btn-primary" id="settingSubmit" type="submit">Save</button>
-                                </div>
-                            </form>
-
-                        </div>
-                        <div class="col-3"></div>
+                            </div>
+                        </form>
 
                     </div>
-
+                    <div class="col-3"></div>
 
                 </div>
+
+
             </div>
         </div>
     </div>
+
 
     <!-- bootstrap JS -->
     <script src="assets/plugins/bootstrap-4.0.0-dist/js/bootstrap.min.js"></script>
     <script src="assets/javascript/settings.js"></script>
     <!-- header JS -->
-    <script type="text/javascript" src="assets\javascript\header.js"></script>
+    <script src="assets/javascript/header.js"></script>
 
 </body>
 

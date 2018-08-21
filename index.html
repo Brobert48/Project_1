@@ -34,21 +34,21 @@
         firebase.initializeApp(config);
     </script>
     <!-- gridstack config plus scrollbar customization-->
-    <style type="text/css">
-    
+    <style>
         .carousel-inner>.carousel-item>img {
             width: 100%;
-            height:26rem;
-            
+            height: 26rem;
+
         }
 
         div.carousel-caption {
             /* margin: 30px; */
             background-color: #ffffff;
             opacity: .8;
-            
+
 
         }
+
         div.carousel-caption h6 {
             /* margin: 5%; */
             font-weight: bold;
@@ -85,7 +85,7 @@
             text-align: center;
         }
     </style>
-    <style type="text/css" data-gs-style-id="gridstack-style-24410"></style>
+    <style data-gs-style-id="gridstack-style-24410"></style>
     <!-- lodash -->
     <script src="assets/plugins/lodash/lodash.js"></script>
     <link rel="shortcut icon" type="image/x-icon" href="assets/images/brandLogo.png" />
@@ -126,8 +126,7 @@
                 <div class="grid-stack" id="widgetArea">
                 </div>
             </div>
-            <!-- <div id="newModal"></div> -->
-            <div class="modal fade" id="stock-input-area" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="stock-input-area" tabindex="-1" role="dialog" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content" style="background-color: rgb(236, 240, 241); border-radius: 1.25rem;">
                         <h3 class="modal-title bg-primary text-white text-center" style="border-radius: 1.2rem;">
@@ -147,28 +146,29 @@
 
             <div class="row no-gutters" id="footer">
                 <div class="col">
-                    
+
                 </div>
             </div>
         </div>
-        <!-- widget javascript files -->
-        <!-- weather JS -->
-        <script type="text/javascript" src="weather\weather.js"></script>
-        <!-- header JS -->
-        <script type="text/javascript" src="assets\javascript\header.js"></script>
-        <!-- bootstrap JS -->
-        <script src="assets/plugins/bootstrap-4.0.0-dist/js/bootstrap.min.js"></script>
-        <!-- logic JS -->
-        <script src="assets/javascript/logic.js"></script>
-        <!-- stock ticker -->
-        <script src="stock-ticker/stock-ticker-updated.js"></script>
-        <!-- News JS -->
-        <script src="top_news/top_news_firebase.js"></script>
-        <!-- to-do-list JS -->
-        <script src="to-do-list/to-do-list-firebase.js"></script>
-        <!-- chat JS -->
-        <script src="https://unpkg.com/@pusher/chatkit/dist/web/chatkit.js"></script>
-        <script src="assets/javascript/chat.js"></script>
+    </div>
+    <!-- widget javascript files -->
+    <!-- weather JS -->
+    <script src="assets/javascript/weather.js"></script>
+    <!-- header JS -->
+    <script src="assets/javascript/header.js"></script>
+    <!-- bootstrap JS -->
+    <script src="assets/plugins/bootstrap-4.0.0-dist/js/bootstrap.min.js"></script>
+    <!-- logic JS -->
+    <script src="assets/javascript/logic.js"></script>
+    <!-- stock ticker -->
+    <script src="assets/javascript/stock-ticker-updated.js"></script>
+    <!-- News JS -->
+    <script src="assets/javascript/top_news_firebase.js"></script>
+    <!-- to-do-list JS -->
+    <script src="assets/javascript/to-do-list-firebase.js"></script>
+    <!-- chat JS -->
+    <script src="https://unpkg.com/@pusher/chatkit/dist/web/chatkit.js"></script>
+    <script src="assets/javascript/chat.js"></script>
 </body>
 
 </html>
