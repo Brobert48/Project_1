@@ -1,13 +1,3 @@
-// var config = {
-//     apiKey: "AIzaSyCiPgGOcvsJ0Ws54KMX1p0mCia3a1hJ2UI",
-//     authDomain: "project-1-firebase-1b2fb.firebaseapp.com",
-//     databaseURL: "https://project-1-firebase-1b2fb.firebaseio.com",
-//     projectId: "project-1-firebase-1b2fb",
-//     storageBucket: "project-1-firebase-1b2fb.appspot.com",
-//     messagingSenderId: "693404188715"
-// };
-// firebase.initializeApp(config);
-
 
 var database = firebase.database();
 firebase.auth().onAuthStateChanged(function (user) {
@@ -23,16 +13,9 @@ firebase.auth().onAuthStateChanged(function (user) {
 
 let stockApp = function () {
 
-    // button to open window to add new stock
-    // $("#enter-new-symbol").on("click", function () {
-    //     $(".stock-input-container").show();
-    // });
-
-
     // click to add new stock 
     $("#submit-stock").on("click", function (event) {
         event.preventDefault();
-        // $(".stock-input-container").hide();
         var stock = $("#add-stock").val().trim();
         stock = stock.toUpperCase();
         $("#add-stock").val("");
@@ -82,9 +65,9 @@ let stockApp = function () {
                 var priceChange = snapshot.child(stockName).child("price-change").val();
 
                 var stockDiv = $("<div>").attr("class", stockName).attr("data-name", stockName);
-                var name = $("<span>").attr("class", "stock-name").text(stockName+" : ").css('font-size','0.90rem').css("margin-right", "10px");
-                var price = $("<span>").attr("class", "stock-price").text("$" + stockPrice).css('font-size','1rem').css("margin-right", "10px");
-                var change = $("<span>").attr("class", "stock-change").css('font-size','0.75rem').text("$" + priceChange);
+                var name = $("<span>").attr("class", "stock-name").text(stockName + " : ").css('font-size', '0.90rem').css("margin-right", "10px");
+                var price = $("<span>").attr("class", "stock-price").text("$" + stockPrice).css('font-size', '1rem').css("margin-right", "10px");
+                var change = $("<span>").attr("class", "stock-change").css('font-size', '0.75rem').text("$" + priceChange);
 
                 if (priceChange < 0) {
 
